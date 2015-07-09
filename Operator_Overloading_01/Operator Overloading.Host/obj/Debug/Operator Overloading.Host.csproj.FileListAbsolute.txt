@@ -1,0 +1,23 @@
+D:\Training\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Host.exe
+D:\Training\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Host.pdb
+D:\Training\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Model.dll
+D:\Training\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Model.pdb
+D:\Training\01 Operator Overloading\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.csprojResolveAssemblyReference.cache
+D:\Training\01 Operator Overloading\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.exe
+D:\Training\01 Operator Overloading\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.pdb
+D:\TrainingRepo\01 Operator Overloading\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.exe
+D:\TrainingRepo\01 Operator Overloading\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.pdb
+D:\TrainingRepo\01 Operator Overloading\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.csprojResolveAssemblyReference.cache
+D:\TrainingRepo\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Host.exe
+D:\TrainingRepo\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Host.pdb
+D:\TrainingRepo\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Model.dll
+D:\TrainingRepo\01 Operator Overloading\Operator Overloading.Host\bin\Debug\Operator Overloading.Model.pdb
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.exe
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.pdb
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\bin\Debug\Operator Overloading.Host.exe
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\bin\Debug\Operator Overloading.Host.pdb
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\bin\Debug\Operator Overloading.Model.dll
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\bin\Debug\Operator Overloading.Model.pdb
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\obj\Debug\Operator Overloading.Host.csprojResolveAssemblyReference.cache
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\bin\Debug\ClassLibrary1.dll
+D:\TrainingRepo\Operator_Overloading_01\Operator Overloading.Host\bin\Debug\ClassLibrary1.pdb
