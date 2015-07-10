@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A7F4E72C-C05E-4E69-AE2A-E2668A2D6578}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1DB5C03F-DD68-4D99-AF4A-D5E7E4D64C8C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>OperatorOverloading.Host</RootNamespace>
+    <AssemblyName>OperatorOverloading.Host</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,8 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OperatorOverloading.Exception\OperatorOverloading.Exception.csproj">
+      <Project>{25de848a-bea5-459a-aac3-3b21530764f8}</Project>
+      <Name>OperatorOverloading.Exception</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OperatorOverloading.Model\OperatorOverloading.Model.csproj">
+      <Project>{88318f0b-0819-48bb-ba8d-994fc2950585}</Project>
+      <Name>OperatorOverloading.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OperatorOverloading.Parse\OperatorOverloading.Parse.csproj">
+      <Project>{b8d3ec97-7b2d-4d8c-8c60-15698d82e1e1}</Project>
+      <Name>OperatorOverloading.Parse</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

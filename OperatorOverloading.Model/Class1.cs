@@ -9,8 +9,8 @@ using OperatorOverloading.Parse;
 namespace OperatorOverloading.Model
 {
 
-    
-   public class Money
+
+    public class Money
     {
         private string _currency;
         public double Amount
@@ -26,26 +26,26 @@ namespace OperatorOverloading.Model
                 {
                     throw new Exception("Invalid Currency.");
                 }
-               _currency = value;
+                _currency = value;
             }
             get
             {
-                
-               return _currency;
+
+                return _currency;
             }
         }
         public static Money operator +(Money money1, Money money2) //this is operator overloaded function
         {
             if (money1 == null || money2 == null)
             {
-                 throw new ArgumentException("Either of the argument is null.");
+                throw new ArgumentException("Either of the argument is null.");
             }
             Money money3 = new Money();
 
             if (string.Equals(money1.Currency, money2.Currency, StringComparison.OrdinalIgnoreCase)) //here we r checking whether the currencies of both money is same or not.. if not throw InvalidCurrencyException exception 
             {
                 money3.Amount = money1.Amount + money2.Amount;
-                if(double.IsInfinity(money3.Amount))// here we r checking whether range of double is exceeded or not....if yes then throw out of range exception
+                if (double.IsInfinity(money3.Amount))// here we r checking whether range of double is exceeded or not....if yes then throw out of range exception
                 {
                     throw new OverflowException();
                 }
@@ -76,13 +76,13 @@ namespace OperatorOverloading.Model
 
 
 
-        public override  string ToString()
+        public override string ToString()
         {
-            StringBuilder display=new StringBuilder();
-            display.Append("Amount1: "+this.Amount+"  Currency1: "+ this.Currency);
+            StringBuilder display = new StringBuilder();
+            display.Append("Amount1: " + this.Amount + "  Currency1: " + this.Currency);
 
-            return display.ToString();  
+            return display.ToString();
         }
 
-    }       
+    }
 }

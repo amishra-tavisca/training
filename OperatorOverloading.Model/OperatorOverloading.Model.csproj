@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7504C325-C447-4F43-AA49-ACF8007FD074}</ProjectGuid>
+    <ProjectGuid>{88318F0B-0819-48BB-BA8D-994FC2950585}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OperatorOverloading.Model</RootNamespace>
-    <AssemblyName>Operator Overloading.Model</AssemblyName>
+    <AssemblyName>OperatorOverloading.Model</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,12 +38,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Money.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Operator Overloading.Exception\OperatorOverloading.Exception\OperatorOverloading.Exception.csproj">
-      <Project>{da1efd88-8f4d-47e8-a79d-5da5658f81d4}</Project>
+    <ProjectReference Include="..\OperatorOverloading.Exception\OperatorOverloading.Exception.csproj">
+      <Project>{25de848a-bea5-459a-aac3-3b21530764f8}</Project>
       <Name>OperatorOverloading.Exception</Name>
     </ProjectReference>
     <ProjectReference Include="..\OperatorOverloading.Parse\OperatorOverloading.Parse.csproj">

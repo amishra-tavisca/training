@@ -11,7 +11,7 @@ namespace OperatorOverloading.exception
     [Serializable]
     public class CurrencyNotMatch : Exception
     {
-        public string message { get { return base.Message; } } 
+        public string message { get { return base.Message; } }
         public CurrencyNotMatch()
             : base()
         {
