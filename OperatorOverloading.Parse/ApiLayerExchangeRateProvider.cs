@@ -1,28 +1,25 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using OperatorOverloading.Fetch;
+using IExchangeRateProvide;
 
 namespace OperatorOverloading.Parse
-{
-
-    public interface IParser
+{    
+    public class ApiLayerExchangeRateProvider : IExchangeRateProvider
     {
-        double GetConversionRate(string From, string To);
-    }
-    
-    public class OperatorOverloadingParseClass : IParser
-    {
-        public double GetConversionRate(string From, string To)
+        public double GetExchangeRate(string From, string To)
         {
 
             //converting to uppercase because API data is in uppercase
             From = From.ToUpper();
             To = To.ToUpper();
+            
             //if both currencies are equal
             if (From.Equals(To))
             return (1.0);
+            
             //Dictionary to store currency as key and conversion rates as value
             Dictionary<string, double> dictionary = new Dictionary<string, double>();
 
@@ -30,7 +27,8 @@ namespace OperatorOverloading.Parse
             int track = 0;
 
             //copying stringBuilder sb to string s to be able to perform string operations
-            string s = OperatorOverloadingFetchClass.OperatorOverloadingFetchFunction();
+           // string s = OperatorOverloadingFetchClass.OperatorOverloadingFetchFunction();
+            string s = File.ReadAllText(@"D:\TrainingRepo\training\ConversionRates.txt");    
 
             // string s is of form {...{__information___}} 
             string[] words1 = s.Split('{');   //spliting s to get __information__}} 

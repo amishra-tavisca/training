@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88318F0B-0819-48BB-BA8D-994FC2950585}</ProjectGuid>
+    <ProjectGuid>{25DE848A-BEA5-459A-AAC3-3B21530764F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OperatorOverloading.Model</RootNamespace>
-    <AssemblyName>OperatorOverloading.Model</AssemblyName>
+    <RootNamespace>OperatorOverloading.Exception</RootNamespace>
+    <AssemblyName>OperatorOverloading.Exception</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,18 +38,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Exception.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OperatorOverloading.Exception\OperatorOverloading.Exception.csproj">
-      <Project>{25de848a-bea5-459a-aac3-3b21530764f8}</Project>
-      <Name>OperatorOverloading.Exception</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OperatorOverloading.Parse\OperatorOverloading.Parse.csproj">
-      <Project>{b8d3ec97-7b2d-4d8c-8c60-15698d82e1e1}</Project>
-      <Name>OperatorOverloading.Parse</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

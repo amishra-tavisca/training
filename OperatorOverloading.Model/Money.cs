@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using OperatorOverloading.exception;
 using OperatorOverloading.Parse;
 
+
 namespace OperatorOverloading.Model
 {
 
@@ -70,8 +71,8 @@ namespace OperatorOverloading.Model
                 }
                 break;
             }
-            var object1 = new OperatorOverloadingParseClass();
-            return (object1.GetConversionRate(Currency, To));
+            var object1 = new ApiLayerExchangeRateProvider();
+            return (Amount*object1.GetExchangeRate(Currency, To));
         }
 
 

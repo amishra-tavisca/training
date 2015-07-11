@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{431D0743-66A7-4BCA-B312-5C433B58343C}</ProjectGuid>
+    <ProjectGuid>{88318F0B-0819-48BB-BA8D-994FC2950585}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OperatorOverloading.Fetch</RootNamespace>
-    <AssemblyName>OperatorOverloading.Fetch</AssemblyName>
+    <RootNamespace>OperatorOverloading.Model</RootNamespace>
+    <AssemblyName>OperatorOverloading.Model</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,8 +38,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OperatorOverloadingFetchClass.cs" />
+    <Compile Include="Money.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IExchangeRateProvider\IExchangeRateProvide.csproj">
+      <Project>{e56231bf-dfb4-48df-92bc-ab3cf1961ede}</Project>
+      <Name>IExchangeRateProvide</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OperatorOverloading.Exception\Exception.csproj">
+      <Project>{25de848a-bea5-459a-aac3-3b21530764f8}</Project>
+      <Name>Exception</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OperatorOverloading.Parse\Parser.csproj">
+      <Project>{b8d3ec97-7b2d-4d8c-8c60-15698d82e1e1}</Project>
+      <Name>Parser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

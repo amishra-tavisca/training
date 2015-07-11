@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorOverloading.Parse", "OperatorOverloading.Parse.csproj", "{B8D3EC97-7B2D-4D8C-8C60-15698D82E1E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser.csproj", "{B8D3EC97-7B2D-4D8C-8C60-15698D82E1E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorOverloading.Fetch", "..\OperatorOverloading.Fetch\OperatorOverloading.Fetch.csproj", "{431D0743-66A7-4BCA-B312-5C433B58343C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\OperatorOverloading.Model\Model.csproj", "{88318F0B-0819-48BB-BA8D-994FC2950585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorOverloading.Model", "..\OperatorOverloading.Model\OperatorOverloading.Model.csproj", "{88318F0B-0819-48BB-BA8D-994FC2950585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception", "..\OperatorOverloading.Exception\Exception.csproj", "{25DE848A-BEA5-459A-AAC3-3B21530764F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorOverloading.Exception", "..\OperatorOverloading.Exception\OperatorOverloading.Exception.csproj", "{25DE848A-BEA5-459A-AAC3-3B21530764F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "..\OperatorOverloading.Host\Host.csproj", "{1DB5C03F-DD68-4D99-AF4A-D5E7E4D64C8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorOverloading.Host", "..\OperatorOverloading.Host\OperatorOverloading.Host.csproj", "{1DB5C03F-DD68-4D99-AF4A-D5E7E4D64C8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IExchangeRateProvide", "..\IExchangeRateProvider\IExchangeRateProvide.csproj", "{E56231BF-DFB4-48DF-92BC-AB3CF1961EDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host1", "..\Tavisca.Host1\Host1.csproj", "{FB898FD8-8BE1-4394-BE51-35F5345775E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		{B8D3EC97-7B2D-4D8C-8C60-15698D82E1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D3EC97-7B2D-4D8C-8C60-15698D82E1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D3EC97-7B2D-4D8C-8C60-15698D82E1E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{431D0743-66A7-4BCA-B312-5C433B58343C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{431D0743-66A7-4BCA-B312-5C433B58343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{431D0743-66A7-4BCA-B312-5C433B58343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{431D0743-66A7-4BCA-B312-5C433B58343C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88318F0B-0819-48BB-BA8D-994FC2950585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88318F0B-0819-48BB-BA8D-994FC2950585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88318F0B-0819-48BB-BA8D-994FC2950585}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -34,9 +32,16 @@ Global
 		{25DE848A-BEA5-459A-AAC3-3B21530764F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25DE848A-BEA5-459A-AAC3-3B21530764F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1DB5C03F-DD68-4D99-AF4A-D5E7E4D64C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DB5C03F-DD68-4D99-AF4A-D5E7E4D64C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB5C03F-DD68-4D99-AF4A-D5E7E4D64C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB5C03F-DD68-4D99-AF4A-D5E7E4D64C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56231BF-DFB4-48DF-92BC-AB3CF1961EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56231BF-DFB4-48DF-92BC-AB3CF1961EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56231BF-DFB4-48DF-92BC-AB3CF1961EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56231BF-DFB4-48DF-92BC-AB3CF1961EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB898FD8-8BE1-4394-BE51-35F5345775E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB898FD8-8BE1-4394-BE51-35F5345775E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB898FD8-8BE1-4394-BE51-35F5345775E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB898FD8-8BE1-4394-BE51-35F5345775E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
