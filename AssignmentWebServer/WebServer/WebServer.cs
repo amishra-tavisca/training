@@ -20,13 +20,19 @@ namespace Tavisca.WebServerAssignment.WebServerHandler
         //create socket and initialization
         private void InitializeSocket(IPAddress ipAddress, int port, string contentPath) //create socket
         {
-            _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+          
+             _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _serverSocket.Bind(new IPEndPoint(ipAddress, port));
-            _serverSocket.Listen(200);    //no of request in queue
+            _serverSocket.Listen(10);    //no of request in queue
             Console.WriteLine("new socket created");
 
             _running = true; //socket created
+            if (string.IsNullOrEmpty(contentPath))
+                throw new ArgumentNullException();
             _contentPath = contentPath;
+
+
+         
         }
         public void Start(IPAddress ipAddress, int port, string contentPath)
         {
@@ -44,6 +50,7 @@ namespace Tavisca.WebServerAssignment.WebServerHandler
                 var requestHandler = new RequestHandler(_serverSocket, contentPath);
                 Console.WriteLine("request handler called");    //remove
                 requestHandler.AcceptRequest();
+     
             }
         }
         public void Stop()

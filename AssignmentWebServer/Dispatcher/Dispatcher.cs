@@ -10,6 +10,7 @@ namespace Tavisca.WebServerAssignment.Dispatcher
 {
     public class RequestHandler
     {
+        
         private Socket _serverSocket;
         private string _contentPath;
         private Encoding _charEncoder = Encoding.UTF8;
@@ -46,22 +47,21 @@ namespace Tavisca.WebServerAssignment.Dispatcher
         private void HandleTheRequest(Socket clientSocket)
         {
 
-            if (clientSocket == null)   //remove
-                return;
-
             var requestParser = new RequestParser();
             string requestString = DecodeRequest(clientSocket);
-            requestParser.Parser(requestString);
+            if (requestParser.Parse(requestString))
+            {
 
-            if (requestParser.HttpMethod.Equals("get", StringComparison.InvariantCultureIgnoreCase))
-            {
-                var createResponse = new CreateResponse(clientSocket, _contentPath);
-                createResponse.RequestUrl(requestParser.HttpUrl);
-            }
-            else
-            {
-                Console.WriteLine("unemplimented mothode");
-                Console.ReadLine();
+                if (requestParser.HttpMethod.Equals("get", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    var createResponse = new CreateResponse(clientSocket, _contentPath);
+                    createResponse.RequestUrl(requestParser.HttpUrl);
+                }
+                else
+                {
+                    Console.WriteLine("unemplimented mothode");
+                    Console.ReadLine();
+                }
             }
             StopClientSocket(clientSocket);
         }

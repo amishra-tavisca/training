@@ -15,13 +15,16 @@ namespace Tavisca.WebServerAssignment.RequestProcessor
         public string HttpProtocolVersion;
         public static int i = 0;     //remove
 
-        public void Parser(string requestString)
+        public bool Parse(string requestString)
         {
             try
             {
 
                 string[] tokens = requestString.Split(' ');
                 Console.WriteLine("{0}", i++);
+
+                if (string.IsNullOrEmpty(requestString) || tokens.Length < 3)
+                    return(false);
 
                 tokens[1] = tokens[1].Replace("/", "\\");
 
@@ -30,6 +33,7 @@ namespace Tavisca.WebServerAssignment.RequestProcessor
                 HttpMethod = tokens[0].ToUpper();
                 HttpUrl = tokens[1];
                 HttpProtocolVersion = tokens[2];
+                return (true);
             }
             catch (Exception ex)
             {
@@ -37,6 +41,7 @@ namespace Tavisca.WebServerAssignment.RequestProcessor
                 Console.WriteLine(ex.InnerException.Message);
                 Console.WriteLine("Bad Request");
             }
+            return (true);
         }
     }
 
@@ -137,4 +142,5 @@ namespace Tavisca.WebServerAssignment.RequestProcessor
             return content;
         }
     }
+       
 }
