@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HrPage</title>
+</head>
+<body>
+    <hgroup class="title">
+    <h5>@Session["name"]</h5>    
+</hgroup>
+    <div>
+        
+<aside>
+    <ul>
+        <li>@Html.ActionLink("Add Employee", "AddEmployee", "TaviscaEMS")</li>
+        <li>@Html.ActionLink("Add Remark", "AddRemark", "TaviscaEMS")</li>
+        <li>@Html.ActionLink("Change Password", "ChangePassword", "TaviscaEMS")</li>
+        <li>@Html.ActionLink("Logout", "Logout", "TaviscaEMS")</li>
+    </ul>
+</aside>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

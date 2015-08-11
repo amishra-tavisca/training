@@ -1,0 +1,47 @@
+﻿<hgroup class="title">
+    <h5>@Session["name"]</h5>    
+</hgroup>
+
+@using (Html.BeginForm("SaveRemark", "TaviscaEMS"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <form action="SaveRemark"  method="post">
+        @Html.ActionLink("Add Employee", "AddEmployee", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp
+        @*@Html.ActionLink("Add Remark", "AddRemark", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp*@
+        @Html.ActionLink("Change Password", "ChangePassword", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp
+        @Html.ActionLink("Logout", "Logout", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp<br/>
+        <fieldset>
+            <legend>Add-Remark Page</legend>
+            <hgroup class="title">
+                <h5>@ViewData["message"]</h5>    
+            </hgroup>
+            <ul>
+                <li>
+                    @Html.Label("Select Employee ")
+                    @{
+                            Dictionary<string, string> dictionaryTest = new Dictionary<string, string>();
+                            dictionaryTest=ViewBag.dictionaryTest;
+                            SelectList select = new SelectList(
+                            dictionaryTest.Select(x => new { value = x.Key, text = x.Value }),
+                            "value",
+                            "text"
+                            );
+                    }
+
+                    @Html.DropDownList("test", select)
+               </li>
+                <li>
+                     @Html.Label("Enter Remark ")
+                    @Html.TextBox("RemarkTextbox")
+                </li>
+            </ul>
+            <input type="submit" value="Submit" />
+        </fieldset>
+    </form>
+}
+
+
+
+

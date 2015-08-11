@@ -1,0 +1,26 @@
+﻿@model EmsClasses.Remark
+
+@*@model List<EmsMvc.Models.Remark>*@
+<hgroup class="title">
+    <h5>@Session["name"]</h5>    
+</hgroup>
+@Html.ActionLink("Change Password", "ChangePassword", "TaviscaEMS")&nbsp
+@Html.ActionLink("Logout", "Logout", "TaviscaEMS")
+ <fieldset> 
+      <legend>User Page</legend>
+<table>
+    <tr>
+      <th>Create_Timestamp</th>
+        <th>&nbsp</th>
+      <th>Remark</th>
+   </tr>
+ @foreach (EmsClasses.Remark objUser in @ViewBag.Remarks)
+ {
+   <tr>
+      <td>@objUser.CreateTimeStamp.ToString()</td>
+       <td>&nbsp</td>
+      <td>@objUser.Text</td>
+   </tr>
+ }
+ </table>
+ </fieldset>

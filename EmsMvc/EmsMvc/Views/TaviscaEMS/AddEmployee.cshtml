@@ -1,0 +1,57 @@
+﻿@model EmsClasses.Employee
+<hgroup class="title">
+    <h5>@Session["name"]</h5>    
+</hgroup>
+
+@using (Html.BeginForm("SaveEmployee", "TaviscaEMS"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <form action="SaveEmployee"  method="post">
+         @*@Html.ActionLink("Add Employee", "AddEmployee", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp*@
+        @Html.ActionLink("Add Remark", "AddRemark", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp
+        @Html.ActionLink("Change Password", "ChangePassword", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp
+        @Html.ActionLink("Logout", "Logout", "TaviscaEMS")&nbsp&nbsp&nbsp&nbsp&nbsp<br/>
+        <fieldset>
+            <legend>Add-Employee Page</legend>
+            <hgroup class="title">
+                <h5>@ViewData["message"]</h5>    
+            </hgroup>
+            <ul>
+
+                <li>
+                    @Html.Label("First Name")
+                    @Html.TextBoxFor(m => m.FirstName)
+                </li>
+                <li>
+                    @Html.Label("Last Name")
+                    @Html.TextBoxFor(m => m.LastName)
+                </li>
+                <li>
+                    @Html.Label("Title")
+                    @Html.TextBoxFor(m => m.Title)
+                </li>
+
+                <li>
+                    @Html.Label("Email")
+                    @Html.TextBoxFor(m => m.Email)
+                </li>
+
+                <li>
+                    @Html.Label("Phone")
+                    @Html.TextBoxFor(m => m.Phone)
+                </li>
+                 
+                <li>
+                    @Html.Label("Designation")
+                    @Html.TextBoxFor(m => m.Designation)
+                </li>
+
+
+            </ul>
+            <input type="submit" value="Submit" />
+        </fieldset>
+    </form>
+   
+}
