@@ -146,7 +146,6 @@ namespace EmsMvc.Controllers
             employee = Employee.GetEmployeeByEmail(Session["email"].ToString());
             ViewData["message"] = TempData["message"];
             TempData["message"] = "";
-           // ViewBag.Remarks = employee.Remarks.ToPagedList(page ?? 1, 2);
             return View("UserPage", employee.Remarks.ToPagedList(page ?? 1, 2));
         }
 
