@@ -8,6 +8,8 @@ using System.Net;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using EmsClasses;
+using PagedList;
+using PagedList.Mvc;
 
 namespace EmsMvc.Controllers
 {
@@ -138,15 +140,16 @@ namespace EmsMvc.Controllers
         }
 
        
-        public ActionResult GotoUserPage()
+        public ActionResult GotoUserPage(int? page)
         {  
             Employee employee = new Employee();
             employee = Employee.GetEmployeeByEmail(Session["email"].ToString());
             ViewData["message"] = TempData["message"];
             TempData["message"] = "";
-            ViewBag.Remarks = employee.Remarks;
-            return View("UserPage");
+           // ViewBag.Remarks = employee.Remarks.ToPagedList(page ?? 1, 2);
+            return View("UserPage", employee.Remarks.ToPagedList(page ?? 1, 2));
         }
 
     }
 }
+ 

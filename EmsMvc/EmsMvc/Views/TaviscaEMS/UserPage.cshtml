@@ -1,4 +1,6 @@
-﻿@model EmsClasses.Remark
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<EmsClasses.Remark>
 
 @*@model List<EmsMvc.Models.Remark>*@
 <hgroup class="title">
@@ -14,7 +16,8 @@
         <th>&nbsp</th>
       <th>Remark</th>
    </tr>
- @foreach (EmsClasses.Remark objUser in @ViewBag.Remarks)
+@*     @foreach (EmsClasses.Remark objUser in @ViewBag.Remarks)*@
+ @foreach (EmsClasses.Remark objUser  in Model)
  {
    <tr>
       <td>@objUser.CreateTimeStamp.ToString()</td>
@@ -23,4 +26,6 @@
    </tr>
  }
  </table>
+   
  </fieldset>
+ @Html.PagedListPager(Model, page => Url.Action("GotoUserPage", new { page }))
