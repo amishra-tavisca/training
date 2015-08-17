@@ -1,0 +1,197 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Helpers", "2. Helpers", "{6B2C3499-46FC-47FD-A324-E65F7184D1DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D34180E5-7FB7-4656-8E25-6F6F7A131D9F}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Tavisca.Templar.UIAutomation.vsmdi = Tavisca.Templar.UIAutomation.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. References", "1. References", "{C8CC7D91-FF47-4C79-8C19-DD7021E705F0}"
+	ProjectSection(SolutionItems) = preProject
+		References\chromedriver.exe = References\chromedriver.exe
+		References\ExcelParser.dll = References\ExcelParser.dll
+		References\Selenium.WebDriverBackedSelenium.dll = References\Selenium.WebDriverBackedSelenium.dll
+		References\Selenium.WebDriverBackedSelenium.xml = References\Selenium.WebDriverBackedSelenium.xml
+		References\Tavisca.TravelNxt.UIAutomation.Framework.dll = References\Tavisca.TravelNxt.UIAutomation.Framework.dll
+		References\Tavisca.TravelNxt.UIAutomation.Framework.pdb = References\Tavisca.TravelNxt.UIAutomation.Framework.pdb
+		References\ThoughtWorks.Selenium.Core.dll = References\ThoughtWorks.Selenium.Core.dll
+		References\ThoughtWorks.Selenium.Core.xml = References\ThoughtWorks.Selenium.Core.xml
+		References\WebDriver.dll = References\WebDriver.dll
+		References\WebDriver.Support.dll = References\WebDriver.Support.dll
+		References\WebDriver.Support.xml = References\WebDriver.Support.xml
+		References\WebDriver.xml = References\WebDriver.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Data", "3. Data", "{7C68CF7E-D144-4689-9784-2B9AE5207945}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Test Components", "5. Test Components", "{1F10099A-B9BF-4B8F-83A8-478991C976B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Tests", "6. Tests", "{DFCBEF02-92BD-4932-8D2A-50A91AF114A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.Tests", "Tavisca.Templar.UIAutomation.Tests\Tavisca.Templar.UIAutomation.Tests.csproj", "{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.TestComponents", "Tavisca.Templar.UIAutomation.TestComponents\Tavisca.Templar.UIAutomation.TestComponents.csproj", "{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.Constants", "Tavisca.Templar.UIAutomation.Constants\Tavisca.Templar.UIAutomation.Constants.csproj", "{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.ApplicationModel", "Tavisca.Templar.UIAutomation.ApplicationModel\Tavisca.Templar.UIAutomation.ApplicationModel.csproj", "{F8D8DABB-E839-4934-8DE8-027AEE46463E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Models", "4. Models", "{1DA78187-C4F7-4B3B-B822-83A040651D64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.ScenarioObjects", "Tavisca.Templar.UIAutomation.ScenarioObjects\Tavisca.Templar.UIAutomation.ScenarioObjects.csproj", "{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.DataBinders", "Tavisca.Templar.UIAutomation.DataBinders\Tavisca.Templar.UIAutomation.DataBinders.csproj", "{4B7B768D-E26A-4D91-B962-9C550521E05E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.Extensions", "Tavisca.Templar.UIAutomation.Extensions\Tavisca.Templar.UIAutomation.Extensions.csproj", "{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.Templar.UIAutomation.DataParsers", "Tavisca.Templar.UIAutomation.DataParsers\Tavisca.Templar.UIAutomation.DataParsers.csproj", "{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Tavisca.Templar.UIAutomation.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Dev|Any CPU = Dev|Any CPU
+		Dolphin|Any CPU = Dolphin|Any CPU
+		Opposition|Any CPU = Opposition|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Stage|Any CPU = Stage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Dev|Any CPU.Build.0 = Debug|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Dolphin|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Dolphin|Any CPU.Build.0 = Debug|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Opposition|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Opposition|Any CPU.Build.0 = Release|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.QA|Any CPU.Build.0 = Release|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Dev|Any CPU.Build.0 = Debug|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Dolphin|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Dolphin|Any CPU.Build.0 = Debug|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Opposition|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Opposition|Any CPU.Build.0 = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.QA|Any CPU.Build.0 = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Dev|Any CPU.Build.0 = Debug|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Dolphin|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Dolphin|Any CPU.Build.0 = Debug|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Opposition|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Opposition|Any CPU.Build.0 = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.QA|Any CPU.Build.0 = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Dev|Any CPU.Build.0 = Debug|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Dolphin|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Dolphin|Any CPU.Build.0 = Debug|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Opposition|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Opposition|Any CPU.Build.0 = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.QA|Any CPU.Build.0 = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Dev|Any CPU.Build.0 = Debug|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Dolphin|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Dolphin|Any CPU.Build.0 = Debug|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Opposition|Any CPU.ActiveCfg = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Opposition|Any CPU.Build.0 = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.QA|Any CPU.Build.0 = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Dev|Any CPU.Build.0 = Debug|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Dolphin|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Dolphin|Any CPU.Build.0 = Debug|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Opposition|Any CPU.ActiveCfg = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Opposition|Any CPU.Build.0 = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.QA|Any CPU.Build.0 = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{4B7B768D-E26A-4D91-B962-9C550521E05E}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Dolphin|Any CPU.ActiveCfg = Dolphin|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Dolphin|Any CPU.Build.0 = Dolphin|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Opposition|Any CPU.ActiveCfg = Opposition|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Opposition|Any CPU.Build.0 = Opposition|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.QA|Any CPU.Build.0 = QA|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Stage|Any CPU.ActiveCfg = Stage|Any CPU
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5}.Stage|Any CPU.Build.0 = Stage|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Dolphin|Any CPU.ActiveCfg = Dolphin|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Dolphin|Any CPU.Build.0 = Dolphin|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Opposition|Any CPU.ActiveCfg = Opposition|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Opposition|Any CPU.Build.0 = Opposition|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.QA|Any CPU.Build.0 = QA|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Stage|Any CPU.ActiveCfg = Stage|Any CPU
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E}.Stage|Any CPU.Build.0 = Stage|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BC6ABDAC-93B6-4F9F-B214-18508B106BCF} = {6B2C3499-46FC-47FD-A324-E65F7184D1DB}
+		{3D2E1BE1-80F1-4ECB-9242-B428293F2BB5} = {6B2C3499-46FC-47FD-A324-E65F7184D1DB}
+		{53D1A239-FCC4-4013-A07D-145B8EAE7E4A} = {7C68CF7E-D144-4689-9784-2B9AE5207945}
+		{4B7B768D-E26A-4D91-B962-9C550521E05E} = {7C68CF7E-D144-4689-9784-2B9AE5207945}
+		{9BFED1E9-2780-484C-AD5C-ACAEF16FE09E} = {7C68CF7E-D144-4689-9784-2B9AE5207945}
+		{FAEB476A-737C-4CB4-8EA4-BB22197BA03A} = {1F10099A-B9BF-4B8F-83A8-478991C976B7}
+		{FAFEF8B7-D1D6-40AD-9325-AA77AF98B260} = {DFCBEF02-92BD-4932-8D2A-50A91AF114A2}
+		{F8D8DABB-E839-4934-8DE8-027AEE46463E} = {1DA78187-C4F7-4B3B-B822-83A040651D64}
+	EndGlobalSection
+EndGlobal

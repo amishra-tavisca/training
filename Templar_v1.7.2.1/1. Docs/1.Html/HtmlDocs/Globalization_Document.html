@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>11. Globalization Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Globalization</h1>
+<p>This document provides an overview of Templar’s globalization features and flow</p>
+<hr />
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  Templar Globalization Support
+2.  Defining Culture
+        Culture Resource
+        Culture Content (files)
+        Culture Settings
+            Date Time Settings
+            Monetary Settings
+            Number Settings
+            Month Names
+            Day Names
+            Miscellaneous Settings
+            Additional Information
+3.  Different levels of defining culture
+        Widget Level Culture
+        Global Level Culture
+        Site Level Culture
+        WidgetInstance Level Culture (This will get deprecated from v1.6 onwards)
+4.  Culture Settings resolution at execution time
+5.  Culture Resource/Content resolution at execution time
+</code></pre>
+
+<hr />
+<h2>Templar Globalization Support</h2>
+<p>Globalization is the process of designing and developing applications that function for multiple cultures. It enables applications to adopt their display interface both visual and textual depending on the origin of request or some preconfigured rules.</p>
+<p>Templar Globalization via culture offers a way for applications and\or widget to adopt their content to a specific country and\or language. Templar enables customized cultures to be created. A single instance of culture has format settings such as date, time, currency and number formatting information. A culture would also have translated language content and resources like images, media and other files for a particular country and\or language setting. </p>
+<p><strong>1. Resources -</strong> text based key value pairs listing and their management options</p>
+<p><strong>2. Content -</strong> all culture based files and their management</p>
+<p><strong>3. Settings -</strong> date, numbers, money and other format settings</p>
+<h2>Defining Culture</h2>
+<p>Templar allows defining globalization culture at 4 different levels. At every level adding / updating a culture has a very similar experience. This also holds true for flow of inserting culture information to different level. Let’s take a look at adding information of culture en-US. We will look at listing interface &amp; creating culture at different levels later on.</p>
+<p><img src="./images/11.GlobalizationDocument/1.Culture.png" /> </p>
+<ul>
+<li>
+<p><strong>Add Culture –</strong> allows new culture creation by selecting a country and\or language.</p>
+</li>
+<li>
+<p><strong>Update Culture –</strong> allows current cultures to be compared and updated with existing cultures in the current deployment. Also allows remote comparison and update of cultures if the user has access to a remote Templar deployment.</p>
+</li>
+<li>
+<p><strong>Created on and Last published –</strong> displays information about culture create date and time span since last publish. </p>
+</li>
+<li>
+<p><strong>Load –</strong> this drills down into the current culture and displays all its details along with a management interface fort Upload - allow culture to be updated with an external culture set upload</p>
+</li>
+<li>
+<p><strong>Download –</strong> allows the existing culture to be downloaded as a zip which can be saved for backup or to create culture(s) in  different deployment</p>
+</li>
+<li>
+<p><strong>History –</strong> flow for viewing existing culture versions and also allows new version creation. It also has a diff feature where you can compare an older version of the culture with the current version</p>
+</li>
+<li>
+<p><strong>Publish –</strong> this allows the complete culture to be published to live</p>
+</li>
+<li>
+<p><strong>Delete –</strong> allows culture deletion. Please note this would delete all versions (including live version) and history for the culture so please use this feature with caution</p>
+</li>
+</ul>
+<h2>Culture Resource</h2>
+<p>Resources are string which are meant to be change/displayed in context of culture it is viewing</p>
+<p>Key for culture resource is unique at one level of culture definition.</p>
+<p><img src="./images/11.GlobalizationDocument/2.Culture_Resource.png" /> </p>
+<p>Figure above shows listing of culture resource keys and their values in selected ‘en-US’ culture</p>
+<h2>Culture Content (files)</h2>
+<p>Content are the files needs to be varying according to culture.</p>
+<p>E.g. Image containing text inside it. Or Terms are condition page in particular language.</p>
+<p>Key for culture resource is unique at one level of culture definition.</p>
+<p><img src="./images/11.GlobalizationDocument/3.Culture_Content.png" /> </p>
+<p>Figure above shows listing of culture content keys and their values in selected ‘en-US’ culture.</p>
+<h2>Culture Settings</h2>
+<p>This section shows all the defined settings for the selected culture.</p>
+<p>Load Default helps populate initial default value, Dropdown list enlist few of default values mostly used.</p>
+<p>Settings need to be explicitly saved.</p>
+<p>Culture inheritance option (new)</p>
+<p>If Culture is defined at site level, &amp; site already has same culture added from global cultures. Then Templar provides option to inherit settings from global culture. So making changes in global cultures settings will impact settings of all corresponding inherited cultures in site.</p>
+<p><strong>1. Date Time Settings</strong></p>
+<p><img src="./images/11.GlobalizationDocument/4.Date_Time_Settings.png" /> </p>
+<p><strong>2. Monetary Settings</strong></p>
+<p><img src="./images/11.GlobalizationDocument/5.Monetary_Settings.png" /> </p>
+<p><strong>3. Number Settings</strong></p>
+<p><img src="./images/11.GlobalizationDocument/6.Number_Settings.png" /> </p>
+<p><strong>4. Month Names</strong></p>
+<p><img src="./images/11.GlobalizationDocument/7.Months_Name.png" /> </p>
+<p><strong>5. Day Names</strong></p>
+<p><img src="./images/11.GlobalizationDocument/8.Day_Names.png" /> </p>
+<p><strong>6. Miscellaneous  Settings</strong></p>
+<p><img src="./images/11.GlobalizationDocument/9.Miscellaneous_Settings.png" /> </p>
+<p><strong>7. Additional Information</strong></p>
+<p><img src="./images/11.GlobalizationDocument/10.Additional_Info.png" /> </p>
+<p><strong>New Feature: Smart default values</strong></p>
+<p>Post version V1.6 we have added support for default values. When new culture is created, default values for the culture settings are automatically populated. </p>
+<p>Even after creation, at any given point if culture needs to load default settings &quot;Load Defaults&quot; button is provided.</p>
+<p><img src="./images/11.GlobalizationDocument/11.Load_Defaults.png" /></p>
+<h2>Different levels of defining culture</h2>
+<p>Templar allows defining globalization culture at 4 different levels,</p>
+<ol>
+<li>
+<p>Widget Level</p>
+</li>
+<li>
+<p>Global Level </p>
+</li>
+<li>
+<p>Site Level</p>
+</li>
+<li>
+<p>WidgetInstance Level</p>
+</li>
+</ol>
+<p>Purpose of allowing culture definition at different levels is to allow desired customization of the flow with full reuse of common functionality. Details that are common across applications should be setup at the global level and site specific changes should be done at the site level. Finally Inheritance is supported from global to site level only.</p>
+<p>At every level there is support for -</p>
+<ol>
+<li>
+<p>Add / Update cultures.</p>
+</li>
+<li>
+<p>Uploading / downloading resources/content/ settings. </p>
+</li>
+<li>
+<p>Publish culture – to have design &amp; live separation</p>
+</li>
+</ol>
+<h3>Widget Level Culture</h3>
+<p>Widget level cultures are root in hierarchy of culture resource/content /setting resolution. Widget level defines default keys &amp; values for any given culture. Widget Level cultures can be managed through Manage Widget Listing in Admin Tab.</p>
+<p>Prerequisite: For defining Widget level culture, widget needs to be already registered with Templar framework.</p>
+<p><strong>Step 1:</strong> Login into Templar &amp; Go to Admin Tab</p>
+<p><strong>Step 2:</strong> Go to Manage Widgets</p>
+<p><img src="./images/11.GlobalizationDocument/12.Manage_Widget_Link.png" /></p>
+<p><strong>Step 3:</strong> Select widget for which you want to define cultures.</p>
+<p><strong>Note :</strong> You can’t define culture for Framework in built widgets.</p>
+<p>Publish &amp; download  link for widget culture only appears when culture is defined for widget.</p>
+<p><img src="./images/11.GlobalizationDocument/13.Manage_Widgets.png" /></p>
+<p><strong>Step 4:</strong> Once culture listing is displayed for current widget. You can now add new culture or load existing culture for editing content.</p>
+<p><img src="./images/11.GlobalizationDocument/14.Widget_Level_Culture1.png" /></p>
+<p><img src="./images/11.GlobalizationDocument/15.Widget_Level_Culture2.png" /></p>
+<p><strong>Step 5:</strong> Rest of steps are common to defining culture.</p>
+<h3>Global Level Culture</h3>
+<p>Global level cultures are top second in hierarchy of culture resource/content /setting resolution. Global level defines default keys &amp; values for any given culture, which can be added to multiple sites for inheritance purpose. Global Level cultures can be managed through Global Cultures in Global Tab.</p>
+<p><strong>Step 1:</strong> Login into Templar &amp; Go to Global Tab.</p>
+<p><strong>Step 2:</strong> Click on global cultures to get listing.</p>
+<p><img src="./images/11.GlobalizationDocument/16.Globals.png" /></p>
+<p><strong>Step 3:</strong> You can perform following action at this screen</p>
+<ol>
+<li>
+<p>Add new Culture</p>
+</li>
+<li>
+<p>Load existing culture for editing</p>
+</li>
+<li>
+<p>Upload or Download entire single culture</p>
+</li>
+<li>
+<p>View versions/ history of cultures</p>
+</li>
+<li>
+<p>Publish culture</p>
+</li>
+</ol>
+<p><img src="./images/11.GlobalizationDocument/17.Manage_culture.png" /></p>
+<p>Step 4:  After this operations related to culture content/setting/resources are same as mention at start of defining culture</p>
+<h3>Site Level Culture</h3>
+<p>Site level cultures are top third in hierarchy of culture resource/content /setting resolution. Site level culture is meant to override settings/resources for inherited Global level definition (if any). Or completely define new culture specific to site. Site Level cultures can be managed through editing site details.</p>
+<p><strong>Step 1:</strong> Login into Templar &amp; Goto site Listing</p>
+<p><strong>Step 2:</strong>  Select Site for which you want to define site level culture</p>
+<p><img src="./images/11.GlobalizationDocument/18.Site_Culture.png" /></p>
+<p><strong>Step 3:</strong> Go to Globalisation Tab</p>
+<p><img src="./images/11.GlobalizationDocument/19.Globalization_Tab.png" /></p>
+<p><strong>Step 4:</strong>  Inherit Global culture to site (It is not mandatory to inherit from global culture)</p>
+<p><img src="./images/11.GlobalizationDocument/20.Inherit_Global_Culture.png" /></p>
+<p><strong>Step 5:</strong> Define new site level culture</p>
+<p><img src="./images/11.GlobalizationDocument/21.New_Site_Culture.png" /></p>
+<p><img src="./images/11.GlobalizationDocument/22.New_Site_Culture2.png" /></p>
+<p>You can define/override multiple sitelevel culture &amp; also can keep them active / deactive individually for site level.</p>
+<p>After defining you can also select default culture for site.It will be served when invalid request or request for a culture whichis not present /added to site  is made. Site is viewed in default culture. Once culture is defined rest everything for configuring is same as defining culture.</p>
+<p><img src="./images/11.GlobalizationDocument/23.Default_Culture.png" /></p>
+<p>By default culture is detected for every request from accept header which all modern browser send.</p>
+<p>By selecting culture from dropdownlist named &quot;<em>Select Culture to Enforce</em>&quot;, you can also force site to viewed in one culture, irrespective of browser’s request for a particular culture.</p>
+<p><strong>New Feature: Option for culture setting inheritance at Site Cultures</strong></p>
+<p>Most of the time we require to change particular Resource or Content at Site Level culture by defining Site Level culture. After defining Site Level culture, culture settings for site level culture were independent of global culture. Changing global culture won’t affect site culture.</p>
+<p>Post version V1.6 we have added support for culture setting inheritance for site cultures. Whenever culture (e.g. &quot;en-US&quot;) is defined at site level &amp; same culture is present at Global level too, you will see “Inherit from global” checkboxes on every tab to inherit settings from global. So now changing global culture will affect all site level Cultures or parts of Culture who have inherited from Global Cultures.</p>
+<p><strong>Inheritance of culture setting additional information behaves similar to culture resource &amp; culture content.</strong></p>
+<p><img src="./images/11.GlobalizationDocument/24.Load_Culture.png" /></p>
+<p><img src="./images/11.GlobalizationDocument/25.Load_Settings.png" /></p>
+<h3>WidgetInstance Level Culture (This will get deprecated from v1.6 onwards)</h3>
+<p>WidgetInstance cultures are the last in hierarchy of culture resource/content /setting resolution. WidgetInstance level only allows us to override string resources for cultures that are defined site level or inherited from global to site. WidgetInstance level culture can be defined per instance (Independent of other instances of widget on same or different page) of widget on page.</p>
+<p>The plan for deprecating this feature is to simplify content translation with an easy way to know what all is being used. However this functionality can still be achieved by enabling widgets to configure the keys they want to render across instances. All these keys would need to be defined at the site level.</p>
+<p>You can define instance level culture from designer page.</p>
+<p>Step 1: Login into Templar &amp; Load Site</p>
+<p>Step 2: Open page in designer mode whose instance needs to be overridden.</p>
+<p><img src="./images/11.GlobalizationDocument/26.Page_Culture.png" /></p>
+<p>Once selected, all cultures applicable to site are enlisted, Select particular for which value needs to be overriden.</p>
+<p><img src="./images/11.GlobalizationDocument/27.Page_Culture1.png" /></p>
+<p><img src="./images/11.GlobalizationDocument/28.Page_Culture2.png" /></p>
+<p>This widget has got &quot;*ChangeLanguage&quot; <em>key from site level which itself has been inherited from</em> *Global.</p>
+<p>We can change its value only for this instance.</p>
+<p><img src="./images/11.GlobalizationDocument/29.Page_Culture3.png" /></p>
+<p>These WidgetInstance override changes get publish when site is published.</p>
+<h2>Culture Settings resolution at exceution time</h2>
+<p>To understand how culture resolution work, assume site has <em>en-GB</em>, <em>pt-BR</em>, *es-MX *(Doesn't matter which level it is defined site level or global level). Site has <em>es-MX</em> as default culture.</p>
+<p>Suppose request is made for culture <em>en-GB</em>, *pt-BR *lookup order for cultures is created.</p>
+<table>
+  <tr>
+    <td>If auto-detect is enabled for site
+en-GB      (Browser requested culture)
+en            (Neutral Culture if defined for site).
+pt-BR      (Browser requested culture)
+pt             (Neutral Culture if defined for site).
+es-MX      (Site’s default culture).
+es             (Neutral default culture).</td>
+    <td>If hi-IN culture is enforced on site
+hi-IN      (Enforced culture)
+hi           (Enforced Neutral  culture)
+</td>
+  </tr>
+</table>
+<p><img src="./images/11.GlobalizationDocument/30.Flow_Chart.png" /></p>
+<h2>Culture Resource/Content resolution at execution time</h2>
+<p><img src="./images/11.GlobalizationDocument/31.Flow_Chart2.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>1. Templar Overview Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Overview Document</h1>
+<hr />
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  What is Templar?
+        Key features of Templar
+2.  Basic Terminology
+        Widget
+        Page
+        Theme
+        Layout
+        Custom layout
+        Culture
+        Template
+        Site
+3.  Application Overview
+        Sites
+        Templates
+        Globals
+        Reports
+        Admin
+4.  Application Section Details
+        Sites
+            1.  Home
+            2.  Page listing
+            3.  Designer
+        Templates
+            1.  Manage Templates
+            2.  Diff manager
+        Globals
+            1.  Global Cultures
+            2.  Global Themes
+        Reports
+            1.  Application Errors
+            2.  Logged exception
+            3.  Audit Logs
+            4.  Cache Stats
+            5.  Feedback
+            6.  Scheduled Pages
+        Admin
+            2.  Manage Artifacts
+            3.  Manage Tabs
+            4.  Manage Widgets
+            5.  Manage Widget groups
+5.  FAQ’s
+        How can I backup my Templar site?
+        Is there a way to automate Templar site releases across environments?
+        What technologies should I know to create Templar sites?
+</code></pre>
+
+<hr />
+<h1>Templar v1.7 - Overview Document</h1>
+<h2>What is Templar?</h2>
+<p>Templar is a framework for building highly customizable and reusable web applications.
+Templar works on the concept of widgets, which are the building blocks for creating web sites.
+It’s very easy to create widgets. Once created, these widgets can be quickly customized and reused for different display and functional settings. 
+Templar admin application provides full management interface for building and managing websites with widgets. Developing a website using Templar is a drag-drop designer based experience.
+Templar users can manage and change the look and feel of websites by</p>
+<ul>
+<li>Changing themes,</li>
+<li>Using multi-language support,</li>
+<li>Customizing layouts,</li>
+<li>Managing site versions,
+And many such features that come out of the box.</li>
+</ul>
+<h3>Key features of Templar</h3>
+<ul>
+<li>Ability to build and manage highly dynamic ecommerce sites, such as full blown travel websites.</li>
+<li>Ability to run multiple sites on a single instance, with multi domain support.</li>
+<li>Easy internalization with multi language &amp; currency support.</li>
+<li>High level of customization with ability to configure every aspect of a website.</li>
+<li>Out of the box support for pages to be served on SSL, SEO and page routing configurations.</li>
+<li>Highly flexible mechanism for passing data between widgets, whether the widgets are on the same webpage or on different webpages. Highly scalable with inbuilt support for web farm deployment and distributed caching.</li>
+<li>Easy to deploy websites across environments.</li>
+<li>User management with high level of security and inbuilt access control.</li>
+<li>Audit log capabilities to see all changes made via APIs or the admin application.</li>
+<li>Strong isolation of live and current view with ability to preview and compare versions. </li>
+</ul>
+<h2>Basic Terminology</h2>
+<h3>Widget</h3>
+<p>A widget is a web application which can be used across websites and web pages. It can be as simple as an ad banner which shows an image and its related message or as complex as a fully working application like an email client which provides features like Yahoo or Google mail. Widgets can be creating using HTML/JavaScript/CSS or they may also include server side code.</p>
+<h3>Page</h3>
+<p>A standard web page or document is referred to as a page in Templar. All Templar pages follow some layout and would have widgets added in them. Templar allows various configurations for serving pages such as http only (unsecure), https only (secure) or allow both http and https access. 
+Based on their settings pages can be classified under following types</p>
+<ul>
+<li><strong>Page:</strong> These are the standard type of pages as described above.</li>
+<li><strong>Default page:</strong> one page of the site can be made as the default page. This is the page which is shown when a request is made for the site without specifying any specific page.</li>
+<li><strong>Login page:</strong> In case of a password protected website, this is the page where users would be redirected for login before accessing protected pages.</li>
+<li><strong>Master page</strong>-this type of page allows a user to select widgets and place holders to create a consistent layout for a set of pages in your application. Other pages called content pages can set this page as their master page or parent and get the same layout and widgets automatically. </li>
+<li><strong>Content page</strong>-pages which have a master page as their parent are called content pages. These inherit the layout and widgets from their master page. New widgets can be added to these pages where available placeholders are available in the master page. </li>
+</ul>
+<h3>Theme</h3>
+<p>The visual look and feel of a site is controlled by a theme. It includes standard CSS, images, media and other files as used in web development. Themes are kept standard so as to avoid any learning curve for designer or developers creating them. When a theme is applied to a site, Templar includes a reference to all CSS files in the Theme folder in all pages of the site. In case a theme folder has multiple CSS files, Templar ensures that the files are lined in an alphabetical order based on folder level. Templar allows two types of themes </p>
+<ul>
+<li><strong>Site level themes</strong> – which can only be used in the site they are created in.</li>
+<li><strong>Global themes</strong> –which can be shared across multiple sites. </li>
+</ul>
+<h3>Layout</h3>
+<p>The default display of a Templar page is controlled by the layout. By default, a page is made up of three areas- header, content and footer. The content area can be sub divided into one, two or three columns. All content sections can be further customized at page level.
+<img src="./images/1.TemplarOverviewDocument/1.Layout.png" /> </p>
+<h3>Custom layout</h3>
+<p>This feature allows custom page layouts to be created and used in Templar pages. This is a powerful feature when it comes to designing sites based on unique layout requirements and with all the benefits of master pages, themes, widget reuse and other Templar capabilities.</p>
+<h3>Culture</h3>
+<p>Culture is a way for website and\or widget to adopt its content to a specific country and\or language. A single instance of culture has format settings such as date, time, currency and number formatting information. A culture would also have translated language content and resources like images, media and other files for a particular country and\or language setting. </p>
+<h3>Template</h3>
+<p>Templar has a mechanism to create a package of a site with all its content like settings, pages, themes, and resources. This package is called a template. A template can be used to create site backup for comparison with an existing site or for copying a site from one environment to another.  A template contains information about global resources like global culture, global themes and widgets but does not contain their content.</p>
+<h3>Site</h3>
+<p>A site is a made up of one or more pages.  Sites can have multiple themes associated with it, with one being the default. (Templar users can also set the site culture settings and have appropriate globalization data for internalization of their content. Sites can also contain resources such as files, text and images, which can also be exposed publically based on permissions. </p>
+<h2>Application Overview</h2>
+<p>Templar application is divided into the following parts:</p>
+<h3>Sites</h3>
+<p>This section is the heart of Templar. It allows all site related operation like;</p>
+<ul>
+<li>New site creation.</li>
+<li>Site settings, SEO settings, error handling and layout management.</li>
+<li>Creation and comparison of site versions.</li>
+<li>Site publishing options to make current site changes live.</li>
+<li>Site theme creation and management.</li>
+<li>Site specific culture creation and management.</li>
+<li>Page creation and management.</li>
+</ul>
+<h3>Templates</h3>
+<p>This section enables all template related functionality like;</p>
+<ul>
+<li><strong>Template management</strong> – creation, deletion and download of Templates.</li>
+<li><strong>Diff manager</strong> –allows new template creation based on diff (difference between two existing sites) of current Sites and\or Templates.</li>
+</ul>
+<h3>Globals</h3>
+<p>This section allows management of for global level items like;</p>
+<ul>
+<li>Global cultures creation and management.</li>
+<li>Global themes creation and management.</li>
+</ul>
+<h3>Reports</h3>
+<p>This area enables viewing operational reports of current Templar deployment. It includes reports like</p>
+<ul>
+<li>Exception reports and their details for all sites.</li>
+<li>Audit log entries and their details.</li>
+<li>Cache usage reports and management options.</li>
+<li>User feedback reports and details.</li>
+<li>Scheduled pages reports.</li>
+</ul>
+<h3>Admin</h3>
+<p>This is the section which includes administration features like;</p>
+<ul>
+<li>User creation and management.</li>
+<li>Access control features for Templar application and artifacts like widgets, sites and templates. </li>
+<li>Widgets registration flow for the current deployment.</li>
+<li>Widget group creation for easy categorization. </li>
+</ul>
+<h2>Application Section Details</h2>
+<h3>Sites</h3>
+<h4>1.	Home</h4>
+<p><img src="./images/1.TemplarOverviewDocument/2.Home.png" /></p>
+<ul>
+<li><strong>Create new site –</strong> allows creating new sites from scratch or using an existing template.</li>
+<li><strong>Update existing site –</strong> Allows current sites to be compared and updated with existing sites or templates in the current deployment. Also allows remote comparison and update of sites if the user has access to remote Templar deployment.</li>
+<li><strong>Status –</strong> Indicator that shows if a site has been published or not and if it is currently offline or online.</li>
+<li><strong>Load –</strong> this drills into site details and shows site’s page listing.</li>
+<li><strong>Current –</strong> this shows the current view of site’s default page. This is the view that will get pushed to live if the site is now published.</li>
+<li><strong>Live –</strong> In case the site is already published and online, than live view displays the site’s current default page as seen by end users.</li>
+<li>
+<p><strong>Edit –</strong> All site level settings can be configured from this section. Site level settings are:</p>
+<ul>
+<li><strong>Site details –</strong> site details like URL, map to domain and status change options.</li>
+<li><strong>Themes –</strong> site and global level theme settings for the site.</li>
+<li><strong>SEO options –</strong> site level meta tags and analytics settings.</li>
+<li><strong>Environment data –</strong> site level settings which will be accessible to all widgets.</li>
+<li><strong>Error handling –</strong> for creating site specific page not found (404) error page or other page mappings.</li>
+<li><strong>Site layout –</strong> for setting default layout for site pages. Pages can change the layout later if required.</li>
+<li><strong>Globalization –</strong> site and global level culture settings and detection mode for site.</li>
+<li><strong>Resources –</strong> ability to add site level resources which are accessible to all widgets internally and can be exposed external if required.</li>
+<li>
+<strong>Scripts –</strong> provides capability for adding JavaScript references to all pages in the site. 
+		Scripts can be reference via external URL, relative path or site resources. Ordering of scripts is also provided. Finally it also enables replacing jQuery reference on the live pages which is always the first key in the list.
+</li>
+</ul>
+</li>
+<li><strong>History –</strong> flow for viewing existing site versions and also allows new site version creation. It has a diff feature where you can compare an older version of the site with its current version.</li>
+<li>
+<p><strong>Publish</strong></p>
+<ul>
+<li>Full publish – this allows the complete site to be published and made live to end users. All changes in the current version are made live with this option.</li>
+<li>Selective or advance publish – this allows individual site sections to be published. This featured is used to publish incremental site changes live.</li>
+</ul>
+</li>
+<li>
+<p><strong>Delete –</strong> Allows deletion of site. This feature is to be used with caution as it deletes all site versions including live and all history for the site.</p>
+</li>
+</ul>
+<h4>2.	Page listing</h4>
+<p><img src="./images/1.TemplarOverviewDocument/3.Page_Listing.png" /></p>
+<ul>
+<li><strong>Add new page –</strong> Allows new page creation for the site. Page creation includes basic options like name, title and URL. Advanced options include:
+Creating master page or content page (page having a master page as its parent).
+Making the page the default page for the site.
+Making the page as the site’s login page or making the page as login protected.
+Setting the page to be served as secure (https only).
+Allowing setting page level data and other page layout change options.</li>
+<li><strong>Add pages from site –</strong> this feature allows a user to quickly copy pages from other existing Templar sites that a user may have access to, to the current site. Please change the copied page’s URL after copying as the URL made is not very usable.</li>
+<li><strong>Load –</strong> this loads the page in the designer. The designer allows ability to create a fully working page with option to add\modify widgets to the page, do inter widget events mapping, layout tweaking and other options.</li>
+<li><strong>Current –</strong> this shows the current view of the page. This is the view that will get pushed to live if the page is published now.</li>
+<li><strong>Live –</strong> If the page is already published and online, than this would open the page as is being shown to end users currently. </li>
+<li>
+<strong>Edit –</strong> this allows all page settings to be configured. Page settings are like:
+<ul>
+<li>Changing page name, title or URL.</li>
+<li>
+It also allows advance settings like:
+<ul>
+<li>Setting the page to be site level default page or login page (for a secure site).</li>
+<li>Setting the page to be a master page or setting a page’s master page.</li>
+<li>Setting page connection settings to force http or https access.</li>
+<li>Making a page secure so it will be accessible only after authentication.</li>
+<li>Allows adding page level settings which are accessible to all widgets on the page.</li>
+<li>Allows adding metadata to this page.</li>
+<li>Tweak page layout from the site level default.</li>
+<li>Add page level scripts, these will override site level scripts if same key is present.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>History –</strong> shows existing page versions and also allows new version creation. It has a diff feature where you can compare an older version of the page with its current version.</li>
+<li><strong>Log -</strong> shows page activity if some other users are currently working on the page. You can even send message  to all those users by clicking ‘Add log entry’.</li>
+<li><strong>Publish –</strong> Allows option to publish a page for sites which have been published once. An indicator shows pages which have changed since last publish time.</li>
+<li><strong>Delete –</strong> Allows page deletion. Please note this would delete all versions (including live version) and history for the page so please use this feature with caution. </li>
+</ul>
+<h4>3.	Designer</h4>
+<p><img src="./images/1.TemplarOverviewDocument/4.Designer.png" /></p>
+<ul>
+<li><strong>Pages –</strong> this tab takes you back to current site’s page listing.</li>
+<li><strong>Layout –</strong> this shows all available layout options for the page. Clicking on any option will change the current page’s layout.</li>
+<li>
+<strong>Widgets –</strong> this shows all available widgets for the page. Widgets can be selected from the listing and dropped into appropriate location in the page. There are a few special widgets like: 
+<ul>
+<li><strong>Content place holder –</strong> this widget is available only on a master page. This is a placeholder widget which allows all pages using this master page to add their own widgets at this location.</li>
+<li><strong>Composite widget –</strong> this is a special widget which allows other widgets to be placed inside it, for creating complex layouts like putting widgets horizontally or vertically in a same location. You can even add more composite widget inside an existing composite widget and create further nesting.
+Theme- this tab opens the theme manager and allows you to view\add items to the current theme which will be instantly available to all page widgets.</li>
+</ul>
+</li>
+<li><strong>1-View current page –</strong> this option opens the current page in a new window as it would appear to a user after being published. It is a good practice to check your page changes in current view as there may be some differences between the designer view and the current view. In case of any differences always go with the current view’s view.</li>
+<li><strong>2-View live page –</strong> this option opens the current page’s live view in a new window for comparison purpose.</li>
+<li><strong>3-Publish current page –</strong> this allows current page to be published now or be scheduled for publish at a later time. It also allows page version creation.</li>
+<li><strong>4-Site pages –</strong> shows a listing of all site pages.  With option to load a different page in the designer or see any pages’ current or live view.</li>
+<li><strong>5-Page settings –</strong> this shows page settings which allow for managing page data or tweaking page layout.</li>
+<li><strong>6-Widget help view –</strong> this shows widget help text on all widgets and on hover you can see the widget description. </li>
+<li><strong>7-Widget collapse setting –</strong> this option allows collapsing all widgets on the page. When widgets are collapsed their markup is not rendered and this can be used to troubleshoot a widget which has markup issues.</li>
+<li><strong>8-Widget settings display mode –</strong> this allows widget setting’s display to be shown inline or as a popup. Popup view enables you to see a bigger display and you are not constrained by the widget size.</li>
+<li><strong>9-Event mapping –</strong> this setting is used to see page widget’s events and their mapping by clicking on individual widget events.</li>
+<li><strong>10-Actvity log –</strong> this shows past page activity across all users. It can also be used to broadcast messages to other users on the same page.</li>
+</ul>
+<h3>Templates</h3>
+<h4>1.	Manage Templates</h4>
+<p><img src="./images/1.TemplarOverviewDocument/5.Manage_Template.png" /></p>
+<ul>
+<li><strong>Create new template –</strong> this allows new templates to be created from an existing site or by uploading an external template.  These templates can be used to create new sites provided the required widgets are available.</li>
+<li><strong>Download –</strong> allows the existing template to be downloaded as a zip which can be saved for backup or to create templates in a different deployment.</li>
+<li><strong>Delete –</strong> allows multiple templates delete option post selection.</li>
+</ul>
+<h4>2.	Diff manager</h4>
+<p><img src="./images/1.TemplarOverviewDocument/6.Diff_Manager.png" /></p>
+<p>This allows comparison between existing sites and\or templates with each other. It also allows creation of new templates with additional features based on selected items from destination.</p>
+<h3>Globals</h3>
+<h4>1.	Global Cultures</h4>
+<p><img src="./images/1.TemplarOverviewDocument/7.Global_Cultures.png" /></p>
+<ul>
+<li><strong>Add culture –</strong> allows new culture creation by selecting a country and\or language.</li>
+<li>Update culture –allows current cultures to be compared and updated with existing cultures in the current deployment. Also allows remote comparison and update of cultures if the user has access to the remote Templar deployment.</li>
+<li><strong>Status –</strong> Indicator that shows if a culture has been published or not.</li>
+<li>
+<strong>Load –</strong> this drills down into current culture and displays details like:
+<ul>
+<li>Resources text based key value pairs listing and their management options.</li>
+<li>Content all culture based files and their management.</li>
+<li>Settings date, numbers, money and other format settings.</li>
+</ul>
+</li>
+<li><strong>Upload –</strong> allow culture to be updated with an external culture set upload.</li>
+<li><strong>Download –</strong> allows the existing culture to be downloaded as a zip which can be saved for backup or to create cultures in a different deployment.</li>
+<li><strong>History –</strong> flow for viewing existing culture versions and also allows new version creation. It also has a diff feature where you can compare an older version of the culture with the current version.</li>
+<li><strong>Publish –</strong> this allows the complete culture to be published to live.</li>
+<li><strong>Delete –</strong> allows culture deletion. Please note this would delete all versions (including live version) and history for the culture so please use this feature with caution.</li>
+</ul>
+<h4>2.	Global Themes</h4>
+<p><img src="./images/1.TemplarOverviewDocument/8.Global_Themes.png" /></p>
+<ul>
+<li><strong>Add new Theme –</strong> allows new themes to be created.</li>
+<li><strong>File Manager –</strong> shows all global themes as a folder view.</li>
+<li><strong>Update Theme –</strong> allows current Theme to be compared and updated with existing Themes of available site in the current deployment. Also allows remote comparison and update of Theme if the user has access to the remote Templar deployment.</li>
+<li><strong>Status –</strong> Indicator that shows if a theme has been published or not.</li>
+<li><strong>Manage –</strong> shows the selected theme in a folder based file manager view.</li>
+<li><strong>Upload –</strong> allow new content to be added to the current theme.</li>
+<li><strong>Download –</strong> allows current theme to be download as a zip.</li>
+<li><strong>History –</strong> flow for viewing existing theme versions and also allows new version creation. It also has a diff feature where you can compare an older version of the theme with the current version.</li>
+<li><strong>Publish –</strong> this allows the current theme to be published to live. Please note all sites using this global theme will start getting the new theme post publishing.</li>
+<li><strong>Delete –</strong> allows theme deletion. Please note this would delete all versions (including live version) of the theme so please use this feature with caution.</li>
+</ul>
+<h3>Reports</h3>
+<h4>1.	Application Errors</h4>
+<p><img src="./images/1.TemplarOverviewDocument/9.Application_Errors.png" /></p>
+<p>This is used to view the listing and details of all unhandled exceptions. It also provide search and filter facility with different criteria like search by message, event id, site URL, culture name etc.</p>
+<h4>2.	Logged exception</h4>
+<p><img src="./images/1.TemplarOverviewDocument/10.Logged_Exception.png" /></p>
+<p>All exceptions logged using Templar logging policy are shown here. It also provide search and filter facility with different criteria like search by message, exception id, target site, culture name etc.</p>
+<h4>3.	Audit Logs</h4>
+<p><img src="./images/1.TemplarOverviewDocument/11.Audit_Logs.png" /></p>
+<p>All audit log entries and their details are shown here. It also provide search and filter facility with different criteria like search by role, id, site URL, action etc.</p>
+<h4>4.	Cache Stats</h4>
+<p><img src="./images/1.TemplarOverviewDocument/12.Cache_Stats.png" /></p>
+<p>This allows all cache management tasks.</p>
+<ul>
+<li>Cache usage graphs.</li>
+<li>Cache listing with option to see details of what’s cached.</li>
+<li>Reload cache options for both design and live mode.</li>
+</ul>
+<h4>5.	Feedback</h4>
+<p><img src="./images/1.TemplarOverviewDocument/13.Feedback.png" /></p>
+<p>This lists all site feedbacks added via the feedback link at the bottom left corner of all Templar application pages.</p>
+<p><img src="./images/1.TemplarOverviewDocument/14.Feedback_Details.png" /></p>
+<p>It also allows resending an existing feedback with added comments to the Templar team.</p>
+<h4>6.	Scheduled Pages</h4>
+<p><img src="./images/1.TemplarOverviewDocument/15.Scheduled_Pages.png" /></p>
+<p>This is used to see the listing of all scheduled pages.</p>
+<ul>
+<li><strong>Live Time –</strong> allows seeing the publish time in live.</li>
+<li><strong>Show Diff –</strong> allows seeing their diff with current design page.</li>
+<li><strong>Delete –</strong> allows deleting the still not scheduled pages.</li>
+</ul>
+<h4>6.	Widget Reports</h4>
+<p><img src="./images/1.TemplarOverviewDocument/21.Widget_Report.png" /></p>
+<p><img src="./images/1.TemplarOverviewDocument/22.Widget_Report.png" /></p>
+<p>This is used for listing of Widget’s with their usage and state details.</p>
+<ul>
+<li>Widget usage for particular Site and Pages.</li>
+<li>Widget state detail of particular Widget.</li>
+<li>View and Update single or multiple Widget state.</li>
+</ul>
+<h3>Admin</h3>
+<h4>1.	Manage Users</h4>
+<p><img src="./images/1.TemplarOverviewDocument/16.Manage_Users.png" /></p>
+<p>Allows ability to create and manage users who have access to the Templar admin application.
+It also </p>
+<ul>
+<li><strong>Edit –</strong> allows ability to change user name, password and role.</li>
+<li><strong>Disable –</strong> allows ability to disable access of application for particular.</li>
+<li><strong>Delete –</strong> allows deletion of user.</li>
+</ul>
+<h4>2.	Manage Artifacts</h4>
+<p><img src="./images/1.TemplarOverviewDocument/17.Manage_Artifacts.png" /></p>
+<p>Allows access restriction settings on individual Templar assets like sites, templates and widgets, with option to set these at a role or individual user level.</p>
+<h3>3.	Manage Tabs</h3>
+<p><img src="./images/1.TemplarOverviewDocument/18.Manage_Tabs.png" /></p>
+<p>Allows granular access settings on Templar application tabs and functionality for various Templar user roles.
+ </p>
+<h3>4.	Manage Widgets</h3>
+<p><img src="./images/1.TemplarOverviewDocument/19.Manage_Widgets.png" /></p>
+<ul>
+<li><strong>Add new Widget –</strong> allows new widget creation by entering widget name, URL, icon and state.</li>
+<li><strong>Update Widget –</strong> allows current widget to be compared and updated by uploading an external widget file. It also allows remote comparison and update of the widget if the user has access to the remote Templar deployment.</li>
+<li><strong>Download –</strong> allows the existing widgets to be downloaded as a zip which can be saved for backup or to create widgets in a different deployment.</li>
+<li><strong>Preview –</strong> this shows the preview of widget.</li>
+<li><strong>Globalization –</strong> allows widget preview and widget level globalization data setting.</li>
+<li><strong>Publish –</strong> this allows the current widget to be published to live. Please note all sites using this widget will start getting the new widget post publishing.</li>
+</ul>
+<h4>5.	Manage Widget groups</h4>
+<p><img src="./images/1.TemplarOverviewDocument/20.Manage_Widget_Groups.png" /></p>
+<p>Allows widget group(s) creation for easy widget categorization. These groups are shown in designer page’s widget section tab.</p>
+<ul>
+<li><strong>Add New Group –</strong> this allows new groups to be created to facilitate categorization. Also if there are any unassigned widgets left from all the current groups then a “Misc” group is added which shows all these unassigned widgets</li>
+<li><strong>Manage –</strong> allows ability to add and remove widgets from the group.</li>
+<li><strong>Move –</strong> allows setting display order of widget groups in designer.</li>
+<li><strong>Delete –</strong> removes an existing widget groups, without any impact on widgets. </li>
+</ul>
+<h2>FAQ’s</h2>
+<h3>How can I backup my Templar site?</h3>
+<p>Templar provides Templates which contain backup of a full site with all its contents.  It includes pages, site settings, site resources, themes and site specific globalization data. Besides this you will need to create a backup of any global cultures and themes if used in your site. The widgets settings can be saved using download widget option but manual backup is needed for widget code. </p>
+<h3>Is there a way to automate Templar site releases across environments?</h3>
+<p>Yes this can be done using the deployment service which allows creating new sites, updating existing sites from a template or over the web and also publishing sites. It also allows management of global culture and themes for deployment purposes. Widget related settings can be automated using the widget management service. All non-code changes can be propagated via this approach.</p>
+<h3>What technologies should I know to create Templar sites?</h3>
+<p>At a basic level you only need to know HTML/CSS/JavaScript for creating sites. However if you are an ASP.NET developer than you can even create widgets, depending on your requirement and use the full power of ASP.NET 4.5 that you are familiar with. </p>
+<hr />
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

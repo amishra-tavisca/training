@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>13. Templar Diff Manager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Diff Manager</h1>
+<p>The purpose of this document is to Understand the usage and behavior of Templar diff manager.</p>
+<hr />
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  Introduction    
+2.  Diff Manager    
+3.  Update Site 
+4.  Update Culture  
+5.  Update Theme    
+6.  Update Widget   
+</code></pre>
+
+<hr />
+<h2>Introduction</h2>
+<p>Templar diff manager allows comparison of existing sites and\or templates with each other. Also, cultures, themes and widgets can be compared using diff manager. It also allows creation of new templates with additional features based on selected items from destination.</p>
+<p>This document gives an overview of behavior and assumptions of Templar diff functionality.</p>
+<p>Templar diff functionality is used in following areas:</p>
+<ol>
+<li>Diff Manager</li>
+<li>Update Site – site listing and site version history</li>
+<li>Update Culture – culture listing and culture version history</li>
+<li>Update Theme – theme version  history</li>
+<li>Update Widgets – manage widget listing</li>
+</ol>
+<p>Color Code convention is common across all above mentioned areas and is as below-</p>
+<ul>
+<li>Same entities – White</li>
+<li>Added in target – Green</li>
+<li>Different in source and target – Yellow</li>
+<li>Deleted from target – Red</li>
+</ul>
+<p>The legends for different entity states are also common across all diff functionality area and is shown below-</p>
+<p><img src="./images/13.TemplarDiffManager/0.png" /></p>
+<h2>Diff Manager</h2>
+<p>One can navigate to Diff Manager by clicking on Templates -&gt; Diff Manager and it can be seen as below:
+<img src="./images/13.TemplarDiffManager/1.png" /></p>
+<p>A sample comparison between two sites using diff manager has following result:
+<img src="./images/13.TemplarDiffManager/2.png" /></p>
+<ol>
+<li>
+<p>Name and URL:</p>
+<p>Name and URL of source and target entities could be same or different and it follows the color code and legend depending on the result of comparison between them.
+However diff manager never updates the Name and URL in newly created template.</p>
+</li>
+<li>
+<p>Target entity must be site</p>
+<p>While creating template from site or from different template, in Diff Manager, target entity must be of type Site. 
+However the comparison between combination of site and template can be calculated and viewed in diff manager.</p>
+</li>
+</ol>
+<h2>Update Site</h2>
+<p>A site can be updated from different site or template from same server or different server, using Templar diff functionality.</p>
+<p>Similarly site can be updated from the versions of same site. Site versions listing can be viewed by clicking Sites -&gt; History.</p>
+<p>A sample comparison between two site using diff manager yields below result:
+<img src="./images/13.TemplarDiffManager/3.png" /></p>
+<ol>
+<li>
+<p><strong>Name and URL</strong></p>
+<p>Name and URL of source and target sites/templates could be same or different and it follows the color code and legend depending on the result of comparison between them.
+However Templar diff functionality never updates the Name and URL of target site.</p>
+</li>
+<li>
+<p><strong>Mapped To Domain</strong></p>
+<p>Site Settings section has Mapped To Domain entry which get updated when a site is updated from diff. Original mapped to domain entries of target site are preserved and new entries are appended to it.
+Templar diff functionality never deletes a mapped to domain entry from the target site.</p>
+</li>
+<li>
+<p><strong>Themes</strong></p>
+<p>Diff Manager does compare themes only for theme name and description differences. Current known behavior is not to compare the content of themes while calculating diff, in next release we plan to implement individual file differences also.</p>
+</li>
+<li>
+<p><strong>Page -&gt; Widget</strong></p>
+<p>The widgets of page are compared on basis of base widget name, title followed by state of the widget.</p>
+<p>Widgets having same base widget name and same title are grouped together and compared for state and position differences. Similarly widgets having same base widget name and same state are grouped and compared for the position and title differences.</p>
+<p>Rest all widget comparisons are either of type added or deleted and displayed under diff manager depending on their added/deleted status.</p>
+<p>The widget states of target site can now be directly updated from diff manager. Wherever widget state has update facility available, it is displayed with popup icon next to state difference as <img src="./images/common/popup.png" />. The sample diff is shown below where widget state can be updated:</p>
+<p><img src="./images/13.TemplarDiffManager/4.png" /></p>
+<p>To avail the facility of state update for widgets it is necessary that the target entity must be of type Site. The widget state is opened in popup after clicking Merge link and state can be modified and saved. Once widget state is saved the diff manager automatically reloads with new comparison result. </p>
+<p><em>Merge:</em> This option avails side by side state comparison and edit, change state before update.</p>
+<p><em>View:</em> By clicking this one can see state of the source widget. Source widget state can be edited and modified (and copied to destination widget state) however it cannot be updated.</p>
+<p>Same behavior is applicable for site and/or templates comparison in Diff Manager.</p>
+<p>Below is sample screen which shows dialog with editable widget state:</p>
+<p><img src="./images/13.TemplarDiffManager/5.png" /></p>
+</li>
+<li>
+<p>The diff viewer now has a “<strong>back</strong>” link as well as an “<strong>Update &amp; Continue<strong>” button. The “</strong>back</strong>” link lets the user navigate back without saving his changes, to the site/template selection dropdown without a need for re-authentication on the previously selected server. The “<strong>Update &amp; Continue</strong>” button lets the user update the current changes in the diff viewer and takes the user back to the site/template selection dropdowns. The “<strong>Update</strong>” button will simply update the changes and take the user back to the main site listing page.</p>
+</li>
+</ol>
+<h2>Update Culture</h2>
+<p>Culture can also be updated from different culture from same server or different server, using Templar diff functionality.</p>
+<p>Update culture feature is available under Global Culture -&gt; Update Culture, Sites -&gt; Edit Site-&gt; Globalization and Admin-&gt;Manage Widgets -&gt; Globalization</p>
+<p>Below is sample culture comparison between two different cultures:
+ 	<img src="./images/13.TemplarDiffManager/6.png" /></p>
+<ol>
+<li>
+<p>Resources and Content differences are listed by their resource/content count as Total Resources and Total Contents respectively. Hence update all is the only option available for Resources and Contents. However individual setting can be updated under culture settings listing.</p>
+</li>
+<li>
+<p>The “back” link and the “Update &amp; Continue” button are similar to the ones in the Update Site diff viewer.</p>
+</li>
+<li>
+<p>Now in Settings -&gt; Date Time Format, Days and Months update support has been added, however both fields support entire Days/Months field update (and not an individual Day or Month value update).</p>
+</li>
+</ol>
+<h2>Update Theme</h2>
+<p>Themes can be updated from Globals -&gt; Global Themes -&gt; Update Theme, Theme history and Site edit -&gt; Themes. Under history all theme versions are listed and current theme can be replaced from any of the theme version. Update theme allows updating theme from current deployment and from different deployment as well. Under edit site, theme can be updated from themes of same site, themes of different site, and global themes of current deployment and global/site level themes of different deployment.  Theme diff viewer shows the file listing with difference of file size only.
+<img src="./images/13.TemplarDiffManager/7.png" /></p>
+<p>Similar to site diff, Merge and view facility is provided in theme diff for text-based files like .CSS, .TXT, .HTML etc. The behavior of Merge and View is same as that of site diff where Merge can be used to update individual theme file and View can be used to view/edit (however not to update) the content of the file.</p>
+<h2>Update Widget</h2>
+<p>Widgets can be updated from widgets on another server or by uploading a widget backup file. The widget diff viewer does not allow deletion of widgets on the existing server. Only updates to the existing widgets can be made or new widgets can be added. 
+Widget diff can be viewed by navigating to <strong>Admin</strong> -&gt; <strong>Manage widgets</strong> -&gt; <strong>Update widgets</strong></p>
+<p>Below is a sample widget comparison between two servers:
+<img src="./images/13.TemplarDiffManager/8.png" /></p>
+<p><strong>1.</strong>	<strong>Widget Search:</strong></p>
+<pre><code>The search box at the top left of the widget diff viewer allows a user to search widgets that match a particular text. This search is particularly useful when dealing with servers having a huge no. of widgets, or when dealing with widget backup files that have many widgets in them.
+</code></pre>
+
+<p><strong>2.</strong>	<strong>Widget State Update :</strong></p>
+<pre><code>Widget states can now be updated using the widget diff viewer. Note that only target server widgets can be updated using this functionality. Wherever widget state has update facility available, it is displayed with popup icon next to state difference as ![](images/common/popup.png). The sample diff is shown below where widget state can be updated:
+![](./images/13.TemplarDiffManager/9.png)
+
+The widget state is opened in popup after clicking Merge and View link and state can be modified and saved.
+
+In case of widget diff as well Merge and View behave similar to site diff where Merge can be used to update target widget state and View can be used to view/edit (however not to update) the source widget state.
+</code></pre>
+
+<p><strong>3.</strong>	The “<strong>back<strong>” link and the “</strong>Update &amp; Continue</strong>” button are similar to the ones in 	the <strong>Update Site</strong> diff viewer.</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

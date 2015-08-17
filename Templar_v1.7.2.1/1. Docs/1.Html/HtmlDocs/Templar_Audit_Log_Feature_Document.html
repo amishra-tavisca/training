@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>12. Templar Audit Log Feature Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Audit Log</h1>
+<hr />
+<p>This document explains the configuration and usage of Templar audit log feature.</p>
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  Introduction
+2.  Audit Log
+        Manage Access Rights of Audit Log Report:
+3.  Audit Log Report    
+        Features:
+4.  Sample Audit Logs 
+</code></pre>
+
+<hr />
+<h2>Introduction</h2>
+<p>Audit logging feature keeps track of all changes done in Templar.
+It does this by recording all state change actions (such as who logged in and when) and storing this information in the form of a log (This feature does not impact site operations in preview and live mode). This log is visible to SuperUser and can be allowed for viewing by other roles as per permissions.
+This document gives an overview of settings and supported flow of audit logging feature.</p>
+<h2>Audit Log</h2>
+<p>Audit Log report is displayed under the Reports tab, where you can view all auditing log entries. Below screenshot shows the Audit logs report link:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/1.Audit_log_Report_link.png" /></p>
+<h4>Manage Access Rights of Audit Log Report:</h4>
+<p>The default behavior only allows audit log report to be viewed by SuperUser, however if required other user roles can be given permission to view this report.</p>
+<p>User of role SuperUser has default access to Audit Log report. Access rights of Audit Log report can be handled from Admin -&gt; Manage tabs page. On Manage tabs, under Reports section Audit Log report is listed.</p>
+<p>A user of a role having access to Manage tabs can change access rights of other users to this report. Simply check/uncheck of Audit Logs check box as shown in below screenshot serves the purpose:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/2.Mamage_Access_Rights.png" />  </p>
+<h2>Audit Log Report</h2>
+<p>Below is a sample audit log reports view:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/3.Audit_log.png" /></p>
+<h3>Features:</h3>
+<h4>1. Role based logs</h4>
+<p>The logs displayed under this report are based on role of the logged in user. If user of role SuperUser views the report then all the logs are displayed.
+User of role Admin can only view logs which are logged under role of Admin and below. And similarly user of role User is allowed to view logs under role of User.</p>
+<h4>2. Details</h4>
+<p>Under this report there are two types of logs, single operation logs and multi-operation logs.
+Single operation log is created when a single user action corresponds to a single action in Templar application e.g. user login. On the other hand when a single user action on the Admin interface triggers multiple backend actions e.g. a site creation in that case all related logs for that action are grouped under a single entry.
+Single operation logs are listed with <img src="./images/12.TemplarAuditLogFeatureDocument/4.Icon1.png" /> icon and multi-operation logs are listed with <img src="./images/12.TemplarAuditLogFeatureDocument/5.Icon2.png" /> icon in the first column of the report.
+Multi-operation logs are one which have sub logs under them and which can be seen by clicking the expand icon as shown above. </p>
+<h4>3. Actions</h4>
+<p>At a high level there are a total of 6 actions which are captured using audit log feature. The actions are Authenticate, Logout, Create, Update, Publish and Delete. The sample logs generated when any of the action is performed are shown later in this document.</p>
+<p><strong>Authenticate:</strong>
+When user is trying to login using his Templar credentials one entry is logged and marked as Authenticate action, if authentication is successful then status is Success and if it fails that entry is recorded and marked with ‘Error’ status.</p>
+<p><strong>Create:</strong>
+When any Templar entity is created one entry is logged with Create action. The Templar entity could be Site, Page, Widget-Instance, Template, Global Culture, Global Theme, Widget etc.</p>
+<p><strong>Delete:</strong>
+Whenever any Templar entity is deleted a log is recorded for that delete action with corresponding status.</p>
+<p><strong>Logout:</strong>
+When user logs out of Templar admin application one entry is logged under this action.</p>
+<p><strong>Publish:</strong>
+Publish action is logged when any Templar entity is Published.</p>
+<p><strong>Update:</strong>
+Similar to Create action if any Templar entity is updated the log is recorded with Update action.</p>
+<h4>4. Username and Role</h4>
+<p>To know under which credentials the actions are performed, audit log report logs the name and the role of the user. </p>
+<h4>5.	Machine Name and Client IP</h4>
+<p>Machine name and Client IP of the machine on which Templar is deployed is also logged under this report.</p>
+<h4>6.	Site Url, Page Url and Widget Type</h4>
+<p>Site Url is logged if any site specific operation like update site, add/delete/update site level entity, add/delete/update page, publish etc. is performed.</p>
+<p>Similarly Page Url is logged in case any page specific operation is performed. However when any widget is added/deleted/updated on page corresponding Base Widget name is logged under Widget Type.</p>
+<p>Site Url, Page Url and/or Widget Type would be empty in case performed operation is not site, page and/or widget specific respectively e.g. In case of Global Culture, Global Theme, Site Templates, Manage Widget etc. site url, page url and widget type would be empty.</p>
+<h4>7.	URL</h4>
+<p>The URL logged is the relative url when that particular operation is performed.</p>
+<h4>8.	Operation</h4>
+<p>The purpose of this field is to brief about the action.</p>
+<h4>9.	Status</h4>
+<p>The status of the action could either be Success or Error. In case error occurs report tries to update Operation column with brief explanation of error.</p>
+<h4>10.	Search</h4>
+<p>Audit Log report provides a range of search fields. One can search the report on Username, Status, ID, Role, Action, Date range, Machine Name, Site Url, Page Url or any combination of these fields.
+Role is a textbox where valid inputs are Superuser, Admin and User or as per custom configured roles. 
+Similarly Action has six predefined values as explain above and they are Authenticate, Create, Delete, Logout, Publish and Update.</p>
+<h2>Sample Audit Logs</h2>
+<h4>1.	Authenticate</h4>
+<h5>Login and logout:</h5>
+<p>When user logs in or logs out, audit log report records logs as shown below:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/6.Login_loguot_log.png" /></p>
+<p>On successful login an entry is added as shown above with username, role of user, action (Authenticate) and status (Success).
+Similarly when user logs out of Templar and entry gets added with user logged out as value of operation section.</p>
+<h5>Login with Invalid credentials:</h5>
+<p>In case user tries to login with invalid credentials that entry is added with the username which is used to login, status (Error) and role is set to empty. Below is a sample log of login with invalid credentials:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/7.Invalid_login_log.png" /></p>
+<p>As authenticate action has no further details to show is comes under single log entry.</p>
+<h4>2.	Create Site</h4>
+<p>When a site is created from already available template following entries are logged:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/8.Create_Site_log.png" /> </p>
+<p>When a site is created using a template following operations are performed:</p>
+<ul>
+<li>Site is created.</li>
+<li>Pages are created and added to site.</li>
+<li>Widget instances are added.</li>
+<li>Themes are created and associated with site.</li>
+</ul>
+<h4>3.	Create Page</h4>
+<p>When page is created below operations are logged:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/9.Create_Page_Log.png" />  </p>
+<p>When a new page is added to existing site Create Page action is performed and an entry is logged with Create action and Create Page operation.</p>
+<h4>4.	Create Global Theme</h4>
+<p>When global level theme is created below operations are logged:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/10.Create_GlobalTheme_log.png" />   </p>
+<p>When a global theme with theme name ‘g_Travel’ is added an entry is created with details of username, role or user, Create as action and name of theme in Operation.</p>
+<h4>5.	Create Global Culture</h4>
+<p>When global level culture is created below operations are performed, which are grouped under Add Global Culture.</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/11.Create_GlobalCulture_Log.png" />   </p>
+<p>On creating global culture logs are created for following entities:</p>
+<ul>
+<li>Global Culture Instance</li>
+<li>Culture Setting</li>
+<li>Culture Setting Days</li>
+<li>Culture Setting Months</li>
+<li>Culture Setting Days </li>
+</ul>
+<h4>6.	Create Template</h4>
+<p>When a template is created from an existing zip file site below sample entries are logged for this operation:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/12.Create_Template_log.png" />     </p>
+<p>When a template is created from an existing zip file following operations are performed and logged:</p>
+<ul>
+<li>Upload template content.</li>
+<li>Create template using uploaded content.</li>
+<li>Delete uploaded content (after successful creation of template).</li>
+</ul>
+<h4>7.	Create Widget</h4>
+<p>When widget is created, below is the logged sample entry:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/13.Create_Widget_log.png" />     </p>
+<p>When a SampleWidget is added to widget list an entry is added with details of username, role, Create as action and name of widget in operation.</p>
+<h4>8.	Update Theme</h4>
+<p>Audit log provides the diff manager functionality to differentiate between logs of theme with updated version.
+After updating theme second time, below is the logged sample entry:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/14.Update_Theme.png" />  </p>
+<h4>9.	Update Culture</h4>
+<p>Audit log provides the diff manager functionality to differentiate between logs of culture with updated version.
+After updating culture, below is the logged sample entry:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/15.Update_Culture.png" />   </p>
+<h4>10.	Update Page</h4>
+<p>Audit log provides the diff manager functionality to differentiate between logs of page with updated version.
+After updating page, below is the logged sample entry:</p>
+<p><img src="./images/12.TemplarAuditLogFeatureDocument/16.Update_Page.png" />   </p>
+<p><strong>Note:</strong>
+The Audit Logging cannot be turned off by using any switches or other techniques. </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

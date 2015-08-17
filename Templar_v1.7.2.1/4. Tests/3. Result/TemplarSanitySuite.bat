@@ -1,0 +1,4 @@
+DEL /F TemplarSanityUITestsReport*.*
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe "..\2. Release\Tavisca.Templar.UIAutomation.sln" /p:Configuration=Debug;AutoParameterizationWebConfigConnectionStrings=False
+"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\mstest.exe" /testcontainer:"..\2. Release\Tavisca.Templar.UIAutomation.Tests\bin\Debug\Tavisca.Templar.UIAutomation.Tests.dll" /category:"Sanity" /detail:errormessage /detail:errorstacktrace /detail:debugtrace /detail:stderr /runconfig:"..\2. Release\Local.testsettings" /resultsfile:TemplarSanityUITestsReport.trx
+"..\2. Release\Tools\MSXSL.exe" TemplarSanityUITestsReport.trx "..\2. Release\Tools\MSTestReport.xsl" -o TemplarSanityUITestsReport.html

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3. Templar Feature Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Feature Document</h1>
+<p>The purpose of this document is to:</p>
+<ul>
+<li>Understand new features in framework.</li>
+<li>This document is intended for Developers.</li>
+</ul>
+<hr />
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  Table of Contents
+2.  Reduced number of framework assemblies to ease deployment
+3.  New database mode support for Themes
+4.  New improved file manager
+5.  Site level resources
+6.  External JavaScript support
+7.  Enhanced versioning features
+8.  Web Performance Optimization
+9.  Enhanced Site Templates
+10. Composite Widget &amp; Enhanced Content Placeholder Widget
+11. Basic collaboration support
+12. Sync site from site or template locally or over the web
+13. Global resources allow separate download\upload of content
+14. Support for widget client event mapping
+15. Framework support for distributed caching &amp; UI for cache management
+16. Improved testability and standardized site data access
+17. Page designer enhancements
+18. Templar Context now available in - aspx and ashx page created in Templar
+19. Support for new Handlers to perform pre-post actions
+20. Templar deployment service
+21. Miscellaneous Templar Admin UI usability enhancements
+22. Support for Custom Layouts
+23. Custom Authentication Provider Integration
+24. Templar Default Application Configuration
+</code></pre>
+
+<hr />
+<h2>Reduced number of framework assemblies to ease deployment</h2>
+<p>Templar now has only 5 required assemblies apart from third party assemblies namely</p>
+<p>For Widget Development:<br/>
+<code>Tavisca.Templar.Contract.dll</code>, <code>Tavisca.Frameworks.Spectrum.dll</code>, <code>Tavisca.Templar.Extensions.dll</code></p>
+<p>Templar Framework:<br/>                                                                                                                  <code>Tavisca.Templar.dll</code>, <code>Tavisca.Templar.EmbeddedResourcePathProvider.dll</code>.</p>
+<p>Going forward upgrading for new features and fixes will become very easy.</p>
+<h2>New database mode support for Themes</h2>
+<p>There is no more a need for pushing theme content to every deployment machine. With this feature you can store themes in a database instead of the file system with full separation between design and live mode, which will be single point of deployment for multi-server deployment scenarios. Migrating from File System Mode to Database Mode is also very easy.</p>
+<p>Note: Database mode doesn’t work in backward compatibility mode. So you can’t work with file system mode side by side with database mode.</p>
+<p>Database Theme support requires Distributed Cache Solution e.g. AppFabric caching for performance reasons.</p>
+<h2>New improved file manager</h2>
+<p>New improved web based file manager for viewing theme content, Web File Manager works similar to file manager on your computer. Supports manipulations with existing files/folders can be done through the context menu or even with shortcuts.  New File manager supports listing of files &amp; folder, editing of text content based files, preview of files, creating zip files, uploading &amp; downloading of files, easy moving or copying of files across folders.</p>
+<p>Note: File editing is being disabled in case of Backward Compatibility mode i.e. when Themes are store on the file system.</p>
+<h2>Site level resources</h2>
+<p>Site level content can now be stored &amp; accessed depending upon the access control. Content that varies with site such as xml configuration files, documents like FAQ’s, Privacy policy etc… can now be stored with the site.</p>
+<h2>External JavaScript support</h2>
+<p>In Templar v1.7 you can add external JavaScript both Site &amp; Page Level; every page level JavaScript takes precedence over site level.  You can arrange order for JavaScript. Default JQuery can be overridden from external path, but order for jQuery &amp; Key Name can’t be changed. It has to be the first one.  If jQuery Path is empty Templar Framework will insert its own jQuery.</p>
+<p>Site-Resources can also be added as scripts.</p>
+<h2>Enhanced versioning features</h2>
+<p>Templar v1.7 now comes with entire Site Versioning, Page versioning, Global Culture &amp; Global Theme Versioning support. Using previous version data you can see difference between current data using diff manager and can even update the data.</p>
+<h2>Web Performance Optimization</h2>
+<p>Templar now has a better way of CSS combining &amp; compression. Also for performance reasons Templar now adds Cache Header for all dynamic resources that it serves. To enable optimization change value of key Templar.EnableWebOptimization in AppSetting to “Y”, to disable it change value to “N”, by default it is “Y”.</p>
+<p>When Themes are Database &amp; CSS files are modified from UI File manager in order to reflect changes, you are recommended to clear WebOptimizationCache to force to re-bundling of CSS.</p>
+<h2>Enhanced Site Templates</h2>
+<p>Site Templates are now enhanced and include site level culture, resources and themes. Entire Site can now be re-created just using the template without any dependency.</p>
+<p>Note: Global cultures and themes are not part of the site template and have to be moved independently if used. Site template refers them by their name.</p>
+<h2>Composite Widget &amp; Enhanced Content Placeholder Widget</h2>
+<p>Introduction of Composite widget allows placing other widgets inside it, which helps in creating complex layouts &amp; placing widget side by side in same panels. Content Placeholder widget has been improved to have tied relation with child widgets contained in it. So when it is dragged or dropped to another location all children are also moved with it.</p>
+<h2>Basic collaboration support</h2>
+<p>Notifications on page listing and designer appear whenever the same page is accessed and modified by some other user simultaneously.</p>
+<p>Support for page level chat on designer to send simple message.</p>
+<h2>Sync site from site or template locally or over the web</h2>
+<p>Sites can now be updated from template or any other site on same deployment or remote deployment over the web provided the user has required access.</p>
+<h2>Global resources allow separate download\upload of content</h2>
+<p>We now allow global Themes and Globalization data to be downloaded separately. This can be used to update corresponding data on a different Templar deployment.</p>
+<h2>Support for widget client event mapping</h2>
+<p>Framework now support JavaScript event mapping along with legacy way of broadcasting of JavaScript event.</p>
+<h2>Framework support for distributed caching &amp; UI for cache management</h2>
+<p>Support for Distributed Cache has been added. UI cache management includes separate site specific cache with ability to view content corresponding to entries; remove individual entries or clear entire site specific cache without affecting other site caches.</p>
+<h2>Improved testability and standardized site data access</h2>
+<p>Added TemplarContext as a standard way of accessing Environment Data, Session, Culture Resources, Culture list and SEO parameters(Header,footer &amp; metadata).</p>
+<p>Enhanced testability for services and widgets with ability to create mock TemplarContext.</p>
+<h2>Page designer enhancements</h2>
+<ul>
+<li>New drag drop implementation on designer using jQuery has made UI more interactive.</li>
+<li>Added Widgets search option on designer page.</li>
+<li>One click collapse/expand all widgets is now possible</li>
+<li>Ability for displaying widget help on designer page</li>
+<li>Settings display also allows modal full page view of settings</li>
+<li>Designer full screen mode</li>
+<li>Page action notification (small loader) in design page menu bar</li>
+</ul>
+<h2>Templar Context now available in - aspx and ashx page created in Templar</h2>
+<p>We now allow Templar settings to be accesses in aspx and ashx pages also. </p>
+<h2>Support for new Handlers to perform pre-post actions</h2>
+<p>Multiple handlers can now be added at site level to perform pre &amp; post actions in execution life cycle of page, something similar to modules.</p>
+<p>E.g. Logging ambient data whenever required.</p>
+<h2>Templar deployment service</h2>
+<p>Allows site\pages\templates\global culture\global theme - download, update via a service	can be used to create deployment automation infrastructure</p>
+<h2>Miscellaneous Templar Admin UI usability enhancements</h2>
+<ul>
+<li>Templar User passwords are now md5 hashed.</li>
+<li>Consistency changes grids\search\paging fonts etc.</li>
+<li>Tab reorganization</li>
+<li>Removed Sandbox</li>
+<li>Added Report Exception \ Cache \ Feedback \ Scheduled Pages View </li>
+<li>Favicon support for themes</li>
+<li>
+Simplified options
+<ul>
+<li>Site settings display changed with addition of SEO and Site Resources</li>
+<li>Create site options reduced with default creation from template</li>
+<li>Page settings default options reduced with option for advanced settings</li>
+<li>All list editing made popup based with wide space for editing.</li>
+</ul>
+</li>
+<li>Multi selection with delete allowed in template listing.</li>
+<li>Global resource download\upload.</li>
+<li>Multi user login and theme changes allowed.</li>
+<li>Added comment support in content for globalization</li>
+<li>Page theme opt out support Enable Theming key in page data</li>
+<li>Exception reports accessible via the Templar UI</li>
+<li>Widget preview enhancements support for theme and event testing</li>
+<li>Feedback window on Templar Admin UI</li>
+<li>Templar default live site markup is now XHTML 1.0 Strict compliant</li>
+<li>Doc-type switching support is added to enable HTML 5 site\page development in Templar SEO related client code can be injected on every page of site</li>
+<li>Templar Admin UI now allows enabling/disabling of User.</li>
+<li>Updated jQuery version to v1.7.2</li>
+<li>Send Email Option /link is now configuration driven </li>
+<li>Minor Schema Changes added Constraint on Page Table for unique Page url within same site</li>
+<li>Added delete artifact API in Templar Deployment Service</li>
+<li>Added download API for site resource, theme and globalization data in Site Management Service.</li>
+</ul>
+<h2>Support for Custom Layouts</h2>
+<p>Templar now supports new type of layout called “Custom Layout” along with existing 5 legacy layouts.  In case of custom layout you can design and integrate any HTML markup with placeholders as your new layout.</p>
+<p>Custom Layout allows defining complete HMTL markup along with placeholders for Widgets &amp; substitution of Templar variables. Custom Layout can be dynamically or statically set by Pre-execute handler by setting markup string or Site Resource Key in page setting named ‘PageLayout’. Set Page Setting Key PageLayout’s value to ‘SiteResourceUrl(<siteresourcekey>)’.
+<br/>E.g. SiteResourceUrl(HomePageLayout).</p>
+<p>If key is missing or value is empty then layout is picked from applied theme. It means Theme should have folder named ‘Layouts’ which will hold HTML layout for individual Templar pages &amp; Site Level default layout.</p>
+<p>Custom Layouts can be defined at 3 levels.</p>
+<ol>
+<li>Site level default layout.</li>
+<li>Master Page Level Layout.</li>
+<li>Normal / Content Page Level Layout.</li>
+</ol>
+<p>Layout of page is always picked in reverse order of hierarchy.</p>
+<p>Consider following Scenario
+<br>Site with URL:  A 	Theme:  B
+<br>Master Page with relative URL: /pages/masterpages/master
+<br>Content Page with relative URL: /pages/contentpages/login
+<br>Normal Page with relative URL: /home</p>
+<ol>
+<li>
+<p>Normal Page is accessed.
+<br>When home page is accessed then framework looks for layout file at location. ”/Uploads/A/Themes/B/Layouts/home.html”.</p>
+<p>If the file is missing, then framework looks for site default page layout.
+<br>“/Uploads/A/Themes/B/Layouts/ DefaultLayout.html”. </p>
+<p>If this file is also missing framework doesn’t render page properly &amp; exception is logged in background.</p>
+</li>
+<li>
+<p>Content Page is accessed
+<br>When login page is accessed then framework looks for layout file at location.
+”/Uploads/A/Themes/B/Layouts/pages/contentpages/login.html”.</p>
+<p>If the file is missing, then framework looks for master page layout.
+”/Uploads/A/Themes/B/Layouts/pages/masterpages/master.html”.</p>
+<p>If the file is missing, then framework looks for site default page layout.
+“/Uploads/A/Themes/B/Layouts/ DefaultLayout.html”.  
+</p>
+<p>If this file is also missing framework doesn’t render page properly &amp; exception is logged in background.</p>
+</li>
+</ol>
+<p>Layout Markup Substitution </p>
+<ol>
+<li>
+<p>Defining Placeholders for Widget - <code>{{$panel[columnNo::0|attribute::attributeValue|...]}}</code></p>
+<p><img src="./images/3.TemplarFeatureDocument/1.png" /></p>
+</li>
+<li>
+<p>Resolving Templar Page Url - <code>[$TemplarUrl(~<templarpagerelativeurl>)$]</code>.</p>
+</li>
+<li>
+<p>Adding Images/Css/other files in them - <code>[$ThemeUrl (&lt;filepath w.r.t. theme&gt;)$]</code>.</p>
+</li>
+<li>
+<p>Adding Site Resource Url’s - <code>[$SiteResourceUrl (<siteresourcekey>)$]</code>.</p>
+</li>
+<li>
+<p>Adding Site Setting Value – <code>[$SiteSettings(<groupname>,<key>)$]</code>.</p>
+</li>
+<li>
+<p>Adding Page Setting Value – <code>[$PageSetting(<key>)$]</code>.</p>
+</li>
+<li>
+<p>Adding Globalization Resource Value – <code>[#&lt;<em>GlobalizationResourceKey</em>&gt;#]</code>.</p>
+</li>
+</ol>
+<p>Sample Layout HTML File</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+   &lt;head&gt;
+      &lt;title&gt;Travel - Home&lt;/title&gt;
+      &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=windows-1251&quot;&gt;
+   &lt;/head&gt;  
+&lt;body&gt;
+   &lt;div class=&quot;bodyCss&quot;&gt;
+      &lt;div id=&quot;header&quot;&gt;
+         &lt;a href=&quot;index.html&quot; class=&quot;logo&quot;&gt;
+            &lt;img src=&quot;[$ThemeUrl(images/logo.jpg)$]&quot; alt=&quot;&quot; height=&quot;90&quot; width=&quot;274&quot;&gt;
+         &lt;/a&gt;
+         &lt;ul id=&quot;menu&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;[$TemplarUrl(~/home)$]&quot;&gt;Home Page&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;[$TemplarUrl(~/travelabout)$]&quot;&gt;About Company&lt;/a&gt;&lt;/li&gt;
+         &lt;/ul&gt;
+      &lt;/div&gt;
+      {{$panel[columnNo::0|id::contentPanel]}}
+      {{$panel[columnNo::1|id::footer]}}
+   &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h4>Serving Static HTML Pages</h4>
+<p>Static html as put in a layout can be served as-is without any markup changes on Templar Page’s url. Custom Layouts set by pre-execute handler or from site resource or from Theme can directly serve as HTML page to browser by setting key named “OnlyRenderPageLayout” in PageSetting to “Y”</p>
+<p>In this case apart from Placeholder substitution, all other substitution takes place, and final string content is sent back to browser.</p>
+<h4>Include Default Scripts to Page</h4>
+<p>Default behavior of Templar is to add all default scripts to the page. In case default scripts are not required set “DisableDefaultScripts” in PageSetting to “Y”. Default value is “N”</p>
+<h4>Custom Authentication Provider Integration</h4>
+<p>Templar now supports integrating custom authentication provider. This feature enables plugging in third party authentication providers like Active Directory or custom authentication service for controlling access to Templar admin application.</p>
+<p>To implement Custom Authentication Provider you need to implement following interfaces</p>
+<p><img src="./images/3.TemplarFeatureDocument/2.png" /></p>
+<p>Member Description</p>
+<ol>
+<li>FirstName : First Name for Authenticated User </li>
+<li>LastName: Last Name for Authenticated User</li>
+<li>LoginName : Login Username of Authenticated User</li>
+<li>RoleId : This allows changing the Role of the User</li>
+</ol>
+<p>While he/she is logging in to Templar. For ex: If LDAP (Lightweight Directory Access Protocol) is used as an Authentication method, there can be cases where users’ groups are changed. And in such case, it is desired that the Role also gets changed accordingly in Templar too. Hence, using this property cases like these can be handled.</p>
+<p><img src="./images/3.TemplarFeatureDocument/3.png" /></p>
+<p>Member Description</p>
+<ol>
+<li>AllowUserRoleModification : Allow role modification or not is driven by a flag. Any of the roles can be assigned to a Templar user by using RoleId property of ‘ITemplarUser‘ interface except ‘SuperUser’ role. When Templar authenticates any particular user, it checks whether user is trying to gain SuperUser role. This role can be acquired only by one user at a time, which gives all the rights. ‘ValidateUser’ method of UserAuthenticationProvider has been changed to accommodate all these conditions.</li>
+<li>Authenticate : Authenticate user with given user name and password, return true &amp; populate out parameter authenticatedUser, return false &amp; set null to out parameter authenticatedUser.</li>
+<li>CreateDisabledTemplarUserIfNotPresent: if true, authenticated user in created in Templar if the user was not previously registered but in disabled state.  If false registers newly authenticated user as normal user.</li>
+<li>Name: Name of Provider. This will be used in error message response on authentication failure.</li>
+</ol>
+<h2>Templar Default Application Configuration</h2>
+<pre><code>    Key Name                            |   Purpose                                                     
+--------------------------------------------------------------------------------------------------------------
+Templar.IsFirstUse                      | Use to setup new development environment(Database)
+                                          Default : ”Y”
+Templar.Cache.CacheName                 | Name of the Templar Main Cache
+                                          Default:  “TemplarCache”
+Templar.Cache.TemplarDesignCacheName    | Name of the Templar Design Cache
+                                          Default:  “TemplarDesignCache”
+Templar.Cache.TemplarLiveCacheName      | Name of the Templar Live  Cache
+                                          Default:  “TemplarLiveCache”
+Templar.Cache.Provider                  | Name of class inheriting from abstract class
+                                          System.Runtime.Caching.ObjectCache.
+                                          Few Implementation are provided in Tavisca.Templar.Extensions
+                                            1.  Wrapper around Dictionary
+                                                Tavisca.Templar.Caching.InMemoryCacheImpl
+                                            2.  Wrapper around HttpCache
+                                                Tavisca.Templar.Caching.HttpRuntimeCacheImpl
+                                            3.  Wrapper for AffFabric
+                                                Tavisca.Templar.Caching.AppFabricCacheImpl
+
+                                          Default: Tavisca.Templar.Caching.HttpRuntimeCacheImpl
+Templar.Cache.EnableCacheMetaUpdate     | Enable Cache Metadata update
+                                          Default : “Y”
+Templar.Cache.EnableAsyncCacheMetaUpdate| Cache access stats are updated asynchronously when value is Y else
+                                          synchronous updation takes place
+                                          Default : “Y”
+Templar.EnablePortBasedSSLDetection     | Templar allow port based SSL detection when this key has value “Y”
+                                          else portbased detection is disabled.
+                                          Default : “N”
+Templar.SecurePorts                     | When port based SSL detection is enabled this key holds the comma
+                                          separated port numbers on which secured page has to be served.
+                                          Default : “443”
+Templar.SaveViewStateInSession          | Decreases size of page by storing viewstate in session when value
+                                          is “Y”, else viewstate is persisted on page in Hidden Field
+                                          Default: “Y”
+Templar.AllowThumbnailsInFileManager    | Show thumbnails in FileManager 
+                                          Default : “N”
+Templar.AllowThemeEdit                  | Allow editing of css &amp; text based resources in themes
+                                          Default : ”N”
+Templar.FileSystem                      | Theme Storage support is decided by this value, 
+                                          Theme can be stored either on WindowsFileSystem or in Database 
+                                          [WindowsFileSystem | DatabaseFileSystem]
+                                          Default : “WindowsFileSystem”
+Templar.EnableWebOptimization           | Combining CSS for Preview &amp; Live view from Themes
+                                          Default : “Y”
+Templar.ContentPlaceHolderWidgetName    | Name of ContentPlaceHolder Widget
+                                          Default : “ContentPlaceHolder”
+Templar.CompositeWidgetName             | Name of Composite Widget
+                                          Default : “CompositeWidget”
+Templar.ExcludeRoutes                   | File Extensions to be excluded  from routing &amp; let ASP.NET handle it
+                                          Default: “htm|html|aspx|gif|jpg|png|axd|ico|svc|ashx|xml|txt|css|swf|js|php”
+Templar.SuppressJavascriptErrors        | Suppress JavaScript errors on Client Side &amp; log it as Exception in
+                                          Application Errors
+                                          Default : “N”
+Templar.EnableFeedback                  | Show feedback window in Admin Panel
+                                          Default : “Y”
+Templar.RestrictedSiteUrls              | Names that are restricted for siteurl 
+                                          Default : “templar|resources”
+Templar.EnableLogging                   | Log Key not found exception if not found in Globalization Culture
+                                          Default:  “N”
+Templar.RestrictedPageUrls              | Names that are restricted for pageurl
+                                          Default : “design|preview|live|templar|services|handlers|templaradmin|defaultlayout”
+Templar.ShowMachineName                 | On Live &amp; Preview page bydefault machine name is visisble to 
+                                          locate response origin machine, if value is Y this information is available 
+                                          as tooltip at top left corner of browser
+                                          Default: “N”
+Templar.EnablePageScheduling            | Enable page scheduling  feature
+                                          Default : “N”
+Templar.PageSchedulerPollingInterval    | Page Scheduler Polling Interval in Minutes
+                                          Default : “5”
+Templar.ShowSendEmailOption             | Show mail sending option in Admin UI
+                                          Default : “Y”
+Templar.EnableCaching                   | On demand Caching of Site &amp; Page Entities (i.e. Configurations)
+                                          Default: “Y”
+Templar.ApplicationVersion              | This key suffix as querystring  to all javascript url &amp; css when
+                                          included by framework, it is useful for for forcing static content
+                                          update on client by changing its value.
+Templar.TemplarContextLocatorService    | Name of class implementing interface ITemplarContextLocatorService 
+                                          Value can be overridden to create MockContext for Testing  Widgets locally
+Templar.EnableAuditLogging              | Enable/disable Templar audit logging feature
+Templar.EnableAuditLogging              | This key is used for decrypts the encrypted email info.
+Templar.EnableAuditLogging              | This is used for decrypts the encrypted email info.
+                                          Value is encrypted email-info.
+</code></pre>
+
+<h2>Templar Default Page Level Configuration</h2>
+<pre><code>    Key Name                            |   Purpose                                                     
+----------------------------------------------------------------------------------------------------------
+DisableDefaultScripts                   | Use to exclude default scripts being added to page.
+                                          Default : ”N”
+</code></pre>
+
+<hr />
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

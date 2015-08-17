@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>7. Templar Site Management Service API Spec</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Site Management Service Developer Guide</h1>
+<p>The purpose of this document is to:</p>
+<ul>
+<li>Understand how to use Templar site management service.</li>
+<li>This document is intended for Developers.</li>
+</ul>
+<hr />
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  Introduction
+2.  How to access it?
+3.  Recommendations
+4.  Common Parameters
+        Common Request Parameters
+        Common Response Parameters
+        Common Error Messages
+5.  Service Methods
+    1.  GetSiteList
+    2.  GetTemplateList
+    3.  GetSite
+    4.  GetSiteFromTemplate
+    5.  UpdateSite
+    6.  AddOrUpdateSiteResource
+    7.  UploadTheme
+    8.  UploadGlobalizationData
+    9.  DownloadSiteResource
+    10. DownloadTheme
+    11. DownloadGlobalizationData
+    12. UpdateCompleteSite
+    13. PublishSite
+    14. GetCacheDetails
+    15. RemoveSiteCache
+    16. RemoveSitePageCache
+6.  Detailed Object Model
+        Culture
+        CultureContent
+        CultureResource
+        CultureSetting
+        DateTimeFormat
+        DayName
+        EnvSetting
+        EnvSettingGroup
+        ErrorPage
+        EventInfoMapping
+        EventMapping
+        KeyValuePair
+        MetaData
+        MonthName
+        NumberFormat
+        Page
+        PageLayouts
+        Site
+        SiteInfo
+        SiteResource
+        SiteSection
+        TemplateInfo
+        Theme
+        Widget
+        WidgetInstance
+</code></pre>
+
+<hr />
+<h2>Introduction</h2>
+<p>As the name suggests Templar Site Management Service (TSMS) is used to programmatically manage all site related activities for Templar deployment.**</p>
+<p>At a high level it provides release enabling features like the ability to create and manage sites on a deployment. Including changes to environment data, domain settings, page title changes, SEO setting changes, adding pages, copying pages and others.  This service is the recommended way to build automation tools for easing site management within an environment.</p>
+<h2>How to access it?</h2>
+<p>The TSMS can be accessed at /Templar/Services/TemplarSiteManagementService.svc url on the base Templar deployment.</p>
+<p>To use TSMS, you will need to create a client and use it to call the TSMS. You can do this using the svcutil.exe tool from the command line with the following syntax:</p>
+<pre><code>svcutil.exe http://templarDeployment.com/Templar/Services/TemplarSiteManagementService.svc?wsdl
+</code></pre>
+
+<p>This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:</p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_0.png" /></p>
+<h2>Recommendations</h2>
+<ol>
+<li>
+<p>Always host it on SSL as clear-text password is sent as part of request.</p>
+</li>
+<li>
+<p>Avoid using it on production environment as some methods may be time consuming.</p>
+</li>
+</ol>
+<h2>Common Parameters</h2>
+<h4>Common Request Parameters</h4>
+<p>Every request to the service must contain authentication information described below.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td>String</td>
+    <td>Templar username for the deployment</td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td>String</td>
+    <td>Password for the above specified username</td>
+  </tr>
+</table>
+<h4>Common Response Parameters</h4>
+<p>Every response from the service contains following information related to the status of operation performed.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>IsSuccessful</td>
+    <td>Bool</td>
+    <td>Is true if operation was performed successfully, else false.</td>
+  </tr>
+  <tr>
+    <td>Message</td>
+    <td>String</td>
+    <td>Contains message corresponding to status of the operation performed.</td>
+  </tr>
+  <tr>
+    <td>ResponseCode</td>
+    <td>Int</td>
+    <td>Response code corresponding to status of the service call.</td>
+  </tr>
+</table>
+<h4>Common Error Messages</h4>
+<table>
+  <tr>
+    <td>Code</td>
+    <td>Message</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>401</td>
+    <td>Authentication failed</td>
+    <td>Server was not able to authenticate using username and password provided.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Error occurred while processing your request</td>
+    <td>Some unexpected error occurred while performing the operation on server. Check server exception logs for further details.</td>
+  </tr>
+</table>
+<h2>Service Methods</h2>
+<h4>1. GetSiteList</h4>
+<p>Returns list containing metadata of sites at current server.</p>
+<p><strong>Request Object Structure: GetSiteListRQ</strong></p>
+<p>Only common request parameters described above are required to call this method.</p>
+<p><strong>Response Object Structure: GetSiteListRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Sites</td>
+    <td>List<SiteInfo></td>
+    <td>List containing metadata of the sites.</td>
+  </tr>
+</table>
+<p><strong>Sample Request Object</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_1.png" /></p>
+<p><strong>Sample Response Object</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_2.png" /></p>
+<h4>2. GetTemplateList</h4>
+<p>Returns list containing list of metadata of templates on current server.</p>
+<p><strong>Request Object Structure: GetTemplateListRQ</strong></p>
+<p>Only common request parameters described above are required to call this method.</p>
+<p><strong>Response Object Structure: GetTemplateListRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Templates</td>
+    <td>List<TemplateInfo> </td>
+    <td>List of metadata of templates.</td>
+  </tr>
+</table>
+<p><strong>Sample Request Object</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_3.png" /></p>
+<p><strong>Sample Response Object</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_4.png" /></p>
+<h4>3. GetSite</h4>
+<p>Returns site entity containing complete information for the site.</p>
+<p><strong>Request Object Structure: GetSiteRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>SiteId</td>
+    <td>Long</td>
+    <td>Id of the site whose details are to be fetched.</td>
+  </tr>
+  <tr>
+    <td>SectionsToInclude</td>
+    <td>List<SiteSection></td>
+    <td>List of site sections defined in SiteSection enumeration which needs to be included in response.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: GetSiteRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Site</td>
+    <td>Site</td>
+    <td>Contains information for the site.</td>
+  </tr>
+</table>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_5.png" /></p>
+<p><strong>Sample Response</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_6.png" /></p>
+<h4>4. GetSiteFromTemplate</h4>
+<p>Returns site entity containing information parsed from specified template.</p>
+<p><strong>Request Object Structure: GetSiteFromTemplateRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>TemplateId</td>
+    <td>Long</td>
+    <td>Id of the template from which details are to be fetched.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: GetSiteFromTemplateRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Site</td>
+    <td>Site</td>
+    <td>Contains information for the site.</td>
+  </tr>
+</table>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_7.png" /></p>
+<p><strong>Sample Response</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_8.png" /></p>
+<h4>5. UpdateSite</h4>
+<p>Updates the site specified in request object with details provided.</p>
+<p><strong>Request Object Structure: UpdteSiteRQ</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>SiteId</td>
+    <td>Long</td>
+    <td>Contains site id of the site to be updated.</td>
+  </tr>
+  <tr>
+    <td>Commands</td>
+    <td>List<Command></td>
+    <td>Contains a list of AddOrUpdate and/or Remove commands. Depending upon which command is passed the action is executed for specified Site.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: UpdateSiteRS</strong></p>
+<p>Only common response parameters containing information about the update operation are returned as part of response from server.</p>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_9.png" /></p>
+<h4>6. AddOrUpdateSiteResource</h4>
+<p>Can be used to add or update site level resource to an existing site along with content. If specified key matches an existing resource, it will be updated else added.</p>
+<p><strong>Request Object Structure: AddOrUpdateSiteResourceRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>SiteId</td>
+    <td>Long</td>
+    <td>Id of target site.</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Key to be used for storing the resource.</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Byte[]</td>
+    <td>Content of the resource.</td>
+  </tr>
+  <tr>
+    <td>ContentType</td>
+    <td>String</td>
+    <td>Mime type of the resource file.</td>
+  </tr>
+  <tr>
+    <td>IsPublic</td>
+    <td>Bool</td>
+    <td>True if resource is to be accessed using url.</td>
+  </tr>
+  <tr>
+    <td>Comment</td>
+    <td>String</td>
+    <td>Comment, if any, while adding or updating resource.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: AddOrUpdateSiteResourceRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>LiveModeUrl</td>
+    <td>String</td>
+    <td>Url to be used to access resource in live mode.</td>
+  </tr>
+  <tr>
+    <td>PreviewUrl</td>
+    <td>String</td>
+    <td>Url to be used to preview resource.</td>
+  </tr>
+</table>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_10.png" /></p>
+<p><strong>Sample Response</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_11.png" /></p>
+<h4>7. UploadTheme</h4>
+<p>It can be used to upload zipped content to an existing site level theme.</p>
+<p><strong>Request Object Structure: UploadThemeRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>ThemeId</td>
+    <td>Long</td>
+    <td>Id of the target theme.</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Byte[]</td>
+    <td>Zipped content of theme.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure : UploadThemeRS</strong></p>
+<p>Only common response parameters containing information about the update operation are returned as part of response from server.</p>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_12.png" /></p>
+<h4>8. UploadGlobalizationData</h4>
+<p>It can be used to upload globalization data in zipped format to an existing site level culture instance.</p>
+<p><strong>Request Object Structure: UploadGlobalizationDataRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>CultureInstanceId</td>
+    <td>Long</td>
+    <td>Id of target culture instance</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Byte[]</td>
+    <td>Zipped content of culture.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: UploadGlobalizationDataRS</strong></p>
+<p>Only common response parameters containing information about the update operation are returned as part of response from server.</p>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_13.png" /></p>
+<h4>9. DownloadSiteResource</h4>
+<p>It can be used to download an existing site resource.</p>
+<p><strong>Request Object Structure: DownloadSiteResourceRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>SiteId</td>
+    <td>Long</td>
+    <td>Id of the site from which resource is to be downloaded.</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Key of the site resource.</td>
+  </tr>
+  <tr>
+    <td>ResourceId</td>
+    <td>Long?</td>
+    <td>Id of the resource, if known, else null.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: DownloadSiteResourceRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Byte[]</td>
+    <td>Byte array containing contents of the specified site resource.</td>
+  </tr>
+</table>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_14.png" /></p>
+<h4>10. DownloadTheme</h4>
+<p>It can be used to download an existing site level theme.</p>
+<p><strong>Request Object Structure: UploadGlobalizationDataRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>ThemeId</td>
+    <td>Long</td>
+    <td>Id of the theme to be downloaded.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: UploadGlobalizationDataRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Byte[]</td>
+    <td>Byte array containing contents of the specified site level theme.</td>
+  </tr>
+</table>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_15.png" /></p>
+<h4>11. DownloadGlobalizationData</h4>
+<p>It can be used to download globalization data in zipped format from an existing site level culture instance.</p>
+<p><strong>Request Object Structure: DownloadGlobalizationDataRQ</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>CultureInstanceId</td>
+    <td>Long</td>
+    <td>Id of target culture instance</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: DownloadGlobalizationDataRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Byte[]</td>
+    <td>Byte array containing contents of the specified site level theme.</td>
+  </tr>
+</table>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_16.png" /></p>
+<h4>12. UpdateCompleteSite</h4>
+<p>Updates the complete site specified in request object with details provided.</p>
+<p><strong>Request Object Structure: UpdateCompleteSiteRQ</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Site</td>
+    <td>Site</td>
+    <td>Contains details of the site to be updated.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: UpdateSiteRS</strong></p>
+<p>Only common response parameters containing information about the update operation are returned as part of response from server.</p>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_17.png" /></p>
+<h4>13. PublishSite</h4>
+<p>This method is used to publish the complete/partial Site. Internally it checks for the sections which are updated/to be published and publishes only those sections. Section could be Site Setting, Site Resources, Cultures, Pages, and Themes. It also performs delete operations for themes, if any one of is removed.</p>
+<p><strong>Request Object Structure: PublishSiteRQ</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>SiteId</td>
+    <td>Long</td>
+    <td>Id of the site whose details are to be fetched.</td>
+  </tr>
+  <tr>
+    <td>SectionsToPublish</td>
+    <td>List&lt;SiteSection&gt;</td>
+    <td>List of site sections defined in SiteSection enumeration</td>
+  </tr>
+  <tr>
+    <td>CreateBackup</td>
+    <td>Boolean</td>
+    <td>Decision to either create site backup or not (values: true/false)</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: PublishSiteRS</strong></p>
+<p>Only common response parameters containing information about the update operation are returned as part of response from server.</p>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_18.png" /></p>
+<h4>14.	GetCacheDetails</h4>
+<p>This method is used to get  the complete/partial Site. Internally it checks for the sections which are updated/to be published and publishes only those sections. Section could be Site Setting, Site Resources, Cultures, Pages, and Themes. It also performs delete operations for themes, if any one of is removed.</p>
+<p><strong>Request Object Structure: GetCacheListRQ</strong>
+Only common request parameters described above are required to call this method.</p>
+<p><strong>Response Object Structure: GetCacheListRS</strong>
+Along with common response parameters, following information is also returned as a part of response object.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>List&lt;GetCacheDetailRS&gt;</td>
+    <td>List containing contents of the specified cache
+		Details with counts of cache.
+	</td>
+  </tr>
+</table>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_19.png" /></p>
+<p><strong>Sample Responce</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_20.png" /></p>
+<h4>15.	RemoveSiteCache</h4>
+<p>Remove the complete site cache in request object with details provided. </p>
+<p><strong>Request Object Structure: RemoveSiteCacheRQ</strong>
+Only common request parameters described above are required to call this method.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>long</td>
+    <td>Contains SiteId</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: GetCacheListRS</strong>
+Only common response parameters containing information about the remove operation are returned as part of response from server.</p>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_21.png" /></p>
+<h4>16.	RemoveSitePageCache</h4>
+<p>Remove the complete site cache in request object with details provided. </p>
+<p><strong>Request Object Structure: RemoveSiteCacheRQ</strong>
+Only common request parameters described above are required to call this method.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>long</td>
+    <td>Contains SiteId</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>long</td>
+    <td>Contains PageId.</td>
+  </tr>
+</table>
+<p><strong>Response Object Structure: GetCacheListRS</strong>
+Only common response parameters containing information about the remove operation are returned as part of response from server.</p>
+<p><strong>Sample Request</strong></p>
+<p><img src="./images/7.TemplarSiteManagementServiceAPISpec/image_22.png" /></p>
+<h2>Detailed Object Model</h2>
+<h4>Culture</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of culture instance</td>
+  </tr>
+  <tr>
+    <td>CultureCode</td>
+    <td>String</td>
+    <td>Culture code corresponding to current culture</td>
+  </tr>
+  <tr>
+    <td>CultureName</td>
+    <td>String</td>
+    <td>Full name corresponding to current culture</td>
+  </tr>
+  <tr>
+    <td>Resources</td>
+    <td>List<CultureResource></td>
+    <td>List of culture resources defined in current culture</td>
+  </tr>
+  <tr>
+    <td>Contents</td>
+    <td>List<CultureContent></td>
+    <td>List of culture content defined in current culture</td>
+  </tr>
+  <tr>
+    <td>Setting</td>
+    <td>CultureSetting</td>
+    <td>Culture settings for current culture</td>
+  </tr>
+</table>
+<h4>CultureContent</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of culture content</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Key for current culture content</td>
+  </tr>
+  <tr>
+    <td>ContentType</td>
+    <td>String</td>
+    <td>Content type of current culture content</td>
+  </tr>
+  <tr>
+    <td>Comment</td>
+    <td>String</td>
+    <td>Comment specified with current culture content</td>
+  </tr>
+</table>
+<h4>CultureResource</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of culture resource</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Key used for identifying current resource</td>
+  </tr>
+  <tr>
+    <td>Value</td>
+    <td>String</td>
+    <td>Value of current culture resource</td>
+  </tr>
+  <tr>
+    <td>Comment</td>
+    <td>String</td>
+    <td>Comment specified with current culture resource</td>
+  </tr>
+  <tr>
+    <td>TranslationSetting</td>
+    <td>String</td>
+    <td>Translation setting for current culture resource</td>
+  </tr>
+</table>
+<h4>CultureSetting</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>DateTimeFormat</td>
+    <td>DateTimeFormat</td>
+    <td>Contains details for date and time formatting.</td>
+  </tr>
+  <tr>
+    <td>NumberFormat</td>
+    <td>NumberFormat</td>
+    <td>Contains details for number and currency formatting.</td>
+  </tr>
+  <tr>
+    <td>TextDirection</td>
+    <td>String</td>
+    <td>Text direction for current culture i.e. Left to right OR Right to left.</td>
+  </tr>
+  <tr>
+    <td>MetricSystem</td>
+    <td>String</td>
+    <td>Metric system to be used with current culture.</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>String</td>
+    <td>Text denoting YES in current culture.</td>
+  </tr>
+  <tr>
+    <td>No</td>
+    <td>String</td>
+    <td>Text denoting NO in current culture.</td>
+  </tr>
+  <tr>
+    <td>AdditionalInfo</td>
+    <td>Dictionary<string,string></td>
+    <td>Additional info saved with culture setting.</td>
+  </tr>
+</table>
+<h4>DateTimeFormat</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>ShortDateFormat</td>
+    <td>String</td>
+    <td>Formatting to be used while displaying date in short format.</td>
+  </tr>
+  <tr>
+    <td>LongDateFormat</td>
+    <td>String</td>
+    <td>Formatting to be used while displaying date in long format.</td>
+  </tr>
+  <tr>
+    <td>TimeFormat</td>
+    <td>String</td>
+    <td>Formatting to be used while displaying time.</td>
+  </tr>
+  <tr>
+    <td>DateSeparator</td>
+    <td>String</td>
+    <td>Symbol to be used as date separator.</td>
+  </tr>
+  <tr>
+    <td>TimeSeparator</td>
+    <td>String</td>
+    <td>Symbol to be used as time separator.</td>
+  </tr>
+  <tr>
+    <td>AMDesignator</td>
+    <td>String</td>
+    <td>Text to be used for denoting AM.</td>
+  </tr>
+  <tr>
+    <td>PMDesignator</td>
+    <td>String</td>
+    <td>Text to be used for denoting PM.</td>
+  </tr>
+  <tr>
+    <td>Day</td>
+    <td>List<DayName></td>
+    <td>List of day names in current language.</td>
+  </tr>
+  <tr>
+    <td>Month</td>
+    <td>List<MonthName></td>
+    <td>List of month names in current language.</td>
+  </tr>
+</table>
+<h4>DayName</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>AbbreviatedName</td>
+    <td>String</td>
+    <td>Short day name.</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Full day name.</td>
+  </tr>
+</table>
+<h4>EnvSetting</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Contains key</td>
+  </tr>
+  <tr>
+    <td>Value</td>
+    <td>String</td>
+    <td>Contains value</td>
+  </tr>
+</table>
+<h4>EnvSettingGroup</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>TypeName</td>
+    <td>String</td>
+    <td>Contains group name</td>
+  </tr>
+  <tr>
+    <td>Collection</td>
+    <td>List<EnvSetting></td>
+    <td>Contains List of environment settings</td>
+  </tr>
+</table>
+<h4>ErrorPage</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>StatusCode</td>
+    <td>Int</td>
+    <td>Status code of error</td>
+  </tr>
+  <tr>
+    <td>Redirect</td>
+    <td>String</td>
+    <td>Url of page to be displayed</td>
+  </tr>
+</table>
+<h4>EventInfoMapping</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>SourceKey</td>
+    <td>String</td>
+    <td>Contains key of event in source widget</td>
+  </tr>
+  <tr>
+    <td>MappedKey</td>
+    <td>String</td>
+    <td>Contains mapped key from destination widget</td>
+  </tr>
+  <tr>
+    <td>DefaultValue</td>
+    <td>String</td>
+    <td>Default value of the key</td>
+  </tr>
+</table>
+<h4>EventMapping</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td>Enum</td>
+    <td>Type of event i.e. Server OR client</td>
+  </tr>
+  <tr>
+    <td>SourceWidgetId</td>
+    <td>Long</td>
+    <td>Id of widget instance raising the event</td>
+  </tr>
+  <tr>
+    <td>SourceWidgetEventName</td>
+    <td>String</td>
+    <td>Name of event in source widget</td>
+  </tr>
+  <tr>
+    <td>DestinationWidgetId</td>
+    <td>Long</td>
+    <td>Id of widget instance listening to the event</td>
+  </tr>
+  <tr>
+    <td>DestinationWidgetEventName</td>
+    <td>String</td>
+    <td>Name of event in destination widget</td>
+  </tr>
+  <tr>
+    <td>EventInfoMappings</td>
+    <td>List<EventInfoMapping></td>
+    <td>List of variable mappings</td>
+  </tr>
+</table>
+<h4>KeyValuePair</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Contains key</td>
+  </tr>
+  <tr>
+    <td>Value</td>
+    <td>String</td>
+    <td>Contains value</td>
+  </tr>
+</table>
+<h4>MetaData</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Contains key</td>
+  </tr>
+  <tr>
+    <td>Value</td>
+    <td>String</td>
+    <td>Contains value</td>
+  </tr>
+</table>
+<h4>MonthName</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>AbbreviatedName</td>
+    <td>String</td>
+    <td>Short month name.</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Full month name.</td>
+  </tr>
+</table>
+<h4>NumberFormat</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>DecimalDigits</td>
+    <td>Int</td>
+    <td>Number of digits to be displayed after decimal.</td>
+  </tr>
+  <tr>
+    <td>DigitGrouping</td>
+    <td>List<int></td>
+    <td>Indicates number of digits to be grouped together.</td>
+  </tr>
+  <tr>
+    <td>DecimalSymbol</td>
+    <td>String</td>
+    <td>Symbol to be used for displaying decimal.</td>
+  </tr>
+  <tr>
+    <td>GroupSeparator</td>
+    <td>String</td>
+    <td>Symbol to be used as group separator while displaying numbers.</td>
+  </tr>
+  <tr>
+    <td>CurrencySymbol</td>
+    <td>String</td>
+    <td>Symbol to be used for displaying currency.</td>
+  </tr>
+  <tr>
+    <td>CurrencyCode</td>
+    <td>String</td>
+    <td>Code to be used with current currency.</td>
+  </tr>
+  <tr>
+    <td>PositiveSymbol</td>
+    <td>String</td>
+    <td>Symbol to be used with positive numbers.</td>
+  </tr>
+  <tr>
+    <td>NegativeSymbol</td>
+    <td>String</td>
+    <td>Symbol to be used with negative numbers.</td>
+  </tr>
+  <tr>
+    <td>PositiveCurrencyFormat</td>
+    <td>String</td>
+    <td>Formatting to be used for displaying positive currency.</td>
+  </tr>
+  <tr>
+    <td>NegativeNumberFormat</td>
+    <td>String</td>
+    <td>Formatting to be used for displaying negative numbers.</td>
+  </tr>
+  <tr>
+    <td>NegativeCurrencyFormat</td>
+    <td>String</td>
+    <td>Formatting to be used for displaying negative currency. </td>
+  </tr>
+</table>
+<h4>Page</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of the page</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of the page</td>
+  </tr>
+  <tr>
+    <td>Title</td>
+    <td>String</td>
+    <td>Title of the page</td>
+  </tr>
+  <tr>
+    <td>RelativeUrl</td>
+    <td>String</td>
+    <td>Url of the page</td>
+  </tr>
+  <tr>
+    <td>LayoutType</td>
+    <td>Int</td>
+    <td>Layout type of the page. Details of layout code are here.</td>
+  </tr>
+  <tr>
+    <td>PageAlign</td>
+    <td>Int</td>
+    <td>Alignment of the page</td>
+  </tr>
+  <tr>
+    <td>IsDirty</td>
+    <td>Bool</td>
+    <td>Is true if changes are made in the page after last publish</td>
+  </tr>
+  <tr>
+    <td>IsLogin</td>
+    <td>Bool</td>
+    <td>Is true if the page is set as login page for site</td>
+  </tr>
+  <tr>
+    <td>IsAuthenticationRequired</td>
+    <td>Bool</td>
+    <td>Is true if page requires user to logged in</td>
+  </tr>
+  <tr>
+    <td>IsMaster</td>
+    <td>Bool</td>
+    <td>Is true for master pages</td>
+  </tr>
+  <tr>
+    <td>MasterPageId</td>
+    <td>Long</td>
+    <td>Contains id of master page in case one exists</td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>String</td>
+    <td>State of the page</td>
+  </tr>
+  <tr>
+    <td>ConnectionType</td>
+    <td>String</td>
+    <td>Connection type specified for the page</td>
+  </tr>
+  <tr>
+    <td>DocType</td>
+    <td>Enum</td>
+    <td>HTML Doctype for current page</td>
+  </tr>
+  <tr>
+    <td>Style</td>
+    <td>XElement</td>
+    <td>Style information for current page</td>
+  </tr>
+  <tr>
+    <td>WidgetInstances</td>
+    <td>List<WidgetInstance></td>
+    <td>List of widget instances present on the page</td>
+  </tr>
+  <tr>
+    <td>PageEnvironmentData</td>
+    <td>List<KeyValuePair></td>
+    <td>List of page data associated with the page</td>
+  </tr>
+  <tr>
+    <td>PageScripts</td>
+    <td>List<EnvSetting></td>
+    <td>List of scripts to be included in current page</td>
+  </tr>
+  <tr>
+    <td>Items</td>
+    <td>ConcurrentDictionary<string, string></td>
+    <td>Concurrent dictionary for item storage</td>
+  </tr>
+  <tr>
+    <td>MetaData</td>
+    <td>List<KeyValuePair></td>
+    <td>List of meta data associated with the page</td>
+  </tr>
+  <tr>
+    <td>WidgetEventMappings</td>
+    <td>List<EventMapping></td>
+    <td>List of event mappings associated with the widget instances present on the page</td>
+  </tr>
+</table>
+<h4>PageLayouts</h4>
+<table>
+  <tr>
+    <td>Code</td>
+    <td>Layout</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>3 – Panel</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Small Left Panel</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Small Right Panel</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Small Side Panels</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Single Panel</td>
+  </tr>
+</table>
+<h4>Site</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of the site.</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of the site.</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>String</td>
+    <td>Description of the site.</td>
+  </tr>
+  <tr>
+    <td>Url</td>
+    <td>String</td>
+    <td>Url of the site.</td>
+  </tr>
+  <tr>
+    <td>CreatedDate</td>
+    <td>DateTime</td>
+    <td>Date on which site was created.</td>
+  </tr>
+  <tr>
+    <td>ModifiedDate</td>
+    <td>DateTime</td>
+    <td>Last modified date time of site.</td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>String</td>
+    <td>Offine OR Online.</td>
+  </tr>
+  <tr>
+    <td>Theme</td>
+    <td>Long</td>
+    <td>Id of default theme.</td>
+  </tr>
+  <tr>
+    <td>DefaultPage</td>
+    <td>Long</td>
+    <td>Id of default Page.</td>
+  </tr>
+  <tr>
+    <td>DefaultPageLayout</td>
+    <td>Int</td>
+    <td>Default layout for site pages. Details of layout codes here.</td>
+  </tr>
+  <tr>
+    <td>MappedToDomain</td>
+    <td>List<string></td>
+    <td>List of domains mapped with the site.</td>
+  </tr>
+  <tr>
+    <td>IsPublished</td>
+    <td>Bool</td>
+    <td>Is true if site has been published in past.</td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>String</td>
+    <td>State of the site.</td>
+  </tr>
+  <tr>
+    <td>Pages</td>
+    <td>List<Page></td>
+    <td>List of pages in the site.</td>
+  </tr>
+  <tr>
+    <td>Themes</td>
+    <td>List<Theme></td>
+    <td>List of themes in the site.</td>
+  </tr>
+  <tr>
+    <td>GlobalThemes</td>
+    <td>List<string></td>
+    <td>List of global themes included in the site.</td>
+  </tr>
+  <tr>
+    <td>CustomErrorPages</td>
+    <td>List<ErrorPage></td>
+    <td>List of custom error pages defined for the site.</td>
+  </tr>
+  <tr>
+    <td>DefaultCulture</td>
+    <td>String</td>
+    <td>Culture code of current default culture.</td>
+  </tr>
+  <tr>
+    <td>SiteMetaData</td>
+    <td>List<MetaData></td>
+    <td>List of site level meta data.</td>
+  </tr>
+  <tr>
+    <td>ApplyingStrategy</td>
+    <td>String</td>
+    <td>Strategy to be used for applying globalization.</td>
+  </tr>
+  <tr>
+    <td>HeaderCode</td>
+    <td>String</td>
+    <td>Header code to be emitted on every page.</td>
+  </tr>
+  <tr>
+    <td>FooterCode</td>
+    <td>String</td>
+    <td>Footer code to be emitted on every page.</td>
+  </tr>
+  <tr>
+    <td>InheritedCultures</td>
+    <td>List<string></td>
+    <td>List of global cultures included in the site.</td>
+  </tr>
+  <tr>
+    <td>Cultures</td>
+    <td>List<Culture></td>
+    <td>List of cultures defined for the site.</td>
+  </tr>
+  <tr>
+    <td>Style</td>
+    <td>XElement</td>
+    <td>Style information for the site.</td>
+  </tr>
+  <tr>
+    <td>SiteSettings</td>
+    <td>List<EnvSettingGroup></td>
+    <td>List of site setting groups.</td>
+  </tr>
+  <tr>
+    <td>PageScripts</td>
+    <td>List<EnvSetting></td>
+    <td>List of scripts defined at site level.</td>
+  </tr>
+  <tr>
+    <td>Resources</td>
+    <td>List<SiteResource></td>
+    <td>List of site resources.</td>
+  </tr>
+</table>
+<h4>SiteInfo</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of the site</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of the site</td>
+  </tr>
+  <tr>
+    <td>Url</td>
+    <td>String</td>
+    <td>Url of the site</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>String</td>
+    <td>Description of the site</td>
+  </tr>
+</table>
+<h4>SiteResource</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of site resource</td>
+  </tr>
+  <tr>
+    <td>SiteId</td>
+    <td>Long</td>
+    <td>Site id of current resource</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>String</td>
+    <td>Key used for current resource</td>
+  </tr>
+  <tr>
+    <td>ContentType</td>
+    <td>String</td>
+    <td>Content type of current resource</td>
+  </tr>
+  <tr>
+    <td>IsPublic</td>
+    <td>Bool</td>
+    <td>True of the resource is accessible using url</td>
+  </tr>
+  <tr>
+    <td>AddedOn</td>
+    <td>DateTime</td>
+    <td>Date time when the resource was added</td>
+  </tr>
+</table>
+<h4>SiteSection</h4>
+<table>
+  <tr>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>enum</td>
+    <td>SiteSection is a enumeration and below are the values of this enum - 
+Complete
+CustomDomains
+Pages
+Themes
+ErrorCodes
+Metadata
+SEOCode
+Cultures
+EnvironmentData
+PageScripts
+Resources</td>
+  </tr>
+</table>
+<h4>TemplateInfo</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of the template</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of the template</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>String</td>
+    <td>Description of the template</td>
+  </tr>
+</table>
+<h4>Theme</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of the theme</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of current theme</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>String</td>
+    <td>Description of current theme</td>
+  </tr>
+  <tr>
+    <td>Path</td>
+    <td>String</td>
+    <td>Path for current theme contents</td>
+  </tr>
+  <tr>
+    <td>StateXml</td>
+    <td>XElement</td>
+    <td>Contains data stored in state</td>
+  </tr>
+</table>
+<h4>ThemeSource</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>SiteId</td>
+    <td>String</td>
+    <td>This is site id</td>
+  </tr>
+  <tr>
+    <td>ThemeName</td>
+    <td>String</td>
+    <td>Theme name to be copied</td>
+  </tr>
+</table>
+<h4>Widget</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of the widget</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of the widget</td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>String</td>
+    <td>Default state of the widget</td>
+  </tr>
+  <tr>
+    <td>Url</td>
+    <td>String</td>
+    <td>Url of the location of widget</td>
+  </tr>
+  <tr>
+    <td>Icon</td>
+    <td>String</td>
+    <td>Url for icon file of the widget</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>String</td>
+    <td>Description of the widget</td>
+  </tr>
+</table>
+<h4>WidgetInstance</h4>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>Long</td>
+    <td>Id of widget instance</td>
+  </tr>
+  <tr>
+    <td>ContainerId</td>
+    <td>Long</td>
+    <td>Id of container containing the widget instance</td>
+  </tr>
+  <tr>
+    <td>BaseWidget</td>
+    <td>Widget</td>
+    <td>Object containing details of base widget </td>
+  </tr>
+  <tr>
+    <td>Title</td>
+    <td>String</td>
+    <td>Title of widget instance</td>
+  </tr>
+  <tr>
+    <td>Row</td>
+    <td>Int</td>
+    <td>Row number of widget instance</td>
+  </tr>
+  <tr>
+    <td>Column</td>
+    <td>Int</td>
+    <td>Column number of widget instance</td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>String</td>
+    <td>State corresponding to the widget instance</td>
+  </tr>
+</table>
+<h4>Command</h4>
+<p>Command is a class type (abstract) which has two sub types Remove Command and Add or update Command. Remove Command is used to remove entities like Global Cultures, Site Meta Tags, Themes etc. On the same line Add or update Command is used to either Add or update entities.</p>
+<table>
+  <tr>
+    <td>Class Name</td>
+    <td>Type of</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>RemoveCommand</td>
+    <td>RemoveCustomDomainsCommand
+RemoveEnvironmentDataCommand
+RemoveErrorCodesCommand
+RemovePageDataCommand
+RemovePageMetaTagsCommand
+RemovePageScriptsCommand
+RemoveResourcesCommand
+RemoveScriptsCommand
+RemoveSiteMetaTagsCommand
+RemoveThemesCommand
+ExcludeGlobalCulturesCommand
+ExcludeGlobalThemesCommand
+RemoveSEOFooterCommand
+RemoveSEOHeaderCommand
+RemoveEnvironmentDataGroupCommand</td>
+    <td>Command to remove entities like Global Cultures, Site Meta Tags, Themes etc.</td>
+  </tr>
+  <tr>
+    <td>AddOrUpdateCommand</td>
+    <td>AddCustomDomainsCommand
+AddOrUpdateEnvironmentData
+AddOrUpdateErrorCodesCommand
+AddOrUpdatePageDataCommand
+AddOrUpdatePageMetaTagsCommand
+AddOrUpdatePageScriptsCommand
+AddOrUpdateResourceCommand
+AddOrUpdateScriptsCommand
+AddOrUpdateSiteMetaTagsCommand
+AddThemeCommand
+IncludeGlobalCulturesCommand
+IncludeGlobalThemesCommand
+SetDefaultCultureCommand
+SetDefaultThemeCommand
+UpdateSEOFooterCommand
+UpdateSEOHeaderCommand</td>
+    <td>Command to Add or update entities like Global Cultures, Site Meta Tags, Themes etc.</td>
+  </tr>
+</table>
+<h4>RemoveCustomDomainsCommand</h4>
+<p><strong>This is used to remove/delete Custom Domains associated with the Site. List of string containing domain names can be supplied to achieve this.</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Domains</td>
+    <td>List<string></td>
+    <td>List of domain names to be removed from the site domain data.</td>
+  </tr>
+</table>
+<h4>AddCustomDomainsCommand</h4>
+<p><strong>This is used to add/insert Custom Domains associated with the Site. List of string containing domain names can be supplied to achieve this.</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Domains</td>
+    <td>List<string></td>
+    <td>List of domain names to be added to the site domain data.</td>
+  </tr>
+</table>
+<h4>RemoveEnvironmentDataCommand</h4>
+<p><strong>This is used to remove/delete environment data. Group name and list of string containing keys to the data can be supplied to achieve this.</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>string</td>
+    <td>Group name from which environment data is to be removed</td>
+  </tr>
+  <tr>
+    <td>Keys</td>
+    <td>List<strings></td>
+    <td>List of keys to the data to remove</td>
+  </tr>
+</table>
+<h4>AddOrUpdateEnvironmentData</h4>
+<p><strong>This is used to add or update environment data. Group name and list of key-value pair containing keys and values can be supplied to achieve this.</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>string</td>
+    <td>Group name to which environment data is to be added or updated</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>List<KeyValuePair></td>
+    <td>List of key-value pair which is actual data to be added</td>
+  </tr>
+</table>
+<h4>RemoveErrorCodesCommand</h4>
+<p><strong>This is used to remove/delete error codes associated with the page’s status codes. List of string containing error codes can be supplied to achieve this.</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Codes</td>
+    <td>List<string></td>
+    <td>List of error codes to be removed from the site page status codes.</td>
+  </tr>
+</table>
+<h4>AddOrUpdateErrorCodesCommand</h4>
+<p><strong>This is used to add or update error codes associated with the page’s status codes. List of key and value pairs containing error codes can be supplied to achieve this.</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Codes</td>
+    <td>List< KeyValuePair ></td>
+    <td>List of error codes and values as key value to be added or updated to the site page status codes.</td>
+  </tr>
+</table>
+<h4>RemovePageDataCommand</h4>
+<p><strong>This is used to remove/delete page data associated with the page. Page Id and list of string containing keys to the data can be supplied to achieve this.</strong></p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>PageId</td>
+    <td>String</td>
+    <td>Page Id from which page data is to be removed</td>
+  </tr>
+  <tr>
+    <td>Keys</td>
+    <td>List<string></td>
+    <td>List of keys to the data to be removed from the page data</td>
+  </tr>
+</table>
+<h4>AddOrUpdatePageDataCommand</h4>
+<p>This is used to add or update page data associated with the page. Page Id and list of key and value pairs containing actual data can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>PageId</td>
+    <td>String</td>
+    <td>Page Id to which page data is to be added or updated</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>List< KeyValuePair ></td>
+    <td>List of page data and keys to the data to be added or updated to the site page status codes.</td>
+  </tr>
+</table>
+<h4>RemovePageMetaTagsCommand</h4>
+<p>This is used to remove/delete page data tags associated with the page. Page Id and list of string containing tags can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>PageId</td>
+    <td>String</td>
+    <td>Page Id from which page meta tags is/are to be removed</td>
+  </tr>
+  <tr>
+    <td>Tags</td>
+    <td>List<string></td>
+    <td>List of keys to the page meta tags to be removed from the page data</td>
+  </tr>
+</table>
+<h4>AddOrUpdatePageMetaTagsCommand</h4>
+<p>This is used to add or update page metadata associated with the page. Page Id and list of key and value pairs containing actual data can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>PageId</td>
+    <td>String</td>
+    <td>Page Id to which page metadata (tags) is/are to be added or updated</td>
+  </tr>
+  <tr>
+    <td>Tags</td>
+    <td>List< KeyValuePair ></td>
+    <td>List of page metadata and keys to the data to be added or updated to the site page metadata.</td>
+  </tr>
+</table>
+<h4>RemovePageScriptsCommand</h4>
+<p>This is used to remove/delete scripts associated with the page. Page Id and list of string containing page script names can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>PageId</td>
+    <td>String</td>
+    <td>Page Id from which page scripts to be removed</td>
+  </tr>
+  <tr>
+    <td>Keys</td>
+    <td>List<string></td>
+    <td>List of script names to be removed from the page scripts</td>
+  </tr>
+</table>
+<h4>AddOrUpdatePageScriptsCommand</h4>
+<p>This is used to add or update page scripts to the page data. Page Id and list of key and value pair containing actual data can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>PageId</td>
+    <td>String</td>
+    <td>Page Id to which page scripts data is to be added or updated</td>
+  </tr>
+  <tr>
+    <td>Scripts</td>
+    <td>List< KeyValuePair ></td>
+    <td>List of page script data and keys to the data to be added or updated to the site page</td>
+  </tr>
+</table>
+<h4>RemoveResourcesCommand</h4>
+<p>This is used to remove/delete site resources. List of string containing site resource names can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Keys</td>
+    <td>List<string></td>
+    <td>List of resource names to be removed from the site data</td>
+  </tr>
+</table>
+<h4>AddOrUpdateResourceCommand</h4>
+<p>This is used to add or update resource/theme to the site data. Page Id and list of key and value pair containing actual data can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Key</td>
+    <td>string</td>
+    <td>Key is used to get the resource information from the site data</td>
+  </tr>
+  <tr>
+    <td>Comment</td>
+    <td>string</td>
+    <td>To add a comment when site resource or theme is added or updated to site data</td>
+  </tr>
+  <tr>
+    <td>AllowPublicAccess</td>
+    <td>Boolean</td>
+    <td>To allow public access to resource or not</td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Byte[]</td>
+    <td>Actual data to be added or updated</td>
+  </tr>
+  <tr>
+    <td>ContentType</td>
+    <td>String</td>
+    <td>Content type</td>
+  </tr>
+  <tr>
+    <td>CopyFrom</td>
+    <td>String</td>
+    <td>A key which tells copy from info.</td>
+  </tr>
+</table>
+<h4>RemoveScriptsCommand</h4>
+<p>This is used to remove/delete scripts associated with the site. List of string containing script names can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Keys</td>
+    <td>List<string></td>
+    <td>List of script names to be removed from the site scripts</td>
+  </tr>
+</table>
+<h4>AddOrUpdateScriptsCommand</h4>
+<p>This is used to add or update scripts to the site page scripts. List of key and value pair containing actual data can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Scripts</td>
+    <td>List< KeyValuePair ></td>
+    <td>List of script data and keys to the data to be added or updated to the site page. Script key is used for comparison while add and update</td>
+  </tr>
+</table>
+<h4>RemoveSiteMetaTagsCommand</h4>
+<p>This is used to remove/delete site metadata. List of string containing tags can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Tags</td>
+    <td>List<string></td>
+    <td>List of keys to the site metadata to be removed from the site data</td>
+  </tr>
+</table>
+<h2>AddOrUpdateSiteMetaTagsCommand</h2>
+<p>This is used to add or update site specific metadata. List of key and value pairs containing actual data can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Tags</td>
+    <td>List<KeyValuePair></td>
+    <td>List of site metadata and keys to the data to be added or updated to the site metadata.</td>
+  </tr>
+</table>
+<h4>RemoveThemesCommand</h4>
+<p>This is used to remove/delete themes associated with site. List of string containing theme names can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Names</td>
+    <td>List<string></td>
+    <td>List of theme names to be removed from the site data</td>
+  </tr>
+</table>
+<h4>AddThemeCommand</h4>
+<p>This is used to add theme to site. Name, Description and CopyForm location can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>String</td>
+    <td>Name of theme to add</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>String</td>
+    <td>Description about theme</td>
+  </tr>
+  <tr>
+    <td>CopyFrom</td>
+    <td>ThemeSource</td>
+    <td>This is location from theme can be copied, it contains site id and theme name</td>
+  </tr>
+</table>
+<h4>ExcludeGlobalCulturesCommand</h4>
+<p>This is used to remove/delete global cultures from the site level globalization data. List of string containing names of the global culture can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Names</td>
+    <td>List<string></td>
+    <td>List of global culture names to be removed from the globalization data</td>
+  </tr>
+</table>
+<h4>IncludeGlobalCulturesCommand</h4>
+<p>This is used to add/insert global cultures to the site level globalization data. List of string containing names of the global culture can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Names</td>
+    <td>List<string></td>
+    <td>List of global culture names to be added to the site level globalization data</td>
+  </tr>
+</table>
+<h4>ExcludeGlobalThemesCommand</h4>
+<p>This is used to remove/delete Global Themes from the site level global themes. List of string containing names of the Global Themes can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Names</td>
+    <td>List<string></td>
+    <td>List of Global Theme names to be removed from the site level global themes</td>
+  </tr>
+</table>
+<h4>IncludeGlobalThemesCommand</h4>
+<p>This is used to remove/delete global themes from the site level global themes. List of string containing names of the global themes can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Names</td>
+    <td>List<string></td>
+    <td>List of global theme names to be removed from the site level global themes</td>
+  </tr>
+</table>
+<h4>SetDefaultCultureCommand</h4>
+<p>This is used to set site default culture. String containing name of culture can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>string</td>
+    <td>Name of culture to be set as site default culture</td>
+  </tr>
+</table>
+<h4>SetDefaultThemeCommand</h4>
+<p>This is used to set default theme. String containing name of theme can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>string</td>
+    <td>Theme name to be set as site default theme</td>
+  </tr>
+</table>
+<h4>RemoveSEOFooterCommand</h4>
+<p>This is used to remove/delete footer code. This command can be directly executed to remove footer code.</p>
+<h4>UpdateSEOFooterCommand</h4>
+<p>This is used to update site footer code. String containing footer code is supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Footer</td>
+    <td>String</td>
+    <td>Footer code value</td>
+  </tr>
+</table>
+<h4>RemoveSEOHeaderCommand</h4>
+<p>This is used to remove/delete header code. This command can be directly executed to remove header code.</p>
+<h4>UpdateSEOHeaderCommand</h4>
+<p>This is used to update site header code. String containing header code is supplied to achieve this. </p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Header</td>
+    <td>String</td>
+    <td>Header code value</td>
+  </tr>
+</table>
+<h4>RemoveEnvironmentDataGroupCommand</h4>
+<p>This is used to remove/delete environment data group. Group name can be supplied to achieve this.</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>string</td>
+    <td>Group name which is to be removed</td>
+  </tr>
+</table>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

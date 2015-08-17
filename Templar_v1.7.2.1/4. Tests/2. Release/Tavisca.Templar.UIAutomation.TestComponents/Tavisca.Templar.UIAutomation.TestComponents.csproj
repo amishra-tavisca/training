@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAEB476A-737C-4CB4-8EA4-BB22197BA03A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tavisca.Templar.UIAutomation.TestComponents</RootNamespace>
+    <AssemblyName>Tavisca.Templar.UIAutomation.TestComponents</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tavisca.TravelNxt.UIAutomation.Framework">
+      <HintPath>..\References\Tavisca.TravelNxt.UIAutomation.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=2.37.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\WebDriver.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddGlobalCultureTest.cs" />
+    <Compile Include="AddNewGlobalThemeTest.cs" />
+    <Compile Include="AddUserTest.cs" />
+    <Compile Include="AddWidgetTest.cs" />
+    <Compile Include="AdminTabTest.cs" />
+    <Compile Include="CancleSiteTest.cs" />
+    <Compile Include="CreateSiteBtnForPageSelectionTest.cs" />
+    <Compile Include="CreateSiteBtnTest.cs" />
+    <Compile Include="CreateSiteLevelThemeTest.cs" />
+    <Compile Include="DeleteGlobalCultureTest.cs" />
+    <Compile Include="DeleteGlobalThemeTest.cs" />
+    <Compile Include="DeletePageTest.cs" />
+    <Compile Include="DeleteSiteTest.cs" />
+    <Compile Include="DeleteTemplateTest.cs" />
+    <Compile Include="EditSiteDetailsTest.cs" />
+    <Compile Include="EditSiteLinkTest.cs" />
+    <Compile Include="EnviromentDataTest.cs" />
+    <Compile Include="ErrorHandlingTest.cs" />
+    <Compile Include="GlobalizationTest.cs" />
+    <Compile Include="GlobalsTabTest.cs" />
+    <Compile Include="LoadSiteTest.cs" />
+    <Compile Include="LoginTest.cs" />
+    <Compile Include="ManageCultureTest.cs" />
+    <Compile Include="ManageTemplatesTest.cs" />
+    <Compile Include="ManageThemeTest.cs" />
+    <Compile Include="ManageUserTest.cs" />
+    <Compile Include="ManageWidgetTest.cs" />
+    <Compile Include="PageDetailsTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishAdvancedSiteTest.cs" />
+    <Compile Include="PublishSiteTest.cs" />
+    <Compile Include="SaveEditedSiteBtnTest.cs" />
+    <Compile Include="ScriptTest.cs" />
+    <Compile Include="SearchGlobalCultureTest.cs" />
+    <Compile Include="SearchGlobalThemeTest.cs" />
+    <Compile Include="SearchPageTest.cs" />
+    <Compile Include="SearchSiteTest.cs" />
+    <Compile Include="SearchTemplateTest.cs" />
+    <Compile Include="SearchUserTest.cs" />
+    <Compile Include="SearchWidgetTest.cs" />
+    <Compile Include="SelectPagesToCreateSiteTest.cs" />
+    <Compile Include="SEOTest.cs" />
+    <Compile Include="SiteDetailsTest.cs" />
+    <Compile Include="SiteLayoutTest.cs" />
+    <Compile Include="TemplateDetailsTest.cs" />
+    <Compile Include="TemplatesTabTest.cs" />
+    <Compile Include="ThemesTest.cs" />
+    <Compile Include="UpdateWidgetActionTest.cs" />
+    <Compile Include="UpdateWidgetFromBackUpFileTest.cs" />
+    <Compile Include="UpdateWidgetFromOtherServerTest.cs" />
+    <Compile Include="UpdateWidgetLinkTest.cs" />
+    <Compile Include="UpdateBackWidgetTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tavisca.Templar.UIAutomation.ApplicationModel\Tavisca.Templar.UIAutomation.ApplicationModel.csproj">
+      <Project>{f8d8dabb-e839-4934-8de8-027aee46463e}</Project>
+      <Name>Tavisca.Templar.UIAutomation.ApplicationModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tavisca.Templar.UIAutomation.DataBinders\Tavisca.Templar.UIAutomation.DataBinders.csproj">
+      <Project>{4b7b768d-e26a-4d91-b962-9c550521e05e}</Project>
+      <Name>Tavisca.Templar.UIAutomation.DataBinders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tavisca.Templar.UIAutomation.Extensions\Tavisca.Templar.UIAutomation.Extensions.csproj">
+      <Project>{3d2e1be1-80f1-4ecb-9242-b428293f2bb5}</Project>
+      <Name>Tavisca.Templar.UIAutomation.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tavisca.Templar.UIAutomation.ScenarioObjects\Tavisca.Templar.UIAutomation.ScenarioObjects.csproj">
+      <Project>{53d1a239-fcc4-4013-a07d-145b8eae7e4a}</Project>
+      <Name>Tavisca.Templar.UIAutomation.ScenarioObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

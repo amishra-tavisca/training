@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>6. Templar Deployment Service API Spec</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Deployment Service Developer Guide</h1>
+<p>The purpose of this document is to:</p>
+<ul>
+<li>Understand how to use Templar deployment service.</li>
+<li>This document is intended for Developers.</li>
+</ul>
+<hr />
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  Table of Contents
+2.  Introduction
+3.  How to access it?
+4.  Recommendations
+5.  Common Parameters
+    1.  Common Request Parameters
+    2.  Common Response Parameters
+    3.  Common Error Messages
+6.  Service Methods
+    1.  GetArtifactList
+    2.  GetArtifactDetail
+    3.  GetArtifactDiff
+    4.  UpdateArtifact
+    5.  CreateArtifact
+    6.  PublishArtifact
+    7.  DownloadArtifact
+    8.  DeleteArtifact
+    9.  SyncWidgetList
+7.  Detailed Object Model
+        AuthenticationInfo
+        Culture
+        CultureContent
+        CultureResource
+        CultureSetting
+        DateTimeFormat
+        DayName
+        Entity
+        EntityMetaData
+        EnvironmentInfo
+        ErrorPage
+        EventInfoMapping
+        EventMapping
+        KeyValuePair
+        MonthName
+        NumberFormat
+        Page
+        PageLayouts
+        Site
+        SiteResource
+        SiteSettingsGroup
+        Template
+        Theme
+        Widget
+        WidgetInstance
+        WidgetInfo
+</code></pre>
+
+<hr />
+<h2>Introduction</h2>
+<p>As the name suggests Templar Deployment Service (TDS) is used to programmatically manage all deployment related activities for a Templar deployment. </p>
+<p>At a high level it provides release enabling features like the ability to deploy sites, themes, cultures on the deployment.  It also provides features for viewing, comparing and downloading sites, themes and culture on the deployment. This service is the recommended way to build automation tools for easing Templar deployments within and across environments. (Currently widgets are not handled by this service so for cross environment deployment the assumption is that the all widgets are available in the destination environment)</p>
+<h2>How to access it?</h2>
+<p>The TDS can be accessed at /Templar/Services/TemplarDeploymentService.svc URL on the base Templar deployment.</p>
+<p>To use TDS, you will need to create a client and use it to call the TDS. You can do this using the svcutil.exe tool from the command line with the following syntax:</p>
+<p><code>svcutil.exe http://templarDeployment.com/Templar/Services/TemplarDeploymentService.svc?wsdl</code></p>
+<p>This will generate a configuration file and a code file that contains the client class. Add the two files to your client application and use the generated client class to call the Service. For example:<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/1.png" /></p>
+<h2>Recommendations</h2>
+<ol>
+<li>Always host it on SSL as clear-text password is sent as part of request.</li>
+<li>Avoid using it on production environment as some methods may be time consuming.</li>
+</ol>
+<h2>Common Parameters</h2>
+<h4>Common Request Parameters</h4>
+<p>Every request to the service must contain authentication information described below.</p>
+<pre><code>Name                | Type          | Description
+------------------------------------------------------------------------------------------------
+Username            | String        | Templar username for the deployment
+Password            | String        | Password for the above specified username
+</code></pre>
+
+<h4>Common Response Parameters</h4>
+<p>Every response from the service contains following information related to the status of operation performed.</p>
+<pre><code>Name                | Type          | Description
+------------------------------------------------------------------------------------------------
+IsSuccessful        | Bool          | Is true if operation was performed successfully, else false.
+Message             | String        | Contains message corresponding to status of the operation performed.
+ResponseCode        | Int           | Response code corresponding to the status of service call.
+</code></pre>
+
+<h4>Common Error Messages</h4>
+<pre><code>Code        | Message               | Description
+------------------------------------------------------------------------------------------------
+401         | Authentication failed | Server was not able to authenticate using 
+                                      username and password provided.
+500         | Error occurred while  | Some unexpected error occurred while performing the 
+              processing your         operation on server. Check server exception logs for 
+              request                 further details.
+</code></pre>
+
+<h2>Service Methods</h2>
+<ol>
+<li>
+<p><strong>GetArtifactList</strong></p>
+<p>Returns list of entities of requested type from specified server. In case no server was specified, entities are fetched from current server.<br/>
+Can be used to fetch list of following type of entities:</p>
+<ul>
+<li>Site</li>
+<li>Template</li>
+<li>Widget</li>
+<li>Global culture</li>
+<li>Global theme</li>
+</ul>
+<p>Request Object Structure: <strong>GetArtifactListRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Server          | EnvironmentInfo   | Deployment details from where to fetch the list of entities.
+                                      Passing null will fetch list from current server.
+EntityType      | Enum              | Type of entity list to be fetched. Allowed types are Site, 
+                                      Templates, Global cultures, Global themes and Widgets.
+</code></pre>
+
+<p>Response Object Structure: <strong>GetArtifactListRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<pre><code>Name            | Type                  | Description
+------------------------------------------------------------------------------------------------
+Entities        | List&lt;EntityMetaData&gt;  | List containing meta data of the entities.
+</code></pre>
+
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/2.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/3.png" /></p>
+</li>
+<li>
+<p><strong>GetArtifactDetail</strong></p>
+<p>Returns the details of entity corresponding to metadata provided from specified server. In case no server was specified, entity details are fetched from current server.</p>
+<p>Can be used to fetch detail of following type of entities:</p>
+<ul>
+<li>Site</li>
+<li>Template</li>
+<li>Widget</li>
+<li>Global culture</li>
+<li>Global theme</li>
+</ul>
+<p>Request Object Structure: <strong>GetArtifactDetailRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Server          | EnvironmentInfo   | Deployment details from where to fetch the list of entities.
+                                      Passing null will fetch details from current server.
+Entity          | EntityMetaData    | Metadata for entity whose details are to be fetched.
+                                      Only Type and Id are used to identify an entity.
+</code></pre>
+
+<p>Response Object Structure: <strong>GetArtifactDetailRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Entity          | Entity            | Object containing the detailed information of the requested 
+                                      entity.
+</code></pre>
+
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/4.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/5.png" /></p>
+</li>
+<li>
+<p><strong>GetArtifactDiff</strong></p>
+<p>Returns list of differences between two entities of same type (site and template can be used to view diff with one another) corresponding to requested details. In case no server was specified for entity to be updated from, entity is fetched from current server.<br/>
+Can be used to fetch list of following type of entities:</p>
+<ul>
+<li>Site</li>
+<li>Template</li>
+<li>Widget</li>
+<li>Global culture</li>
+<li>Global theme</li>
+</ul>
+<p>Request Object Structure: <strong>GetArtifactDiffRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name                | Type              | Description
+------------------------------------------------------------------------------------------------
+Server              | EnvironmentInfo   | Deployment details from where to fetch the entity to be 
+                                          updated. Passing null will fetch details from current 
+                                          server.
+EntityToBeUpdated   | EntityMetaData    | Metadata for entity which is to be updated. Only Type 
+                                          and Id are used to identify an entity. 
+                                          Entity is fetched from current server.
+EntityToUpdateFrom  | EntityMetaData    | Metadata for entity from which other entity is to be 
+                                          updated. Only Type and Id are used to identify an entity. 
+                                          Entity is fetched from specified server.
+</code></pre>
+
+<p>Response Object Structure: <strong>GetArtifactDiffRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<pre><code>Name        | Type                      | Description
+------------------------------------------------------------------------------------------------
+DiffList    | List&lt;DiffEntityCategory&gt;  | Contains diff status of various details of entities.
+DiffStatus  | DiffEntityStatus          | Contains aggregated status of all the entity details.
+                                          Can be either SAME or DIFFERENT.
+</code></pre>
+
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/6.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/7.png" /></p>
+</li>
+<li>
+<p><strong>UpdateArtifact</strong></p>
+<p>Updates entity specified to be updated at current server from entity specified to update from using specified server. Either set the CompleteUpdate property in entity detail to update complete entity or provide specific details to be updated.<br>
+Can be used to update following type of entities:</p>
+<ul>
+<li>Site</li>
+<li>Global culture</li>
+<li>Global theme</li>
+</ul>
+<p>Request Object Structure: <strong>UpdateArtifactRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name                | Type              | Description
+------------------------------------------------------------------------------------------------
+Server              | EnvironmentInfo   | Deployment details from where to fetch the entity to be 
+                                          updated. Passing null will fetch details from current 
+                                          server.
+EntityToBeUpdated   | EntityMetaData    | Metadata for entity which is to be updated.
+                                          Only Type and Id are used to identify an entity.
+EntityToUpdateFrom  | Entity            | Details of entity from which other entity is to be 
+                                          updated.
+</code></pre>
+
+<p>Response Object Structure: <strong>UpdateArtifactRS</strong></p>
+<p>Only common response parameters containing information about the update operation are returned as part of response from server.</p>
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/8.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/0.png" /></p>
+</li>
+<li>
+<p><strong>CreateArtifact</strong></p>
+<p>Create an entity on current server using provided details.  Can be used to create following type of entities:		</p>
+<ul>
+<li>Site</li>
+<li>Template</li>
+<li>Global culture</li>
+<li>Global theme</li>
+<li>Widget</li>
+</ul>
+<p>Different request objects have to be used for creating different types of entities. Along with common request parameters described above, following information is also expected by the service.</p>
+<p>Request Object Structure: <strong>CreateSiteRQ</strong></p>
+<pre><code>Name                | Type      | Description
+------------------------------------------------------------------------------------------------
+Name                | String    | Name of the site to be created.
+Description         | String    | Description of the site to be created.
+TemplateId          | int?      | Id of the template from which the site is to be created.
+                                  Leave blank while creating empty site.
+</code></pre>
+
+<p>Request Object Structure: <strong>CreateTemplateRQ</strong></p>
+<pre><code>Name                | Type      | Description
+------------------------------------------------------------------------------------------------
+Name                | String    | Name of the template to be created.
+Description         | String    | Description of the template to be created.
+SiteId              | Int?      | Id of the site from which the template is to be created.
+ZipContent          | Byte[]    | Contents of zip in case of creating template from zip.
+</code></pre>
+
+<p>Request Object Structure: <strong>CreateGlobalCultureRQ</strong></p>
+<pre><code>Name                | Type      | Description
+------------------------------------------------------------------------------------------------
+CountryCode         | String    | 2 letter country code for the culture.
+LangaugeCode        | String    | 2 letter language code for the culture.
+ZipContent          | Byte[]    | Contents of zip in case of creating culture from zip.
+</code></pre>
+
+<p>Request Object Structure: <strong>CreateGlobalThemeRQ</strong></p>
+<pre><code>Name                | Type      | Description
+------------------------------------------------------------------------------------------------
+Name                | String    | Name of the theme to be created.
+Description         | String    | Description of the theme to be created.
+ZipContent          | Byte[]    | Contents of zip in case of creating theme from zip.
+</code></pre>
+
+<p>Request Object Structure: <strong>CreateWidgetRQ</strong></p>
+<pre><code>Name                | Type      | Description
+------------------------------------------------------------------------------------------------
+Name                | String    | Name of widget to be created.
+Description         | String    | Description of widget to be created.
+Url                 | String    | Url of the widget.
+Icon                | String    | Relative image file url to be used as icon for the widget.
+State               | String    | Default state to be saved with the widget.
+CultureZipContent   | Byte[]    | Contents of zip in case of creating widget cultures from zip.
+</code></pre>
+
+<p>Response Object Structure: <strong>CreateArtifactRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<pre><code>Name                | Type      | Description
+------------------------------------------------------------------------------------------------
+ArtifactId          | Long      | Id of the newly created artifact.
+</code></pre>
+
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/9.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/10.png" /></p>
+</li>
+<li>
+<p><strong>PublishArtifact</strong></p>
+<p>Publish entities on current server using artifact id provided in request. Following types of entity are supported:</p>
+<ul>
+<li>Site – by passing site id</li>
+<li>Global theme – by passing theme id</li>
+<li>Global culture – by passing culture instance id of global culture</li>
+<li>Widget culture – by passing widget id corresponding to the cultures</li>
+</ul>
+<p>Request Object Structure: <strong>PublishArtifactRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name        | Type      | Description
+------------------------------------------------------------------------------------------------
+Type        | Enum      | Type of the artifact to be published.
+ArtifactId  | Long      | Above described id corresponding to the artifact to be published. 
+</code></pre>
+
+<p>Response Object Structure: <strong>PublishArtifactRS</strong></p>
+<p>Only common response parameters containing information about the update operation are returned as part of response from server.</p>
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/11.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/0.png" /></p>
+</li>
+<li>
+<p><strong>DownloadArtifact</strong></p>
+<p>Download entities as zip from current server. Following types of entity are supported:</p>
+<ul>
+<li>Template – by passing template id</li>
+<li>Global culture – by passing culture instance id of global culture</li>
+<li>Global theme – by passing global theme id</li>
+<li>Widget culture – by passing corresponding widget id.</li>
+</ul>
+<p>Request Object Structure: <strong>DownloadArtifactRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name        | Type           | Description
+------------------------------------------------------------------------------------------------
+Entity      | EntityMetaData | Metadata of the entity to be downloaded. 
+</code></pre>
+
+<p>Response Object Structure: <strong>DownloadArtifactRS</strong></p>
+<p>Along with common response parameters, following information is also returned as a part of response object.</p>
+<pre><code>Name        | Type      | Description
+------------------------------------------------------------------------------------------------
+Data        | Byte[]    | Byte array containing contents of the specified entity in zip format.
+</code></pre>
+
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/12.png" /></p>
+</li>
+<li>
+<p><strong>DeleteArtifact</strong></p>
+<p>This can be used to delete artifact at current server. Following types of entity are supported:</p>
+<ul>
+<li>Site – by passing site id</li>
+<li>Template – by passing template id</li>
+<li>Global culture – by passing culture instance id of global culture</li>
+<li>Global theme – by passing global theme id</li>
+<li>Widget culture – by passing corresponding widget id.</li>
+</ul>
+<p>Request Object Structure: <strong>DeleteArtifactRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name        | Type          | Description
+------------------------------------------------------------------------------------------------
+Type        | Enum          | Type of the entity to be deleted. 
+ArtifactId  | Long          | Id of the artifact to be deleted.
+</code></pre>
+
+<p>Response Object Structure: <strong>DeleteArtifactRS</strong></p>
+<p>Only common response parameters containing information about the delete operation are returned as part of response from server.</p>
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/13.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/0.png" /></p>
+</li>
+<li>
+<p><strong>SyncWidgetList</strong></p>
+<p>This can be used to sync and update widgets at current server with the server information provided in EnvironmentInfo object of request.</p>
+<p>Request Object Structure:  <strong>SyncWidgetListRQ</strong></p>
+<p>Along with common request parameters described above, following information is also expected by the service.</p>
+<pre><code>Name        | Type              | Description
+------------------------------------------------------------------------------------------------
+Server      | EnvironmentInfo   | Information about the Server like Server location, username
+                                  and password to connect.
+Widgets     | List&lt;WidgetInfo&gt;  | List of the widget information contains Name and Id
+WidgetDump  | Byte[]            | Array of byte of widget dump
+</code></pre>
+
+<p>Response Object Structure:  <strong>SyncWidgetListRS</strong></p>
+<p>Only common response parameters containing information about the sync operation are returned as part of response from server.</p>
+<p>Sample Request<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/14.png" /></p>
+<p>Sample Response<br/>
+<img src="./images/6.TemplarDeploymentServiceAPISpec/0.png" /></p>
+</li>
+</ol>
+<h2>Detailed Object Model</h2>
+<p><strong>AuthenticationInfo</strong></p>
+<pre><code>Name            | Type                  | Description
+------------------------------------------------------------------------------------------------
+Username        | String                | Templar username for the deployment
+Password        | String                | Password for the above specified username
+</code></pre>
+
+<p><strong>Culture</strong></p>
+<pre><code>Name            | Type                  | Description
+------------------------------------------------------------------------------------------------
+Id              | Long                  | Id of the culture
+CultureCode     | String                | Culture code in format LC-CC, where LC is corresponding 
+                                          language code and CC is country code.
+CountryCode     | String                | 2 letter country code. Can be empty.
+CountryName     | String                | Full country name.
+LanguageCode    | String                | 2 letter language code. Cannot be empty.
+LanguageName    | String                | Full language name.
+Resources       | List&lt;CultureResource&gt; | List of resources associated with the culture
+ResourcesHash   | String                | Combined hash of all the resources associated with the 
+                                          culture.
+ResourceCount   | Long                  | Count of the resources associated with the culture
+Contents        | List&lt;CultureContent&gt;  | List of contents associated with the culture
+ContentsHash    | String                | Combined hash of all the content associated with the culture
+ContentCount    | Long                  | Count of the contents associated with the culture
+Setting         | CultureSetting        | Object containing details of culture setting for current 
+                                          culture
+</code></pre>
+
+<p><strong>CultureContent</strong></p>
+<pre><code>Name            | Type                  | Description
+------------------------------------------------------------------------------------------------
+Id              | Long                  | If of the content
+Key             | String                | Key for the content
+BinaryData      | Byte[]                | Binary data for the content
+ContentType     | String                | Content type fetched from the uploaded content file
+</code></pre>
+
+<p><strong>CultureResource</strong></p>
+<pre><code>Name            | Type                  | Description
+------------------------------------------------------------------------------------------------
+Id              | Long                  | Id of the resource
+Key             | String                | Key for the resource
+Value           | String                | Value for the resource
+Comment         | String                | Comment specified with the resource
+
+TranslationSetting  | String            | Translation setting for the resource
+</code></pre>
+
+<p><strong>CultureSetting</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+DateTimeFormat  | DateTimeFormat    | Settings for culture corresponding to date and time
+NumberFormat    | NumberFormat      | Settings for culture corresponding to number formatting 
+                                      and currency
+TextDirection   | String            | Direction for displaying text in current culture, can be either 
+                                      left to right or right to left
+MetricSystem    | String            | Metric system to be used with current culture
+Yes             | String            | Text representing ‘Yes’ in current culture 
+No              | String            | Text representing ‘No’ in current culture
+</code></pre>
+
+<p><strong>DateTimeFormat</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+ShortDateFormat | String            | Format to be used while displaying short date
+LongDateFormat  | String            | Format to be used while displaying long date
+TimeFormat      | String            | Format to be used while displaying time
+DateSeparator   | String            | Separator to be used while displaying date
+TimeSeparator   | String            | Separator to be used while displaying time
+AMDesignator    | String            | Text representation of ‘am’ in current culture
+PMDesignator    | String            | Text representation of ‘pm’ in current culture
+Day             | List&lt;DayName&gt;     | List of day names corresponding to current culture
+Month           | List&lt;MonthName&gt;   | List of month names corresponding to current culture
+</code></pre>
+
+<p><strong>DayName</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+AbbreviatedName | String            | Abbreviated name of the day
+FullName        | String            | Full name of the day
+</code></pre>
+
+<p><strong>Entity</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Site            | Site              | Contains details of site entity
+Template        |                   | Template Contains details of template entity
+GlobalCulture   | Culture           | Contains details of global culture entity
+GlobalTheme     | Theme             | Contains details of global theme entity
+Widget          | Widget            | Contains details of widget entity
+CompleteUpdate  | Bool              | Used while updating an entity. If set to true,
+                                      complete entity is updated from specified entity.
+</code></pre>
+
+<p><strong>EntityMetaData</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Type            | Enum              | Type of entity
+Id              | Long              | Id for the entity
+Name            | String            | Name of entity
+</code></pre>
+
+<p><strong>EnvironmentInfo</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Location        | String            | URL of home page of Templar deployment
+Username        | String            | Templar username for the deployment
+Password        | String            | Password for the above specified username
+</code></pre>
+
+<p><strong>ErrorPage</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+StatusCode      | Int               | Status code for the error page e.g. 404, 500
+Redirect        | String            | Relative url of the page to be redirected to in case of 
+                                      corresponding error code occurs
+</code></pre>
+
+<p><strong>EventInfoMapping</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+SourceKey       | String            | Key in source event
+MappedKey       | String            | Key in destination event
+DefaultValue    | String            | Default value to be used in case none is provided
+</code></pre>
+
+<p><strong>EventMapping</strong></p>
+<pre><code>Name                        | Type                  | Description
+------------------------------------------------------------------------------------------------
+Type                        | String                | Type of event
+SourceWidgetId              | Long                  | Id of widget raising the event
+SourceWidgetName            | String                | Name of widget raising the event
+SourceWidgetEventName       | String                | Name of the event in widget raising the event
+DestinationWidgetId         | Long                  | Id of widget listening the event
+DestinationWidgetName       | String                | Name of widget listening the event
+DestinationWidgetEventName  | String                | Name of the event in widget listening the event
+EventInfoMappings           | List&lt;EventInfoMapping&gt;| List of parameter mappings between the two events
+</code></pre>
+
+<p><strong>KeyValuePair</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Key             | String            | Contains key
+Value           | String            | Contains value
+</code></pre>
+
+<p><strong>MonthName</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+AbbreviatedName | String            | Abbreviated name of the month
+FullName        | String            | Full name of the month
+</code></pre>
+
+<p><strong>NumberFormat</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+DecimalDigits   | Int               | Number of decimal digits to be displayed
+DigitGrouping   | Int[]             | Digit grouping format for current culture
+DecimalSymbol   | String            | Decimal symbol to be used in current culture
+GroupSeparator  | String            | Group separator to be used in current culture
+CurrencySymbol  | String            | Current symbol corresponding to current culture
+CurrencyCode    | String            | Current code corresponding to current culture
+PositiveSymbol  | String            | Symbol to denote positive number in current culture
+NegativeSymbol  | String            | Symbol to denote negative number in current culture
+
+PositiveCurrencyFormat  | String    | Format to be used while displaying positive currency in current 
+                                      culture
+NegativeNumberFormat    | String    | Format to be used while displaying negative number in current 
+                                      culture
+NegativeCurrencyFormat  | String    | Format to be used while displaying negative currency in current 
+                                      culture
+</code></pre>
+
+<p><strong>Page</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Id              | Long              | Id of the page
+Name            | String            | Name of the page
+Title           | String            | Title of the page
+RelativeUrl     | String            | Url of the page
+LayoutType      | Int               | Layout type of the page
+PageAlign       | Int               | Alignment of the page
+IsDirty         | Bool              | Is true if changes are made in the page after last publish
+IsLogin         | Bool              | Is true if the page is set as login page for site
+IsMaster        | Bool              | Is true for master pages
+MasterPageId    | Long              | Contains id of master page in case one exists
+State           | String            | State of the page
+ConnectionType  | String            | Connection type specified for the page
+
+WidgetInstances | List&lt;WidgetInstance&gt;  | List of widget instances present on the page
+PageData        | List&lt;KeyValuePair&gt;    | List of page data associated with the page
+MetaData        | List&lt;KeyValuePair&gt;    | List of meta data associated with the page
+EventMappings   | List&lt;EventMapping&gt;    | List of event mappings associated with the widget instances 
+                                          present on the page
+
+IsAuthenticationRequired    | Bool      | Is true if page requires user to logged in
+</code></pre>
+
+<p><strong>PageLayouts</strong></p>
+<pre><code>Code                        | Layout
+------------------------------------------------------------------------------------------------
+0                           | 3 – Panel
+1                           | Small Left Panel
+2                           | Small Right Panel
+3                           | Small Side Panels
+4                           | Single Panel
+</code></pre>
+
+<p><strong>Site</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Id              | Long              | Id of the site
+Name            | String            | Name of the site
+Url             | String            | Url of the site
+MappedToDomain  | String            | Vanity urls specified for the site
+Description     | String            | Description of the site
+Status          | String            | Current status of the site, can be offline or online
+DefaultPage     | Long              | Id of default page for the site
+DefaultPageUrl  | String            | Url of default page for the site
+MetaData        | List&lt;KeyValuePair&gt;| List of meta data specified with the site
+Pages           | List&lt;Page&gt;        | List of pages in current site
+Themes          | List&lt;Theme&gt;       | List of themes for current site
+CurrentThemeName| String            | Name of theme currently used by the site
+HeaderCode      | String            | Code to be included on header of every page
+FooterCode      | String            | Code to be included on footer of every page
+Cultures        | List&lt;Culture&gt;     | List of cultures defined at site level
+Resources       | List&lt;SiteResource&gt;| List of site level resources defined  
+CultureSelection| String            | Culture selection to be used during a page request,
+                                      can be auto-detect or enforced
+
+DefaultCultureCode  | String        | Code of culture currently set as default for the site
+InheritedCultures   | List&lt;Culture&gt; | List of global cultures inherited by the site
+DefaultPageLayout   | String        | Default layout of pages in site
+
+EnvData         | List&lt;SiteSettingsGroup&gt;   | List of groups containing site level environment data
+CustomErrorPages| List&lt;ErrorPage&gt;           | List of custom error pages defined by the site
+</code></pre>
+
+<p><strong>SiteResource</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Id              | Long              | Id of the resource
+Key             | String            | Key for the resource
+ContentType     | String            | Content type of the resource
+IsPublic        | Bool              | Is true if resource can be accessed publicly using url
+</code></pre>
+
+<p><strong>SiteSettingsGroup</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Name            | String            | Name of group in site settings
+Settings        | List&lt;KeyValuePair&gt;| List of various groups in site settings
+</code></pre>
+
+<p><strong>Template</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Id              | Long              | Id of the template
+Name            | String            | Name of the site in template
+Url             | String            | Url of the site in template
+MappedToDomain  | String            | Vanity urls specified for the site in template
+Description     | String            | Description of the site in template
+Status          | String            | Current status of the site, can be offline or online
+DefaultPage     | Long              | Id of default page for the site in template
+DefaultPageUrl  | String            | Url of default page for the site in template
+MetaData        | List&lt;KeyValuePair&gt;| List of meta data specified with the site in template
+Pages           | List&lt;Page&gt;        | List of pages in current site in template
+Themes          | List&lt;Theme&gt;       | List of themes for current site in template
+CurrentThemeName| String            | Name of theme currently used by the site in template
+HeaderCode      | String            | Code to be included on header of every page
+FooterCode      | String            | Code to be included on footer of every page
+Cultures        | List&lt;Culture&gt;     | List of cultures defined at site level in template
+CustomErrorPages| List&lt;ErrorPage&gt;   | List of custom error pages defined by the site in template
+Resources       | List&lt;SiteResource&gt;| List of site level resources defined in template
+
+DefaultPageLayout   | String        | Default layout of pages in site in template
+DefaultCultureCode  | String        | Code of culture currently set as default for the 
+                                      site in template
+CultureSelection    | String        | Culture selection to be used during a page request, 
+                                      can be auto-detect or enforced
+InheritedCultures   | List&lt;Culture&gt; | List of global cultures inherited by the site in template
+
+EnvData | List&lt;SiteSettingsGroup&gt;   | List of groups containing site level environment data
+</code></pre>
+
+<p><strong>Theme</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Id              | Long              | Id of the theme
+Name            | String            | Name of the theme
+Description     | String            | Description of the theme
+Path            | String            | Path of the theme
+</code></pre>
+
+<p><strong>Widget</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Id              | Long              | Id of the widget
+Name            | String            | Name of the widget
+Description     | String            | Description of the widget
+Url             | String            | Url corresponding to the widget
+Icon            | String            | Path for icon file for the widget
+State           | String            | State for the widget
+Cultures        | List&lt;Culture&gt;     | List of cultures defined for the widget
+</code></pre>
+
+<p><strong>WidgetInstance</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Id              | Long              | Id of widget instance
+BaseWidget      | Widget            | Object containing details of base widget 
+Title           | String            | Title of widget instance
+Row             | Int               | Row number of widget instance
+Column          | Int               | Column number of widget instance
+Visible         | Bool              | Is true if widget is visible
+State           | String            | State corresponding to the widget instance
+</code></pre>
+
+<p><strong>WidgetInfo</strong></p>
+<pre><code>Name            | Type              | Description
+------------------------------------------------------------------------------------------------
+Name            | String            | Name of the widget
+Id              | Long              | Id of widget 
+</code></pre>
+
+<hr />
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

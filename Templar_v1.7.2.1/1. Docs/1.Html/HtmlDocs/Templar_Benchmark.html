@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>8. Templar Benchmark</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar v1.7 Performance Benchmark</h1>
+<p>This document explains the performance of Templar version 1.7 in comparison to the previous Templar version 1.6.49.3.</p>
+<hr />
+<h3>Disclaimer</h3>
+<p>This report was conducted by Templar Team with intention to provide customers with information on what performance they can expect from Templar v1.7 which is based on .NET Framework 4.5. </p>
+<p>Templar team has put in their best efforts to conduct an unbiased test, but the performance of a website depends on many parameters, such as computer hardware, network configuration, client configuration, operating system and software configuration, site content, number of items in Templar database, information architecture, custom code and other factors. </p>
+<p>The reader of this report uses all information in this report at his/her own risk.</p>
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code>1.  Execution Summary
+2.  Testing Configurations
+    Configuration - Two separate servers (a web server and a database server)
+3.  Benchmark Background
+    Performance of site pages created on Templar
+    Templar Admin UI performance
+4.  Comparison of Results
+5.  References
+    Machine Configurations
+</code></pre>
+
+<hr />
+<h2>Execution Summary</h2>
+<p><strong>Templar v1.7</strong> provides performance improvements as compared to its previous versions. It’s now built on top of .NET 4.5 to enhance performance and scalability. It makes use of and enables new features introduced in the .NET framework.</p>
+<p>Key new features being used by Templar are listed below:</p>
+<ol>
+<li>
+<p>Async support for pages, modules and handlers.</p>
+</li>
+<li>
+<p>ASP.NET 4.5 request validation.</p>
+</li>
+<li>
+<p>Unobtrusive validation to avoid inline JavaScript for validation controls.</p>
+</li>
+<li>
+<p>Bundling and minification provided by .NET 4.5</p>
+</li>
+<li>
+<p>Third party Zip\Unzip is now moved to native .NET libraries.</p>
+</li>
+</ol>
+<p>The load/web tests were performed internally by Templar Team on common hardware. (ref: <a href="#heading=h.3rdcrjn">Machine Configuration</a><a href="#heading=h.3rdcrjn">)</a>.</p>
+<p>Benchmark was performed as per the following steps:</p>
+<ol>
+<li>
+<p>Templar <strong>v1.6.49.3</strong> was deployed on IIS 7.5 with site url <a href="http://pt-templar-rtm.tavisca.com">http://pt-templar-rtm.tavisca.com</a></p>
+</li>
+<li>
+<p>Templar <strong>v1.7</strong> was deployed on same IIS7.5 with site url <a href="http://pt-templar-rc.tavisca.com">http://pt-templar-rc.tavisca.com</a></p>
+</li>
+<li>
+<p>Templar <strong>v1.6.49.3</strong> website was started while all others were stopped. IIS was then reset.</p>
+</li>
+<li>
+<p>Test Cases were run on <strong>v1.6.49.3</strong> website with the help of VS 2010 &amp; results were noted down.</p>
+</li>
+<li>
+<p>Templar <strong>v1.6.49.3</strong> website was then stopped and <strong>v1.7</strong> was started. IIS was then reset.</p>
+</li>
+<li>
+<p>Same tests were re-run on <strong>v1.7</strong> deployment &amp; the results were noted.</p>
+</li>
+<li>
+<p>Finally Results were compared.</p>
+</li>
+</ol>
+<h2>Testing Configurations</h2>
+<h3>Configuration - Two separate servers (a web server and a database server)</h3>
+<p>Microsoft Windows Server 2008 for web-Server, Microsoft Windows Server 2008 for Microsoft SQL Server 2008R2</p>
+<p>For More Info, ref: <a href="#heading=h.3rdcrjn">Machine Configuration</a></p>
+<p><img src="./images/8.TemplarBenchmark/1.Web_And_DB_Server.png" /> </p>
+<h2>Benchmark Background</h2>
+<p>This benchmarking was done on the following aspects of Templar performance:</p>
+<ol>
+<li>
+<p>Performance of content (pages having a master page associated) and non-content (pages not having a master page associated) pages for a site created on Templar application under stress for serving requests, i.e. Templar  Avg. page load time, Requests/sec, Total Errors occurred during test duration, etc.</p>
+</li>
+<li>
+<p>Templar Admin UI performance:</p>
+<p>The following scenarios were covered by the performance tests.</p>
+<pre><code>a. Create Site from scratch
+
+b. Create Site from Template
+
+c. Create Template
+
+d. Publish full Site
+
+e. Publish Site Resources
+
+f. Publish Site Pages
+
+g. Download Global Theme
+
+h. Download Global Culture
+
+i. Download Site Culture
+
+j. Sites Listing Pagination
+
+k. Reloading Cache (Live, Design and Main)
+</code></pre>
+
+</li>
+</ol>
+<h3>Performance of site pages created on Templar:</h3>
+<p>In this test we monitored following parameters for comparison: </p>
+<p>Page Avg. Response Time, Errors occurred, Requests per sec. etc. </p>
+<p>For this test, a sample site was created on Templar, in which sample pages were created (refer Artifacts Folder for the site template). This test site consisted of 4 pages; a master page designed using a custom layout, 2 content pages using this master page and a non-content page also designed using a custom layout.</p>
+<p>The <strong>master page</strong> used a <strong>custom layout</strong> and contained the following widgets:</p>
+<table>
+  <tr>
+    <td>Sr. No.</td>
+    <td>Widget Type</td>
+    <td>No. of instances on page</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>ContentPlaceHolder Widget</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>Html Editor Widget</td>
+    <td>1</td>
+  </tr>
+</table>
+<p>The <strong>content page</strong> contained the following widgets:</p>
+<table>
+  <tr>
+    <td>Sr. No.</td>
+    <td>Widget Type</td>
+    <td>No. of instances on page</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Composite Widget</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>Html Editor Widget</td>
+    <td>3</td>
+  </tr>
+</table>
+<p>The <strong>non-content</strong> page also used a <strong>custom layout</strong> and contained the following widgets:</p>
+<table>
+  <tr>
+    <td>Sr. No.</td>
+    <td>Widget Type</td>
+    <td>No. of instances on page</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Composite Widget</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>Html Editor Widget</td>
+    <td>3</td>
+  </tr>
+</table>
+<p><strong>Test Configurations:</strong></p>
+<table>
+  <tr>
+    <td>Load test name</td>
+    <td>TemplarPage</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>Templar Page Load Performance </td>
+  </tr>
+  <tr>
+    <td>Warm-up duration</td>
+    <td>00:03:00</td>
+  </tr>
+  <tr>
+    <td>Duration</td>
+    <td>00:10:00</td>
+  </tr>
+  <tr>
+    <td>Controller</td>
+    <td>Local run</td>
+  </tr>
+  <tr>
+    <td>Number of agents</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Max User Load</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>Step Duration</td>
+    <td>5 sec</td>
+  </tr>
+  <tr>
+    <td>Increase in load</td>
+    <td>10 users</td>
+  </tr>
+  <tr>
+    <td>Browser</td>
+    <td>IE 8.0</td>
+  </tr>
+  <tr>
+    <td>Network</td>
+    <td>LAN</td>
+  </tr>
+  <tr>
+    <td>Load Type</td>
+    <td>Step Pattern</td>
+  </tr>
+</table>
+<p><strong>How to run the test:</strong></p>
+<ol>
+<li>
+<p>Open <strong><em>Tavisca.Templar.PerformanceBenchmark.sln</em></strong> Solution.</p>
+</li>
+<li>
+<p>Build the solution.</p>
+</li>
+<li>
+<p>Change Test Parameters in App.config as required
+<code>&lt;add key=&quot;TemplarPageWithMasterPage&quot; value=&quot;http://pt-templar-rtm.tavisca.com/samplesite/explore&quot;/&gt;</code></p>
+<p><code>&lt;add key=&quot;TemplarPageWithOutMasterPage&quot; value=&quot;http://pt-templar-rtm.tavisca.com/samplesite/free&quot;/&gt;</code></p>
+<p>i.e.</p>
+<p><strong>TemplarPageWithMasterPage -</strong> Should hold URL of a Templar Site Page that uses a master page.</p>
+<p><strong>TemplarPageWithOutMasterPage -</strong> Should hold URL of a Templar Site Page not using a master page.</p>
+</li>
+<li>
+<p>Run the Test named <strong><em>TemplarPage.loadtest</em></strong> from TestView window.</p>
+</li>
+</ol>
+<h3>Templar Admin UI performance</h3>
+<p>In this test, we were monitoring average response time for activities like Templar site creation from scratch, Templar site creation from Template, creation of Template, downloading cultures and themes, site list pagination, cache reloading etc.</p>
+<p><strong>How to run the test:</strong></p>
+<ol>
+<li>
+<p>Open <strong><em>Tavisca.Templar.PerformanceBenchmark.sln</em></strong> Solution.</p>
+</li>
+<li>
+<p>Build the solution.</p>
+</li>
+<li>
+<p>Coded UI tests have been created in the solution for calculating the time required for various scenarios.</p>
+</li>
+<li>
+<p>Change Test Parameters in App.config as required</p>
+<p><code>&lt;add key=&quot;TemplarAdminUIUrl&quot; value=&quot;http://pt-templar-rtm.tavisca.com/templar/Login.aspx&quot;/&gt;</code></p>
+<p><code>&lt;add key=&quot;UserName&quot; value=&quot;sa&quot;/&gt;</code></p>
+<p><code>&lt;add key=&quot;PassWord&quot; value=&quot;zaq1ZAQ!&quot;/&gt;</code></p>
+<p><code>&lt;add key=&quot;SiteName&quot; value=&quot;PerfTest&quot;/&gt;</code></p>
+<p><code>&lt;add key=&quot;SiteTemplateName&quot; value=&quot;PerfTest_Template&quot;/&gt;</code></p>
+<p>i.e.</p>
+<p><strong>TemplarAdminUIUrl –</strong> Should point to URL of Templar login page.</p>
+<p><strong>UserName –</strong> Templar superuser login name.</p>
+<p><strong>Password –</strong> Templar superuser password.</p>
+<p><strong>SiteName –</strong> Name of site to be created by the Site Creation test.</p>
+<p><strong>SiteTemplateName –</strong> Name of the site template to be created by the Template Creation test.</p>
+<p>Run the following tests from the TestView window and note down the time calculated for execution for each test (displayed in the test results):</p>
+<p>a. CreateSiteFromScratch</p>
+<p>b. CreateSiteFromTemplate</p>
+<p>c. CreateTemplate</p>
+<p>d. PublishFullSite</p>
+<p>e. PublishSiteResources</p>
+<p>f. PublishSitePages</p>
+<p>g. DownloadGlobalTheme</p>
+<p>h. DownloadGlobalCulture</p>
+<p>i. DownloadSiteCulture</p>
+<p>j  SitePaginationTest</p>
+<p>k. ReloadLiveModeCache</p>
+<p>l. ReloadDesignModeCache</p>
+<p>m. ReloadMainModeCache</p>
+</li>
+</ol>
+<h2>Comparison of Results</h2>
+<h4>Performance of site pages created on Templar:</h4>
+<p><strong>Templar v1.6.49.3</strong> has been used as Baseline for comparison while <strong>Templar v1.7</strong> is the Comparison Run.</p>
+<p><img src="./images/8.TemplarBenchmark/2.Performance.png" /> </p>
+<p><strong>Avg. Page Response Time (ms):</strong></p>
+<table>
+  <tr>
+    <td>Test Case</td>
+    <td>Baseline</td>
+    <td>Comparison Run</td>
+    <td>Response Goal</td>
+    <td>% Change from Baseline</td>
+    <td>% from Goal</td>
+  </tr>
+  <tr>
+    <td>PageWithoutMasterPageCoded</td>
+    <td>0.81</td>
+    <td>0.78</td>
+    <td>2.00</td>
+    <td>3%</td>
+    <td>61%</td>
+  </tr>
+  <tr>
+    <td>PageWithMasterPageCoded</td>
+    <td>0.82</td>
+    <td>0.79</td>
+    <td>10.00</td>
+    <td>3%</td>
+    <td>92%</td>
+  </tr>
+</table>
+<p><strong>Machine Parameter Comparison:</strong></p>
+<table>
+  <tr>
+    <td>Counter</td>
+    <td>Baseline</td>
+    <td>Comparison Run</td>
+    <td>% Change from Baseline</td>
+  </tr>
+  <tr>
+    <td>Errors/Sec</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td>Exceptions</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td>Http Errors</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td>Requests Timed Out</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td>Total Errors</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td>Avg. Page Time</td>
+    <td>0.50</td>
+    <td>0.49</td>
+    <td>3%</td>
+  </tr>
+  <tr>
+    <td>Pages/Sec</td>
+    <td>87.4</td>
+    <td>91.4</td>
+    <td>4%</td>
+  </tr>
+  <tr>
+    <td>Total Pages</td>
+    <td>52440.00</td>
+    <td>54840.00</td>
+    <td>5%</td>
+  </tr>
+  <tr>
+    <td>Avg. Connection Wait Time</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td>Avg. Content Length</td>
+    <td>20393.0</td>
+    <td>20396.0</td>
+    <td>1%</td>
+  </tr>
+  <tr>
+    <td>Avg. First Byte Time</td>
+    <td>0.49</td>
+    <td>0.48</td>
+    <td>3%</td>
+  </tr>
+  <tr>
+    <td>Avg. Response Time</td>
+    <td>0.49</td>
+    <td>0.48</td>
+    <td>3%</td>
+  </tr>
+  <tr>
+    <td>Cached Requests</td>
+    <td>52380.00</td>
+    <td>52490.00</td>
+    <td>2%</td>
+  </tr>
+  <tr>
+    <td>Failed Requests</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td>Passed Requests</td>
+    <td>53040.00</td>
+    <td>55440.00</td>
+    <td>5%</td>
+  </tr>
+  <tr>
+    <td>Requests/Sec</td>
+    <td>88.4</td>
+    <td>92.4</td>
+    <td>5%</td>
+  </tr>
+  <tr>
+    <td>Total Requests</td>
+    <td>53040.00</td>
+    <td>55440.00</td>
+    <td>5%</td>
+  </tr>
+  <tr>
+    <td>User Load</td>
+    <td>100.00</td>
+    <td>100.00</td>
+    <td>0%</td>
+  </tr>
+</table>
+<h4>Templar Admin UI performance</h4>
+<table>
+  <tr>
+    <td>Scenario</td>
+    <td>Baseline</td>
+    <td>Comparison Run</td>
+    <td>% Change from Baseline</td>
+  </tr>
+  <tr>
+    <td>Create Site From Scratch</td>
+    <td>3387</td>
+    <td>3849</td>
+    <td>-11%</td>
+  </tr>
+  <tr>
+    <td>Create Site From Template</td>
+    <td>3722</td>
+    <td>4212</td>
+    <td>-11%</td>
+  </tr>
+  <tr>
+    <td>Create Template</td>
+    <td>2091</td>
+    <td>1478</td>
+    <td>29%</td>
+  </tr>
+  <tr>
+    <td>Publish Full Site</td>
+    <td>7685</td>
+    <td>6606</td>
+    <td>14%</td>
+  </tr>
+  <tr>
+    <td>Publish Site Resources</td>
+    <td>6777</td>
+    <td>6716</td>
+    <td>1%</td>
+  </tr>
+  <tr>
+    <td>Publish Site Pages</td>
+    <td>5662</td>
+    <td>5635</td>
+    <td>1%</td>
+  </tr>
+  <tr>
+    <td>Reload Live Mode Cache</td>
+    <td>4473</td>
+    <td>4231</td>
+    <td>5%</td>
+  </tr>
+  <tr>
+    <td>Reload Design Mode Cache</td>
+    <td>6802</td>
+    <td>6069</td>
+    <td>10%</td>
+  </tr>
+  <tr>
+    <td>Reload Main Mode Cache</td>
+    <td>6932</td>
+    <td>6495</td>
+    <td>6%</td>
+  </tr>
+  <tr>
+    <td>Download Global Theme</td>
+    <td>2885</td>
+    <td>669</td>
+    <td>76%</td>
+  </tr>
+  <tr>
+    <td>Download Global Culture</td>
+    <td>2740</td>
+    <td>1644</td>
+    <td>40%</td>
+  </tr>
+  <tr>
+    <td>Site Pagination</td>
+    <td>1654</td>
+    <td>1640</td>
+    <td>1%</td>
+  </tr>
+  <tr>
+    <td>Download Site Culture</td>
+    <td>1109</td>
+    <td>1232</td>
+    <td>-10%</td>
+  </tr>
+</table>
+<h4>Templar Page Load times (time in ms)</h4>
+<table>
+  <tr>
+    <td>Scenario</td>
+    <td>Counter</td>
+    <td>Baseline</td>
+    <td>Comparison Run</td>
+    <td>% Change from Baseline</td>
+  </tr>
+  <tr>
+    <td>PageWithMasterPage</td>
+    <td>Total Time (ms)</td>
+    <td>6024</td>
+    <td>5212</td>
+    <td>14%</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>Request Time (ms)</td>
+    <td>5487</td>
+    <td>3415</td>
+    <td>38%</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>Response Bytes</td>
+    <td>225187</td>
+    <td>225101</td>
+    <td>0%</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>PageWithoutMasterPage</td>
+    <td>Total Time</td>
+    <td>214</td>
+    <td>154</td>
+    <td>28%</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>Request Time</td>
+    <td>127</td>
+    <td>82</td>
+    <td>35%</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>Response Bytes</td>
+    <td>216780</td>
+    <td>216770</td>
+    <td>0%</td>
+  </tr>
+</table>
+<h2>References</h2>
+<h3>Machine Configurations</h3>
+<p><strong>Web Server Configuration:</strong></p>
+<p><em>OS Name:</em> 	Microsoft Windows Server 2008 R2 Standard</p>
+<p><em>Version	:</em> 	6.1.7601 Service Pack 1 Build 7601</p>
+<p><em>OS Manufacturer:</em>	Microsoft Corporation</p>
+<p><em>System Manufacturer:</em>	VMware, Inc.</p>
+<p><em>System Model:</em>	VMware Virtual Platform	</p>
+<p><em>System Type:</em>	x64-based PC</p>
+<p><em>Processor:</em>	Intel(R) Xeon(R) CPU	   X5650 @ 2.67GHz, 2666 MHz, 1 Core(s), 1 Logical Processor(s)</p>
+<p><em>BIOS Version/Date:</em>	Phoenix Technologies LTD 6.00, 10/13/2009</p>
+<p><em>Installed Physical Memory (RAM):</em>	6.00 GB</p>
+<p><em>Total Physical Memory:</em>  	6.00 GB</p>
+<p><em>Available Physical Memory:</em>	4.19 GB</p>
+<p><em>Total Virtual Memory:</em>	12.0 GB</p>
+<p><em>Available Virtual Memory:</em>	10.2 GB</p>
+<p><strong>Database Server Configuration:</strong></p>
+<p><em>OS Name:</em> 	Microsoft Windows Server 2008 R2 Standard</p>
+<p><em>Version	:</em> 	6.1.7601 Service Pack 1 Build 7601</p>
+<p><em>OS Manufacturer:</em>	Microsoft Corporation</p>
+<p><em>System Manufacturer:</em>	VMware, Inc.</p>
+<p><em>System Model:</em>	VMware Virtual Platform	</p>
+<p><em>System Type:</em>	x64-based PC</p>
+<p><em>Processor:</em>	Intel(R) Xeon(R) CPU	   X5650 @ 2.67GHz, 2666 MHz, 1 Core(s), 1 Logical Processor(s)</p>
+<p><em>BIOS Version/Date:</em>	Phoenix Technologies LTD 6.00, 10/13/2009</p>
+<p><em>Installed Physical Memory (RAM):</em>	6.00 GB</p>
+<p><em>Total Physical Memory:</em>  	6.00 GB</p>
+<p><em>Available Physical Memory:</em>	4.19 GB</p>
+<p><em>Total Virtual Memory:</em>	12.0 GB</p>
+<p><em>Available Virtual Memory:</em>	10.2 GB</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

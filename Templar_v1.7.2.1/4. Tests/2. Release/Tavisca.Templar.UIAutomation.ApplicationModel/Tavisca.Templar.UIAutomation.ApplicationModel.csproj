@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8D8DABB-E839-4934-8DE8-027AEE46463E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tavisca.Templar.UIAutomation.ApplicationModel</RootNamespace>
+    <AssemblyName>Tavisca.Templar.UIAutomation.ApplicationModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tavisca.TravelNxt.UIAutomation.Framework">
+      <HintPath>..\References\Tavisca.TravelNxt.UIAutomation.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=2.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddGlobalCulture.cs" />
+    <Compile Include="AddNewGlobalTheme.cs" />
+    <Compile Include="AddNewPageLink.cs" />
+    <Compile Include="AddUser.cs" />
+    <Compile Include="AddWidget.cs" />
+    <Compile Include="AdminTab.cs" />
+    <Compile Include="CancleSite.cs" />
+    <Compile Include="CreateNewSite.cs" />
+    <Compile Include="CreateNewTemplate.cs" />
+    <Compile Include="CreateSiteBtn.cs" />
+    <Compile Include="CreateSiteBtnForPageSelection.cs" />
+    <Compile Include="CreateSiteLevelTheme.cs" />
+    <Compile Include="DeleteGlobalCulture.cs" />
+    <Compile Include="DeleteGlobalTheme.cs" />
+    <Compile Include="DeletePage.cs" />
+    <Compile Include="DeleteSite.cs" />
+    <Compile Include="DeleteTemplate.cs" />
+    <Compile Include="DeleteUser.cs" />
+    <Compile Include="EditSiteDetails.cs" />
+    <Compile Include="EditSiteLink.cs" />
+    <Compile Include="EnviromentData.cs" />
+    <Compile Include="ErrorHandling.cs" />
+    <Compile Include="Globalization.cs" />
+    <Compile Include="GlobalsTab.cs" />
+    <Compile Include="LoadSite.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="ManageCulture.cs" />
+    <Compile Include="ManageTemplates.cs" />
+    <Compile Include="ManageTheme.cs" />
+    <Compile Include="ManageUser.cs" />
+    <Compile Include="ManageWidget.cs" />
+    <Compile Include="PageDetails.cs" />
+    <Compile Include="PageNavigation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishAdvancedSite.cs" />
+    <Compile Include="PublishSite.cs" />
+    <Compile Include="SaveEditedSiteBtn.cs" />
+    <Compile Include="Script.cs" />
+    <Compile Include="SearchGlobalCulture.cs" />
+    <Compile Include="SearchGlobalTheme.cs" />
+    <Compile Include="SearchPage.cs" />
+    <Compile Include="SearchSite.cs" />
+    <Compile Include="SearchTemplate.cs" />
+    <Compile Include="SearchUser.cs" />
+    <Compile Include="SearchWidget.cs" />
+    <Compile Include="SelectPagesToCreateSite.cs" />
+    <Compile Include="SEO.cs" />
+    <Compile Include="SiteDetails.cs" />
+    <Compile Include="SiteLayout.cs" />
+    <Compile Include="SitesTab.cs" />
+    <Compile Include="TemplateDetails.cs" />
+    <Compile Include="TemplatesTab.cs" />
+    <Compile Include="Themes.cs" />
+    <Compile Include="UpdateBackWidget.cs" />
+    <Compile Include="UpdateWidgetFromBackUpFile.cs" />
+    <Compile Include="UpdateWidgetFromOtherServer.cs" />
+    <Compile Include="UpdateWidgetLink.cs" />
+    <Compile Include="UpdateWidgetAction.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>15. Templar_Released_Version_Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Templar Released Version Details</h1>
+<hr />
+<p><strong>If you have comments /queries about this documentation, email them to:</strong></p>
+<p><strong><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#116;&#x65;&#109;&#x70;&#108;&#97;&#114;&#64;t&#97;&#x76;&#x69;&#x73;&#99;&#x61;.&#x63;&#111;&#109;">&#x74;&#x65;&#109;&#x70;&#108;a&#x72;&#x40;&#x74;&#97;&#118;&#105;&#115;&#x63;&#97;&#46;&#99;&#111;&#109;</a></strong></p>
+<hr />
+<h2>Table of Contents</h2>
+<pre><code> 1.   Templar v1.7.1.0
+ 2.   Templar v1.7.0.0
+ 3.   Templar v1.6.50.0
+ 4.   Templar v1.6.49.3
+ 5.   Templar v1.6.49.2
+ 6.   Templar v1.6.49.1
+ 7.   Templar v1.6.49.0
+ 8.   Templar v1.6.0.0
+ 9.   Templar v1.5.579.1
+10.   Templar v1.5.579.0
+11.   Templar v1.5.578.51
+12.   Templar v1.5.578.7
+13.   Templar v1.5.578.5
+14.   Templar v1.5.578.4
+15.   Templar v1.5.578.3
+16.   Templar v1.5.578.1
+17.   Templar v1.5.0.0
+18.   Templar v1.4.0.0
+19.   Templar v1.3.0.0
+20.   Templar v1.2.0.0
+21.   Templar v1.1.0.0
+22.   Templar v1.0.0.0
+</code></pre>
+
+<hr />
+<h2><strong>Templar v1.7.2</strong></h2>
+<p><strong>Changes in Templar v1.7.2</strong></p>
+<p>Following changes were done in current release</p>
+<p><strong>Database changes:</strong></p>
+<ol>
+<li>Following changes done in data types.</li>
+</ol>
+<table>
+  <tr>
+    <td>Table</td>
+    <td>Column</td>
+    <td>Datatypes</td>
+    <td>Change in Datatypes</td>
+  </tr>
+  <tr>
+    <td>ActivityLog</td>
+    <td>UserName</td>
+    <td>varchar(32)</td>
+    <td>varchar(50)</td>
+  </tr>
+  <tr>
+    <td>AuditLog</td>
+    <td>UserName</td>
+    <td>varchar(256)</td>
+    <td>varchar(50)</td>
+  </tr>
+  <tr>
+    <td>AuditLog</td>
+    <td>MachineName</td>
+    <td>varchar(256)</td>
+    <td>varchar(256)</td>
+  </tr>
+  <tr>
+    <td>AuditLog</td>
+    <td>SiteURL</td>
+    <td>varchar(50)</td>
+    <td>varchar(500)</td>
+  </tr>
+  <tr>
+    <td>AuditLog</td>
+    <td>AdditionalInfo</td>
+    <td>nvarchar(MAX)</td>
+    <td>nvarchar(4000)</td>
+  </tr>
+  <tr>
+    <td>Content</td>
+    <td>BinaryData</td>
+    <td>image</td>
+    <td>varbinary(max)</td>
+  </tr>
+  <tr>
+    <td>Content</td>
+    <td>Comment</td>
+    <td>nvarchar(MAX)</td>
+    <td>nvarchar(4000)</td>
+  </tr>
+  <tr>
+    <td>CultureContentForLive</td>
+    <td>BinaryData</td>
+    <td>image</td>
+    <td>varbinary(max)</td>
+  </tr>
+  <tr>
+    <td>CultureResource</td>
+    <td>Comment</td>
+    <td>nvarchar(MAX)</td>
+    <td>nvarchar(4000)</td>
+  </tr>
+  <tr>
+    <td>CultureResourceForLive</td>
+    <td>Comment</td>
+    <td>nvarchar(MAX)</td>
+    <td>nvarchar(4000)</td>
+  </tr>
+  <tr>
+    <td>Exception</td>
+    <td>MachineName</td>
+    <td>varchar(200)</td>
+    <td>varchar(256)</td>
+  </tr>
+  <tr>
+    <td>Site</td>
+    <td>URL</td>
+    <td>varchar(50)</td>
+    <td>varchar(500)</td>
+  </tr>
+  <tr>
+    <td>Site</td>
+    <td>MappedToDomain</td>
+    <td>nvarchar(MAX)</td>
+    <td>nvarchar(4000)</td>
+  </tr>
+  <tr>
+    <td>SiteForLive</td>
+    <td>URL</td>
+    <td>varchar(50)</td>
+    <td>varchar(500)</td>
+  </tr>
+  <tr>
+    <td>SiteForLive</td>
+    <td>MappedToDomain</td>
+    <td>nvarchar(MAX)</td>
+    <td>nvarchar(4000)</td>
+  </tr>
+  <tr>
+    <td>Users</td>
+    <td>State</td>
+    <td>nvarchar(MAX)</td>
+    <td>nvarchar(4000)</td>
+  </tr>
+  <tr>
+    <td>WebEvent</td>
+    <td>EventSequence</td>
+    <td>decimal</td>
+    <td>Int</td>
+  </tr>
+  <tr>
+    <td>WebEvent</td>
+    <td>EventOccurrence</td>
+    <td>decimal</td>
+    <td>Int</td>
+  </tr>
+  <tr>
+    <td>WebEvent</td>
+    <td>Details</td>
+    <td>ntext</td>
+    <td>nvarchar(MAX)</td>
+  </tr>
+</table>
+<ol>
+<li>Following stored procedures also changed.</li>
+</ol>
+<table>
+  <tr>
+    <td>Store Procedures changed</td>
+  </tr>
+  <tr>
+    <td>spAddAllSitePagesPublishLogEntry</td>
+  </tr>
+  <tr>
+    <td>spAddLogEntry</td>
+  </tr>
+  <tr>
+    <td>spAddPagePublishLogEntry</td>
+  </tr>
+  <tr>
+    <td>spAddAuditLogEntry</td>
+  </tr>
+  <tr>
+    <td>spGetAuditLogs</td>
+  </tr>
+  <tr>
+    <td>spDeleteExceptions</td>
+  </tr>
+  <tr>
+    <td>spGetExceptions</td>
+  </tr>
+  <tr>
+    <td>spLogException</td>
+  </tr>
+  <tr>
+    <td>spTemplarLogException</td>
+  </tr>
+  <tr>
+    <td>sp_HELPER_FullPublishCultureByInstanceId</td>
+  </tr>
+  <tr>
+    <td>spAddCultureContentByCultureInstanceId</td>
+  </tr>
+  <tr>
+    <td>spAddCultureResourceByCultureInstanceId</td>
+  </tr>
+  <tr>
+    <td>spAddCultureResources</td>
+  </tr>
+  <tr>
+    <td>spInsertGlobalResource</td>
+  </tr>
+  <tr>
+    <td>spUpdateCultureResources</td>
+  </tr>
+  <tr>
+    <td>spUpdateCultureResourcesForLive</td>
+  </tr>
+  <tr>
+    <td>spInsertSite</td>
+  </tr>
+  <tr>
+    <td>spSelectThemesForSite</td>
+  </tr>
+  <tr>
+    <td>spSelectThemesForUser</td>
+  </tr>
+  <tr>
+    <td>spSelectThemesForSiteLive</td>
+  </tr>
+  <tr>
+    <td>spUpdateUser</td>
+  </tr>
+  <tr>
+    <td>spLogWebEvent</td>
+  </tr>
+  <tr>
+    <td>spAddCultureContent</td>
+  </tr>
+  <tr>
+    <td>spUpdateCultureContent</td>
+  </tr>
+</table>
+<hr />
+<h2><strong>Templar v1.7.1</strong></h2>
+<p><strong>Changes in Templar v1.7.1</strong></p>
+<p>Following changes were done in current release </p>
+<p><strong>Functional changes:</strong></p>
+<ol>
+<li>
+<p>Widget Report</p>
+<ul>
+<li>
+<p>Widget report gives brief details of widget instances for particular site or page.</p>
+</li>
+<li>
+<p>Widgets instance details of particular widget.</p>
+</li>
+</ul>
+<p><strong>Features-</strong></p>
+<ul>
+<li>
+<p>Update a state of one or multiple widget instances.</p>
+</li>
+<li>
+<p>Search widgets by site name, page name or widget name.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Audit Log</p>
+<ul>
+<li>
+<p>Audit log provides the diff manager functionality to differentiate between the logs for following.</p>
+</li>
+<li>
+<p>Update Theme</p>
+</li>
+<li>
+<p>Update Culture</p>
+</li>
+<li>
+<p>Audit log also showing diff of Page between multiple updates.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Global culture version creation.</p>
+<ul>
+<li>Automatic version creation of culture after updating culture.</li>
+</ul>
+</li>
+<li>
+<p>Templar site management Api introduces new APIs  for cache management to,</p>
+<ul>
+<li>
+<p>Get details of Cache.</p>
+</li>
+<li>
+<p>Remove site level cache.</p>
+</li>
+<li>
+<p>Remove Page level cache.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Templar Pre-request handler allows updating SEO parameters.</p>
+</li>
+<li>
+<p>Templar context introduces new parameters to access and update through Pre-request handler,</p>
+<ul>
+<li>
+<p>Culture list.</p>
+</li>
+<li>
+<p>SEO Parameters.</p>
+</li>
+<li>
+<p>Site level metadata.</p>
+</li>
+<li>
+<p>Page level metadata.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2><strong>Templar v1.7</strong></h2>
+<p><strong>Changes in Templar v1.7</strong></p>
+<p>Following changes were done in current release </p>
+<p><strong>Functional changes:</strong></p>
+<ol>
+<li>
+<p>Templar v1.7 is built on .Net Framework 4.5, this</p>
+</li>
+<li>
+<p>enables widgets to make use of Async capability</p>
+</li>
+<li>
+<p>improves .Net 4.5 scalability benefits</p>
+</li>
+<li>
+<p>makes .Net 4.5 as a requirement for running Templar 1.7</p>
+</li>
+<li>
+<p>Enhancements for better page markup rendering</p>
+</li>
+<li>
+<p>Added setting at page level to disable default Templar rendered scripts.</p>
+</li>
+</ol>
+<p>Key for disabling is &quot;DisableDefaultScripts&quot; value ‘Y’ to disable. Default value is ‘N’</p>
+<p>This setting will also disable client events behavior in widgets and also not include any JS including Jquery.</p>
+<ul>
+<li>
+<p>Removed addition of Templar styles in case of custom layout option.</p>
+</li>
+<li>
+<p>Removed addition of Content-Type tag in case of custom layout option.</p>
+</li>
+<li>
+<p>Handlers support async operations.</p>
+</li>
+<li>
+<p>Both windows and SQL server authentication support added in Templar database setup using wizard.</p>
+</li>
+<li>
+<p>Removed dependency on third party binaries like CSSFriendly.dll, JayRock.dll .</p>
+</li>
+<li>
+<p>Diff Manager Enhancements</p>
+</li>
+<li>
+<p>Site diff manager supports side by side diff/merge of Widget State and inline widget Title update features.</p>
+</li>
+<li>
+<p>Theme diff supports side by side diff/merge for text based files.</p>
+</li>
+<li>
+<p>Widget diff supports side by side diff/merge of widget states. Also supports individual state update feature.</p>
+</li>
+<li>
+<p>Global Culture diff considers Date and Number format for comparison and supports the update of same. Also pagination and search is implemented in Culture resource and content diff.</p>
+</li>
+<li>
+<p>Culture Content Diff with added link to view the actual content.</p>
+</li>
+</ul>
+<p>Diff manager features –</p>
+<ul>
+<li>
+<p>Update Theme from local, global or themes of different sites from same or other deployment.</p>
+</li>
+<li>
+<p>Update Site Culture from local, global or cultures of different sites from same or other deployment.</p>
+</li>
+<li>
+<p>Theme diff - Individual file add, update and delete feature added.</p>
+</li>
+<li>
+<p>Audit Log report has two new columns Page Url and Widget Type. Also search options are updated with new columns.</p>
+</li>
+<li>
+<p>Tab level culture inheritance is introduced for site level cultures.</p>
+</li>
+<li>
+<p>Templar Widget Management Service introduced.</p>
+</li>
+<li>
+<p>Templar Widget management API introduced for enhancing deployment automation flow.</p>
+</li>
+<li>
+<p>Custom Page Layout, copy and update URL scenarios handled for layout file.</p>
+</li>
+<li>
+<p>Theme Diff - Individual file add, update and delete feature added.</p>
+</li>
+</ul>
+<p><strong>Features:</strong></p>
+<ol>
+<li>
+<p>This has enhancements for logging correlation. Templar exception reports and audit log report now includes session id in addition field/details column.</p>
+</li>
+<li>
+<p>Audit Log report has two new columns Page Url and Widget Type. Also search options are updated with new columns.</p>
+</li>
+<li>
+<p>Both windows and SQL server authentication support added in Templar database setup using wizard.</p>
+</li>
+<li>
+<p>Update Theme from local, global or themes of different sites from same or other deployment.</p>
+</li>
+<li>
+<p>Update Site Culture from local, global or cultures of different sites from same or other deployment.</p>
+</li>
+</ol>
+<hr />
+<h2><strong>Templar v1.6.50.0</strong></h2>
+<p><strong>Changes in Templar v1.6.50.0</strong></p>
+<p>Following changes were done in current release</p>
+<p><strong>Functional changes (opt in):</strong></p>
+<ol>
+<li>
+<p>Enhancements for better page markup rendering</p>
+</li>
+<li>
+<p>Added setting at page level to disable default Templar rendered scripts.
+Key for disabling is &quot;DisableDefaultScripts&quot; value ‘Y’ to disable. Default value is ‘N’
+This setting will also disable client events behavior in widgets and also not include any JS including Jquery</p>
+</li>
+<li>
+<p>Removed addition of Templar styles in case of custom layout option.</p>
+</li>
+<li>
+<p>Removed addition of Content-Type tag in case of custom layout option.</p>
+</li>
+</ol>
+<hr />
+<p><strong>Issue fixes:</strong></p>
+<ol>
+<li>
+<p>Behavior of audit log report to add empty Username and Site Url for some entries is corrected.</p>
+</li>
+<li>
+<p>Tabs checkbox selection was erroneous under Admin -&gt; Manage Tabs, and was mainly reproducible in IE8 and IE 9.</p>
+</li>
+<li>
+<p>Widget instance position update was setting incorrect container id in Site Diff. Removed this feature to update widget instance position.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.6.49.3</strong></h1>
+<p><strong>Changes in Templar v1.6.49.3</strong></p>
+<p>Following changes were done in current release</p>
+<p><strong>Functional changes (opt in):</strong></p>
+<ol>
+<li>
+<p>Enhancements for better page markup rendering</p>
+</li>
+<li>
+<p>Added setting at page level to disable default Templar rendered scripts.</p>
+</li>
+</ol>
+<p>Key for disabling is &quot;DisableDefaultScripts&quot; value ‘Y’ to disable. Default value is ‘N’</p>
+<p>This setting will also disable client events behavior in widgets and also not include any JS including Jquery</p>
+<ul>
+<li>
+<p>Removed addition of Templar styles in case of custom layout option.</p>
+</li>
+<li>
+<p>Removed addition of Content-Type tag in case of custom layout option.</p>
+</li>
+</ul>
+<p><strong>Issue fixes:</strong></p>
+<ol>
+<li>
+<p>Event mapping update supported from diff manager for site update from template.</p>
+</li>
+<li>
+<p>Behavior of checkboxes under Admin-&gt;Manage Tabs is corrected (mainly it was not working in IE8 &amp; IE9 )</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.6.49.2</strong></h1>
+<p><strong>Changes in Templar v1.6.49.2</strong></p>
+<p>Following changes were done in current release</p>
+<p><strong>Functional changes:</strong></p>
+<ol>
+<li>Added Days and Months support in Culture settings diff.</li>
+</ol>
+<p><strong>Issue fixes:</strong></p>
+<ol>
+<li>
+<p>Event mapping update supported from diff manager.</p>
+</li>
+<li>
+<p>Content in update culture showing diff based on key and file type has been fixed to include file content data also.</p>
+</li>
+<li>
+<p>UI Issues with Audit Log report like collapse/expand, param details are now fixed – for IE and others.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.6.49.1</strong></h1>
+<p><strong>Changes in Templar v1.6.49.2</strong></p>
+<p>Following changes were done in current release</p>
+<p><strong>Functional changes:</strong></p>
+<ol>
+<li>Individual update support added for culture settings diff (including Date Time and Number format settings).</li>
+</ol>
+<p><strong>Issue fixes:</strong></p>
+<ol>
+<li>
+<p>Audit log access issue under Manage Tabs is resolved. Ability to revoke audit log access for role is now enabled.</p>
+</li>
+<li>
+<p>UI issue while selecting individual pages when creating a site from a template is now fixed.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.6.49.0</strong></h1>
+<p><strong>Changes in Templar v1.6</strong></p>
+<p>Following changes were done in current release</p>
+<p><strong>Functional changes:</strong></p>
+<ol>
+<li>
+<p>Resources tab is hidden at the time of ‘Create New Site’ and site level themes can be added for existing sites only.</p>
+</li>
+<li>
+<p>Widget state of target entity can directly be updated from diff manager, provided target entity must be of type site. The widget state of source entity is read-only and can be viewed in popup.</p>
+</li>
+<li>
+<p>Legends added for Same, Different, Added and Deleted in Diff manager for colorblind users.</p>
+</li>
+<li>
+<p>While using Diff Manager, for updating only allowed target is site.</p>
+</li>
+<li>
+<p>New interface added in Tavisca.Templar.Extensions</p>
+</li>
+</ol>
+<p>If user needs to override default Templar culture resolution behavior, he needs to implement the below interface</p>
+<pre><code>namespace Tavisca.Templar.Extensions.Providers
+
+{
+
+public interface ICultureResolver
+
+{
+
+string[] GetCultureCodes();
+
+}
+
+}
+</code></pre>
+
+<p>Return value expected is neutral culture code like ‘en’ ,‘hi’ or distinguished culture codes like ‘en-US’ or ‘hi-IN’</p>
+<p>Corresponding mapping entries for unity in web.config should be updated accordingly.</p>
+<pre><code>…
+
+&lt;typeAlias alias=&quot;ICultureResolver&quot; type=&quot;Tavisca.Templar.Extensions.Providers.ICultureResolver, Tavisca.Templar.Extensions&quot; /&gt;
+
+&lt;typeAlias alias=&quot;DefaultCultureResolver&quot; type=&quot;Tavisca.Templar.Framework.Providers.DefaultCultureResolver, Tavisca.Templar&quot; /&gt;
+
+…
+
+…
+
+&lt;type mapTo=&quot;DefaultCultureResolver&quot; type=&quot;ICultureResolver&quot;&gt;
+
+&lt;lifetime type=&quot;singleton&quot; /&gt;
+
+&lt;/type&gt;
+
+…
+</code></pre>
+
+<p>P.S. Above mapping is Templar Level change &amp; will be applicable for all Templar Sites. Default resolution provider is Session Level resolver Proprietary and confidential Tavisca Solutions Pvt. Ltd.</p>
+<ol>
+<li>Client events broadcast now supported.</li>
+</ol>
+<p>Sample Widget code added for reference of client event raising mechanism at path:</p>
+<p><em>~/3. Upgrade/Artifacts/SampleWidget_ClientEvents.zip</em></p>
+<p>SampleWidget_ClientEvents.zip</p>
+<p><strong>Issue fixes:</strong></p>
+<ol>
+<li>
+<p>Issue with update site level culture is resolved, previously site level culture update was pointing to global cultures.</p>
+</li>
+<li>
+<p>Neutral cultures are listed under culture listing in edit site; previously such cultures were not displayed.</p>
+</li>
+<li>
+<p>Issue resolved for site level cultures not getting deleted from diff manager.</p>
+</li>
+<li>
+<p>Back button is provided under edit site, for themes and globalization tab in add/edit operation.</p>
+</li>
+<li>
+<p>Issue in update global culture from culture version is resolved; previously error message was popping up on update.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.6</strong></h1>
+<p><strong>Changes in Templar v1.6</strong></p>
+<p>Following changes were done in current release</p>
+<p><strong>Contract Changes</strong></p>
+<p>*Tavisca.Templar.WebControls.dll *is external library initially provided by Templar team for globalization support of ASP.NET controls. In order to remove direct dependency of *Tavisca.Templar.dll *on *Tavisca.Templar.WebControls.dll, *ICultureAware interface has been relocated to assembly <em>Tavisca.Templar.Extensions</em>. Fully qualified address as below</p>
+<p><em>&quot;Tavisca.Templar.Extensions.Providers.ICultureAware, Tavisca.Templar.Extensions&quot;</em></p>
+<p>In order for framework to work properly for globalization custom implementation of Globalization Controls should implement the above interface.</p>
+<p><strong>Functionality Changes</strong></p>
+<ol>
+<li>
+<p>New feature 'Audit Log Report' is added. Audit logging feature keeps track of all changes done in Templar. Detail document is available at: *~/1. Docs/12. Templar Audit Log Feature Document.pdf *under release folder.</p>
+</li>
+<li>
+<p>Site Culture now support for Culture Settings Inheritance</p>
+</li>
+<li>
+<p>Diff Engine modified to check diff of widget instances on State followed by Title.</p>
+</li>
+<li>
+<p>Color codes seen in Diff manager are changed to look like SVN Diff.</p>
+</li>
+<li>
+<p>New password policy (length 6-30, at least 1 lowercase, 1 uppercase, 1 digit and 1 special character) and change password on first login (not applicable for LDAP authentication) is enforced.</p>
+</li>
+<li>
+<p>In CacheStat report, option *Main *is filtered and visible only to Superuser.</p>
+</li>
+<li>
+<p>State field changed from VARCHAR to NVARCHAR to support Unicode characters. Following tables are affected (dbo.Page, dbo.PageForLive, dbo.Themes, dbo.ThemesForLive, dbo.UserRole, dbo.Widget, dbo.WidgetInstance, dbo.WidgetInstanceForLive)</p>
+</li>
+<li>
+<p>Global Culture listing now shows CreatedOn, LastPublished and Status (published/unpublished).</p>
+</li>
+<li>
+<p>Culture, Widget and Theme listing now shows CretatedDate and ModifiedDate information.</p>
+</li>
+<li>
+<p>Global Themes listing now shows CreatedOn, LastPublished and Status (Published/unpublished).</p>
+</li>
+<li>
+<p>Site, Template and Culture listing is displayed in ascending order, wherever appearing. Same changes made to Update Site and Update Culture listing pop-up.</p>
+</li>
+<li>
+<p>PCI Compliance, autocomplete set off for Login page, username and password fields.</p>
+</li>
+<li>
+<p>Both Http and Https support added to update Site/Widget/Culture from server location.</p>
+</li>
+</ol>
+<p><strong>Issues Fixed</strong></p>
+<ol>
+<li>
+<p>Culture name validation added, which avoids Null reference exceptions piled-up in report view.</p>
+</li>
+<li>
+<p>Widget events were not firing due to incorrect mapping of Source and Destination Widget Ids after <em>Update Site from Server</em>. This behavior is corrected to raise appropriate events.</p>
+</li>
+<li>
+<p>Default Page for site is set when empty site is updated from existing site.</p>
+</li>
+<li>
+<p>Resolved issue of opening multiple pop-up windows, on clicking update widgets link repeatedly.</p>
+</li>
+<li>
+<p>Under Site Setting, resource name is truncated based on length and corrected the value of comment field.</p>
+</li>
+<li>
+<p>In widget listing, widget search textbox shows *close *icon on text change like site listing.</p>
+</li>
+<li>
+<p>Widget Groups with zero widgets are not shown in widget group list on designer page. Also widgets not accessible to logged in user are hidden from that user.</p>
+</li>
+<li>
+<p>In Composite widget and HTML Editor, help icon text is opened as modal dialog to allow text to be copied easily.</p>
+</li>
+<li>
+<p>When a culture detail is opened from Widget listing under Admin tab, previously '<em>Global</em>' tab was highlighted. Resolved this to highlight '<em>Admin</em>' tab.</p>
+</li>
+<li>
+<p>Resolved issue with updating resource key and value under Site Settings.</p>
+</li>
+<li>
+<p>In update existing site from server, master page was getting added for multiple times leading to exception, corrected this behavior.</p>
+</li>
+<li>
+<p>Templar WebContext updated to set Default Culture if culture is found in Session.</p>
+</li>
+<li>
+<p>Feature added to autocomplete site URL from site name while creating new site.</p>
+</li>
+<li>
+<p>Diff Manager Issues related to Site Settings (Mapped To Domain, Current Theme, Default Culture Code), Environment Data (empty groups), Inherited Themes (Global themes referred in Site), Site Resources (value of IsPublic) are resolved.</p>
+</li>
+<li>
+<p>Added Feature to override Meta tags in site -&gt; masterpage -&gt; contentpage hierarchy.</p>
+</li>
+<li>
+<p>After Site Resource is upload some garbage text is displayed under Select a file button, this text is removed.</p>
+</li>
+<li>
+<p>MappedDomain information will be updated and not overwritten, when site is updated from another site.</p>
+</li>
+<li>
+<p>Customer Handler were not working if referrer is null, try resolving Templar context using HTTP_HOST</p>
+</li>
+<li>
+<p>‘No records found’ message is displayed when list page has or search yields zero results, in Feedback and Culture list page.</p>
+</li>
+<li>
+<p>In Update Site from server, another site or from template, environment data section can add/update individual entries.</p>
+</li>
+<li>
+<p>Create site version page issues with search and multiple version creation has resolved.</p>
+</li>
+<li>
+<p>Resources tab and add/edit site level themes are visible only in edit site and not in create site mode.</p>
+</li>
+<li>
+<p>Newly created site level theme or newly added global theme was not able to set as default theme previously. Now this can be done.</p>
+</li>
+<li>
+<p>*Http *hardcoding removed from a textbox accepting server URL and default check added to resolve URL on *http *schema.</p>
+</li>
+<li>
+<p>Invalid request to CSS and script resource throws 'Resource not found' exception, which was not in place previously.</p>
+</li>
+<li>
+<p>Culture resource and culture instance clean up on Culture Instance delete, which was not in place previously.</p>
+</li>
+<li>
+<p>Added support for returning details of culture keys and settings in get culture details call of Sync service.</p>
+</li>
+<li>
+<p>Diff Manager Authentication box is now a Password Field that shows asterisks instead of actual text.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5.579.1</strong></h1>
+<p><strong>Changes in Templar v1.5.579.1</strong></p>
+<p>Following changes were done to the current version</p>
+<ol>
+<li>
+<p>Invalid requests to scripts and CSS will throw resource not found exception. For valid requests below is the CSS format :</p>
+<p>https://{domain}/Templar/Css/{SiteId}/{PageId}/{ViewMode}</p>
+</li>
+</ol>
+<p>Request to script resource</p>
+<pre><code>https://{domain}/Templar/Script/{SiteId}/{PageId}/{ViewMode}/{culture}
+
+{domain} : Web Site Domain
+
+{SiteId} : SiteId
+
+{PageId} : PageId
+
+{ViewMode} : Design/Preview/Live
+
+{Culture} : Culture Default Culture is en-US
+</code></pre>
+
+<hr />
+<h1><strong>Templar v1.5.579.0</strong></h1>
+<p><strong>Changes in Templar v1.5.579.0</strong></p>
+<p>Following changes were done to the current version</p>
+<ol>
+<li>
+<p>Improved the exception handling, stack-trace information is added wherever it’s missing. Along with this site URL and culture name is also added to exception details.</p>
+</li>
+<li>
+<p>Site URL and Culture Name columns added to Logged Exception and Application Exception Reports.</p>
+</li>
+<li>
+<p>Validations added on 'key' field in Add Resource, Add Content and Error Handling tab.</p>
+</li>
+<li>
+<p>Fixed image alignment issue in Content List and Image preview functionality added on hover.</p>
+</li>
+<li>
+<p>Schema changes: SiteUrl and CultureName columns added to table dbo.Exception and dbo.WebEvent.</p>
+</li>
+<li>
+<p>Help opened as popup dialog instead of displaying it on mouse hover for HTML Editor Widget.</p>
+</li>
+<li>
+<p>Http hardcoding is removed from Download Culture and Globalization Data Service.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5.578.51</strong></h1>
+<p><strong>Changes in Templar v1.5.578.51</strong></p>
+<p>Following changes were done to the current version</p>
+<ol>
+<li>Http hardcoding is removed from Download Culture and Globalization Data Service.</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5.578.7</strong></h1>
+<p><strong>Changes in Templar v1.5.578.7</strong></p>
+<p>Following changes were done to the current version</p>
+<ol>
+<li>
+<p>Improved the exception handling, stack-trace information is added wherever it’s missing. Along with this site URL and culture name is also added to exception details.</p>
+</li>
+<li>
+<p>Site URL and Culture Name columns added to Logged Exception and Application Exception Reports.</p>
+</li>
+<li>
+<p>Validations added on 'key' field in Add Resource, Add Content and Error Handling tab.</p>
+</li>
+<li>
+<p>Fixed image alignment issue in Content List and Image preview functionality added on hover.</p>
+</li>
+<li>
+<p>Schema changes: SiteUrl and CultureName columns added to table dbo.Exception and dbo.WebEvent.</p>
+</li>
+<li>
+<p>Help opened as popup dialog instead of displaying it on mouse hover for HTML Editor widget.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5.578.5</strong></h1>
+<p><strong>Changes in Templar v1.5.578.5</strong></p>
+<p>Following changes were done to the current version</p>
+<ol>
+<li>
+<p>Support added to update individual page properties including page state, widget level properties can also be updated in similar fashion.</p>
+</li>
+<li>
+<p>Support added to add/update/delete individual key-value and empty group in Environment Data section.</p>
+</li>
+<li>
+<p>Sites, templates and culture listing are ordered in ascending format, wherever applicable.</p>
+</li>
+<li>
+<p>Color code in diff manager is changed to match it with SVN.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5.578.4</strong></h1>
+<p><strong>Changes in Templar v1.5.578.4</strong></p>
+<p>Following changes were done to the current version</p>
+<ol>
+<li>
+<p>DiffManager changes in Site Setting (Default Culture Code, Default Theme, Default Page), Environment Data (groups with zero keys are also included in site to update), Site Resources.</p>
+</li>
+<li>
+<p>Site resource shows some text after resource is uploaded, which is corrected and not shown.</p>
+</li>
+<li>
+<p>Copyright information is updated for Setup and Login page.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5.578.3</strong></h1>
+<p><strong>Changes in Templar v1.5.578.3</strong></p>
+<p>Following changes were done to the current version</p>
+<ol>
+<li>
+<p>DiffManager changes in Site Setting (Default Culture Code, Default Theme, Default Page), Environment Data (groups with zero keys are also included in site to update), Site Resources.</p>
+</li>
+<li>
+<p>Site resource shows some text after resource is uploaded, which is corrected and not shown.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5.578.1</strong></h1>
+<p><strong>Changes in Templar v1.5.578.1</strong></p>
+<p>Following changes were done for security audit</p>
+<ol>
+<li>
+<p>DiffManager changes in Site Setting (Default Culture Code, Default Theme, Default Page), Environment Data (groups with zero keys are also included in site to update), Site Resources.</p>
+</li>
+<li>
+<p>Site resource shows some text after resource is uploaded, which is corrected and not shown.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.5</strong></h1>
+<p><strong>Changes in Templar v1.5</strong></p>
+<p>Following changes are done to 1.5RC</p>
+<p><strong>Site</strong></p>
+<ol>
+<li>
+<p>Update Site from Server updates site and sets default page, if not already set.</p>
+</li>
+<li>
+<p>Diff Manager Issues related to Site Settings (Mapped To Domain, Current Theme, Default Culture Code), Environment Data (empty groups), Inherited Themes (Global themes referred in Site), Site Resources (value of IsPublic) are fixed.</p>
+</li>
+<li>
+<p>PCI compliance changes, autocomplete set off for Setup page, Login page, user name and password fields.</p>
+</li>
+<li>
+<p>New groups and keys can be added to environment data under site settings.</p>
+</li>
+<li>
+<p>Site can now be published partially, API updated with Partial Publish functionality.</p>
+</li>
+</ol>
+<p><strong>Report</strong></p>
+<ol>
+<li>In Cache Stat report, option 'Main' is filtered and visible only to Superuser.</li>
+</ol>
+<p><strong>Admin &amp; Global</strong></p>
+<ol>
+<li>
+<p>When a culture details page is opened from Widget listing ‘Admin’ tab gets highlighted, previously ‘Global' tab was highlighted.</p>
+</li>
+<li>
+<p>Both Http and Https support added to update Site/Widget/Culture from server location.</p>
+</li>
+<li>
+<p>CreatedOn, LastPublished and Status (Published/unpublished) columns are added to Global Culture and Global Themes listing.</p>
+</li>
+</ol>
+<p><strong>Other</strong></p>
+<ol>
+<li>
+<p>Widget Groups with zero widgets are not shown in Group List.</p>
+</li>
+<li>
+<p>In Design mode, composite widget help icon opens as modal dialog and allows help text to copy.</p>
+</li>
+<li>
+<p>Copyright information is updated.</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.4</strong></h1>
+<p><strong>Changes in Templar v1.4</strong></p>
+<p>Following changes were done for security audit</p>
+<ol>
+<li>
+<p>Password should not be displayed as text – Templar</p>
+</li>
+<li>
+<p>Password complexity for setups</p>
+</li>
+<li>
+<p>Password complexity for all Templar users</p>
+</li>
+<li>
+<p>Password change on first login for all Templar users (Currently this is applicable for only default TemplarAdminAuthenticationProvider).</p>
+</li>
+</ol>
+<hr />
+<h1><strong>Templar v1.3</strong></h1>
+<p>Templar v1.3 (Henceforth only refer as Templar in this document) comes with new features &amp;</p>
+<p>lot of issue fixes to support flexible UI requirements &amp; easy customizations</p>
+<p>Key features/enhancements are mentioned below, for full usage details please refer Templar Overview Document.</p>
+<p><strong>1. Support for Custom Layouts</strong></p>
+<p>Templar now supports new type of layout called &quot;Custom Layout&quot; along with existing 5 legacy</p>
+<p>layouts. In case of custom layout you can design and integrate any HTML markup with placeholders as your new layout.</p>
+<p>Custom Layout allows defining complete HMTL markup along with placeholders for Widgets &amp;</p>
+<p>substitution of Templar variables. Custom Layout can be dynamically or statically set by Pre-execute handler by setting markup string or Site Resource Key in page setting named ‘PageLayout’. Set Page Setting Key PageLayout’s value to ‘SiteResourceUrl(<siteresourcekey>)’.</p>
+<p>E.g. SiteResourceUrl(HomePageLayout).</p>
+<p>If key is missing or value is empty then layout is picked from applied theme. It means Theme</p>
+<p>should have folder named ‘Layouts’ which will hold HTML layout for individual Templar pages &amp; Site Level default layout.</p>
+<p>Custom Layouts can be defined at 3 levels.</p>
+<ol>
+<li>
+<p>Site level default layout.</p>
+</li>
+<li>
+<p>Master Page Level Layout.</p>
+</li>
+<li>
+<p>Normal /Content Page Level Layout.</p>
+</li>
+</ol>
+<p>Layout of page is always picked in reverse order of hierarchy.</p>
+<p>Consider following Scenario</p>
+<p>Site with URL: A            	Theme: B</p>
+<p>Master Page with relative URL: /pages/masterpages/master</p>
+<p>Content Page with relative URL: /pages/contentpages/login</p>
+<p>Normal Page with relative URL: /home</p>
+<p><strong>A. Normal Page is accessed</strong></p>
+<p>When home page is accessed then framework looks for layout file at location.</p>
+<p>&quot;/Uploads/A/Themes/B/Layouts/home.html”.</p>
+<p>If the file is missing, then framework looks for site default page layout.</p>
+<p>&quot;/Uploads/A/Themes/B/Layouts/ DefaultLayout.html&quot;.</p>
+<p>If this file is also missing framework doesn’t render page properly &amp; exception is logged in</p>
+<p>background.</p>
+<p><strong>B. Content Page is accessed</strong></p>
+<p>When login page is accessed then framework looks for layout file at location.</p>
+<p>&quot;/Uploads/A/Themes/B/Layouts/pages/contentpages/login.html”.</p>
+<p>If the file is missing, then framework looks for master page layout.</p>
+<p>&quot;/Uploads/A/Themes/B/Layouts/pages/masterpages/master.html”.</p>
+<p>If the file is missing, then framework looks for site default page layout.</p>
+<p>&quot;/Uploads/A/Themes/B/Layouts/ DefaultLayout.html&quot;.</p>
+<p>If this file is also missing framework doesn’t render page properly &amp; exception is logged in</p>
+<p>background.</p>
+<p><strong>Layout Markup Substitution</strong></p>
+<ol>
+<li>
+<p>Defining Placeholders for Widget - {{$panel[columnNo::0|attribute::attributeValue|...]}}</p>
+</li>
+<li>
+<p>Resolving Templar Page Url - [$TemplarUrl(~<templarpagerelativeurl>)$].</p>
+</li>
+<li>
+<p>Adding Images/Css/other files in them - [$ThemeUrl (&lt;filepath w.r.t. theme&gt;)$].</p>
+</li>
+<li>
+<p>Adding Site Resource Url’s - [$SiteResourceUrl (<siteresourcekey>)$].</p>
+</li>
+<li>
+<p>Adding Site Setting Value – [$SiteSettings(<groupname>,<key>)$].</p>
+</li>
+<li>
+<p>Adding Page Setting Value – [$PageSetting(<key>)$].</p>
+</li>
+<li>
+<p>Adding Globalization Resource Value –[#<GlobalizationResourceKey>#].</p>
+</li>
+</ol>
+<p><strong>Sample Layout HTML File</strong></p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+
+&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;Travel - Home&lt;/title&gt;
+
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=windows-1251&quot;&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div class=&quot;bodyCss&quot;&gt;
+
+&lt;div id=&quot;header&quot;&gt;
+
+&lt;a href=&quot;index.html&quot; class=&quot;logo&quot;&gt;
+
+&lt;img src=&quot;[$ThemeUrl(images/logo.jpg)$]&quot; alt=&quot;&quot; height=&quot;90&quot; width=&quot;274&quot;&gt;
+
+&lt;/a&gt;
+
+&lt;ul id=&quot;menu&quot;&gt;
+
+&lt;li&gt;&lt;a href=&quot;[$TemplarUrl(~/home)$]&quot;&gt;Home Page&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;[$TemplarUrl(~/travelabout)$]&quot;&gt;About Company&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+{{$panel[columnNo::0|id::contentPanel]}}
+
+{{$panel[columnNo::1|id::footer]}}
+
+&lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p><strong>2. Serving Static HTML Pages</strong></p>
+<p>Static html as put in a layout can be served as-is without any markup changes on Templar Page’s url. Custom Layouts set by pre-execute handler or from site resource or from Theme can directly serve as HTML page to browser by setting key named &quot;OnlyRenderPageLayout&quot; in PageSetting to “Y” In this case apart from Placeholder substitution, all other substitution takes place, and final string content is sent back to browser.</p>
+<p><strong>3. Custom Authentication Provider Integration</strong></p>
+<p>Templar now supports integrating custom authentication provider. This feature enables</p>
+<p>plugging in third party authentication providers like Active Directory or custom authentication</p>
+<p>service for controlling access to Templar admin application.</p>
+<p>To implement Custom Authentication Provider you need to implement following interfaces</p>
+<p>Member Description</p>
+<ol>
+<li>
+<p>FirstName : First Name for Authenticated User      	</p>
+</li>
+<li>
+<p>LastName: Last Name for Authenticated User</p>
+</li>
+<li>
+<p>LoginName : Login Username of Authenticated User</p>
+</li>
+</ol>
+<p>Member Description</p>
+<p>1.Authenticate : Authenticate user with given user name and password, return true &amp; populate</p>
+<p>out parameter authenticatedUser, return false &amp; set null to out parameter authenticatedUser.</p>
+<p>2.CreateDisabledTemplarUserIfNotPresent: if true, authenticated user in created in Templar if the</p>
+<p>user was not previously registered but in disabled state. If false registers newly authenticated</p>
+<p>user as normal user.</p>
+<p>3.Name: Name of Provider. This will be used in error message response on authentication failure.</p>
+<p>4.New Widget Addition &amp; Modification to Splitter Widget</p>
+<ul>
+<li>
+<p>Rich Text Editor has now been provided by default from framework side named as &quot;HTML Editor&quot;.</p>
+</li>
+<li>
+<p>Composite Widget has been modified to support any custom layout. It now supports defining</p>
+</li>
+<li>
+<p>layouts at granular level along with Templar variables substitution defined in layouts.</p>
+</li>
+</ul>
+<p>5.Web Performance Optimization</p>
+<ul>
+<li>Templar now has a better way of CSS combining &amp; compression.</li>
+<li>
+<p>Also for performance reasons Templar now adds Cache Header for all dynamic resources that it serves. To enable optimization change value of key Templar.EnableWebOptimization in AppSetting to &quot;Y&quot;, to disable it change value
+to &quot;N&quot;, by default it is “Y”.</p>
+</li>
+<li>
+<p>When Themes are Database &amp; CSS files are modified from UI File manager in order to reflect changes, you are recommended to clear WebOptimizationCache to force to re-bundling of CSS.</p>
+</li>
+</ul>
+<p><strong>6. Miscellaneous Enhancements</strong></p>
+<ul>
+<li>
+<p>Templar Admin UI now allows enabling/disabling of User.</p>
+</li>
+<li>
+<p>Updated jQuery version to v1.7.2</p>
+</li>
+<li>
+<p>Send Email Option /link is now configuration driven</p>
+</li>
+<li>
+<p>Minor Schema Changes added Constraint on Page Table for unique Page url within same site</p>
+</li>
+<li>
+<p>Added delete artifact API in Templar Deployment Service</p>
+</li>
+<li>
+<p>Added download API for site resource, theme and globalization data in Site Management Service.</p>
+</li>
+</ul>
+<hr />
+<h1><strong>Templar v1.2</strong></h1>
+<p><strong>1.      Templar Admin UI usability enhancements</strong></p>
+<p>a.       Templar User passwords are now md5 hashed.</p>
+<p>b.      Consistency changes - grids\search\paging fonts etc.</p>
+<p>c.       Tab reorganization</p>
+<p>d.      Removed Sandbox</p>
+<p>e.      Added Report - Exception \ Cache \ Feedback \ Scheduled Pages View</p>
+<p>f.        Favicon support for themes</p>
+<p>g.       Simplified options</p>
+<p>·         Site settings display changed with addition of SEO and Site Resources</p>
+<p>·         Create site options reduced with default creation from template</p>
+<p>·         Page settings default options reduced with option for advanced settings</p>
+<p>h.      All list editing made popup based with wide space for editing.</p>
+<p>i.         Multi selection with delete allowed in template listing.</p>
+<p>j.        Global resource download\upload.</p>
+<p>k.       Multi user login and theme changes allowed</p>
+<p><strong>2.      Performance enhancements</strong></p>
+<p>a.       Overall performance enhancements.</p>
+<p>b.      Extensive caching with separation between design and live.</p>
+<p>c.       Routing enhancement.</p>
+<p>d.      Removed MVC routing dependency.</p>
+<p>e.      Site routing performance enhancements.</p>
+<p>f.        Admin UI display paging moved to DB</p>
+<hr />
+<h1><strong>Templar v1.1</strong></h1>
+<p>Templar v1.1 comes with lot of new features to support enhanced reliability &amp; robust tracking mechanism for site creation &amp; maintenance. Key features are described below.</p>
+<p><strong>1.        Templar Context now available in - aspx and ashx page created in Templar.</strong></p>
+<p>We now allow Templar settings to be accesses in aspx and ashx pages also.</p>
+<p><strong>2.       Support for new Handlers to perform pre-post actions</strong></p>
+<p>Multiple handlers can now be added at site level to perform pre &amp; post actions in execution life</p>
+<p>cycle of page, something similar to modules.</p>
+<p>E.g. Logging ambient data whenever required.</p>
+<p><strong>3.       Templar deployment service</strong></p>
+<p>Allows site\pages\templates\global culture\global theme - download, update via a service</p>
+<p>Can be used to create deployment automation infrastructure</p>
+<p><strong>4.       Miscellaneous Enhancements</strong></p>
+<p>a.  Added comment support in content for globalization</p>
+<p>b.  Page theme opt out support - Enable Theming key in page data</p>
+<p>c.  Exception reports accessible via the Templar UI</p>
+<p>d.  Widget preview enhancements - support for theme and event testing</p>
+<p>e.  Feedback window on Templar Admin UI</p>
+<p>f.   Templar default live site markup is now XHTML 1.0 Strict compliant</p>
+<p>g.  Doc-type switching support is added to enable HTML 5 site\page development in Templar SEO</p>
+<p>h.  Related client code can be injected on every page of site</p>
+<hr />
+<h1><strong>Templar v1.0</strong></h1>
+<p>Templar v1.0 comes with lot of new features to support enhanced reliability &amp; robust tracking mechanism for site creation &amp; maintenance. Key features are described below.</p>
+<p><strong>1. Reduced number of framework assemblies to ease deployment</strong></p>
+<p>Templar now has only 5 required assemblies apart from third party assemblies namely</p>
+<p>For Widget Development:</p>
+<p>Tavisca.Templar.Contract.dll, Tavisca.Frameworks.Spectrum.dll, Tavisca.Templar.Extensions.dll</p>
+<p>Templar Framework:</p>
+<p>Tavisca.Templar.dll, Tavisca.Templar.EmbeddedResourcePathProvider.dll.</p>
+<p>Going forward upgrading for new features and fixes will become very easy.</p>
+<hr />
+<p><strong>2. New database mode support for Themes</strong></p>
+<p>There is no more a need for pushing theme content to every deployment machine. With this feature you can store themes in a database instead of the file system with full separation between design and live mode, which will be single point of deployment for multi-server deployment scenarios. Migrating from File System Mode to Database Mode is also very easy.</p>
+<p>Note: Database mode doesn’t work in backward compatibility mode. So you can’t work with file system mode side by side with database mode.</p>
+<p>Database Theme support requires Distributed Cache Solution e.g. AppFabric caching for performance reasons.</p>
+<hr />
+<p><strong>3. New improved file manager</strong></p>
+<p>New improved web based file manager for viewing theme content, Web File Manager works</p>
+<p>similar to file manager on your computer. Supports manipulations with existing files/folders can</p>
+<p>be done through the context menu or even with shortcuts. New File manager supports listing of</p>
+<p>files &amp; folder, editing of text content based files, preview of files, creating zip files, uploading &amp;</p>
+<p>downloading of files, easy moving or copying of files across folders.</p>
+<p>Note: File editing is being disabled in case of Backward Compatibility mode i.e. when Themes</p>
+<p>are store on the file system.</p>
+<hr />
+<p><strong>4. Site level resources</strong></p>
+<p>Site level content can now be stored &amp; accessed depending upon the access control. Content that varies with site such as xml configuration files, documents like FAQ’s, Privacy policy etc… can now be stored with the site.</p>
+<hr />
+<p><strong>5. External JavaScript support</strong></p>
+<p>In Templar v1.0 you can add external JavaScript both Site &amp; Page Level; every page level</p>
+<p>JavaScript takes precedence over site level. You can arrange order for JavaScript. Default JQuery can be overridden from external path, but order for jQuery &amp; Key Name can’t be changed. It has to be the first one. If jQuery Path is empty Templar Framework will insert its own jQuery.</p>
+<p>Site-Resources can also be added as scripts.</p>
+<hr />
+<p><strong>6. Enhanced versioning features</strong></p>
+<p>Templar v1.0 now comes with entire Site Versioning, Page versioning, Global Culture &amp; Global</p>
+<p>Theme Versioning support. Using previous version data you can see difference between current data using diff manager and can even update the data.</p>
+<p><strong>7. Enhanced Site Templates</strong></p>
+<p>Site Templates are now enhanced and include site level culture, resources and themes. Entire</p>
+<p>Site can now be re-created just using the template without any dependency.</p>
+<p>Note: Global cultures and themes are not part of the site template and have to be moved independently if used. Site template refers them by their name.</p>
+<p><strong>8. Composite Widget &amp; Enhanced Content Placeholder Widget</strong></p>
+<p>Introduction of Composite widget allows placing other widgets inside it, which helps in creating complex layouts &amp; placing widget side by side in same panels. Content Placeholder widget has been improved to have tied relation with child widgets contained in it. So when it is dragged or dropped to another location all children are also moved with it.</p>
+<p><strong>9. Basic collaboration support</strong></p>
+<p>Notifications on page listing and designer appear whenever the same page is accessed and modified by some other user simultaneously.</p>
+<p>Support for page level chat on designer to send simple message.</p>
+<p><strong>10. Sync site from site or template locally or over the web</strong></p>
+<p>Sites can now be updated from template or any other site on same deployment or remote deployment over the web provided the user has required access.</p>
+<p><strong>11. Global resources allow separate download\upload of content.</strong></p>
+<p>We now allow global Themes and Globalization data to be downloaded separately. This can be used to update corresponding data on a different Templar deployment.</p>
+<p><strong>12. Support for widget client event mapping</strong></p>
+<p>Framework now support JavaScript event mapping along with legacy way of broadcasting of</p>
+<p>JavaScript event.</p>
+<p><strong>13. Framework support for distributed caching &amp; UI for cache management</strong></p>
+<p>Support for Distributed Cache has been added. UI cache management includes separate site</p>
+<p>specific cache with ability to view content corresponding to entries; remove individual entries or clear entire site specific cache without affecting other site caches.</p>
+<hr />
+<p><strong>14. Improved testability and standardized site data access</strong></p>
+<p>Added TemplarContext as a standard way of accessing Environment Data, Session, and Culture</p>
+<p>Resources.</p>
+<p>Enhanced testability for services and widgets with ability to create mock TemplarContext.</p>
+<p><strong>15. Page designer enhancements</strong></p>
+<p>a.   New drag drop implementation on designer using jQuery has made UI more interactive.</p>
+<p>b.  Added Widgets search option on designer page.</p>
+<p>c.  One click collapse/expand all widgets is now possible</p>
+<p>d.  Ability for displaying widget help on designer page</p>
+<p>e.  Settings display also allows modal full page view of settings</p>
+<p>f.   Designer full screen mode</p>
+<p>g.  Page action notification (small loader) in design page menu bar</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
